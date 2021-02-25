@@ -1,0 +1,217 @@
+/* pages/intefral_mall/integral_detail/integral_detail.wxss */
+@import "../../../utils/wxParse/wxParse.wxss";
+/* goodsInfo.wxss */
+.container{
+    width: 100%;
+    background-color:white;
+    margin-bottom: 100rpx;
+}
+/* swiper 开始 */
+.swiper_box {
+    width: 100%;
+    height: 800rpx;
+}
+.slide-image{
+    width: 100%;
+    height: 800rpx;
+}
+/* swiper 结束 */
+/*详情图片*/
+.info{
+    margin: 60rpx 13rpx 110rpx 13rpx;
+    width: 100%;
+}
+/*商品名  价格*/
+.name-price{
+    width: 100%;
+    position: fixed;
+    left: 0;
+    bottom: 100rpx;
+    line-height: 70rpx;
+    display: flex;
+    background-color: white;
+}
+.footer-text{
+    color: rgb(124, 122, 122);
+    font-size: 25rpx;
+}
+.footer-price{
+    margin-left: 195rpx;
+}
+.join-cart{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    width: 100%;
+    height: 100rpx;
+    background-color: #fff;
+    text-align: center;
+}
+.join-cart>view{
+    width: 25%;
+}
+.cart-ico{
+    font-size: 24rpx;
+    color: #333;
+}
+.shopping-cart{
+    position: relative;
+}
+.cs-img{
+    width: 45rpx;
+    height: 40rpx;
+    margin-top: 15rpx;
+}
+.sc-img{
+    width: 42rpx;
+    height: 40rpx;
+    margin-top: 15rpx;
+}
+
+.cart-btn{
+    font-size: 28rpx;
+    color: #fff;
+    line-height: 100rpx;
+}
+.buy-btn1{
+    background-color: #10193a;
+}
+.buy-btn{
+    background-color: #e03333;
+}
+view.cart-btn-lg{
+    width: 50%;
+}
+.toTop{
+    position: fixed;
+    z-index: 3;
+    right: 20rpx;
+    bottom: 160rpx;
+    width: 68rpx;
+    height: 68rpx;
+    border:1px solid rgb(7, 2, 2);
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}
+/* 加入购物车弹出的页面 srart */
+.spec-model{
+    position: fixed;
+    bottom: 0;
+    z-index: 20;
+    background: white;
+    width: 100%;
+    padding: 0 30rpx;
+    font-size: 32rpx;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+.spec-goods{
+    padding: 15rpx 0 30rpx;
+    float: left;
+    width: 100%;
+    border-bottom: 1px solid #f8f8f8;
+}
+.spec-img{
+    float: left;
+    height: 150rpx;
+    width: 150rpx;
+    margin-top:16rpx;
+}
+.spec-goods-info{
+    float: left;
+    padding: 0 25rpx; 
+    width: 490rpx;
+}
+.spec-goods-name{
+    font-size: 30rpx;
+    line-height: 35rpx;
+    height: 70rpx;
+    margin: 15rpx 20rpx 25rpx 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.spec-goods-price{
+    color: #ec5151;
+    font-size: 30rpx;
+    font-weight: bold;
+}
+.spec-goods-stock{
+    margin-top: 10rpx;
+    font-size: 26rpx;
+    color: #999999;
+}
+.spec-name{
+    clear: both;
+    padding: 20rpx 0;
+    font-size: 30rpx;
+}
+.count{
+    float: left;
+    width: 184rpx;
+    height: 50rpx;
+    border: 1rpx solid #f8f8f8;
+    font-size: 28rpx;
+}
+.count>view,.count>input{
+    float: left;
+    width: 60rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    text-align: center;
+}
+.sub{
+    border-right: 1px solid #ddd;
+}
+.add{
+    border-left: 1px solid #ddd;
+}
+.spec-btn{
+    color: black;
+    background-color: white;
+    padding: 10rpx 10rpx;
+    font-size: 26rpx;
+    line-height: 28rpx;
+    float: left;
+    border: 1rpx solid #dedede;
+    margin: 4rpx 10rpx 4rpx 0;
+    border-radius: 4rpx;
+}
+.spec-btn-click{
+    color: white;
+    background-color: #f23030;
+    border: 1rpx solid #f23030;
+}
+.spec-cart-btns{
+    background-color: #f8f8f8;
+    margin:40rpx -30rpx 0;
+    padding: 20rpx 34rpx;
+    float: left;
+    width: 100%;
+    line-height: 80rpx;
+}
+.spec-cart-btn{
+    float: left;
+    width: 324rpx;
+    font-size: 30rpx;
+    text-align: center;
+    color: white;
+    border-radius: 4rpx;
+}
+.spec-add-cart{
+    background-color: #ffb03f;
+}
+.spec-buy{
+    background-color: #f23030;
+    margin-left: 34rpx;
+}
+.spec-cart-disable{
+    background: #bbbbbb;
+}
+.spec-cart-btn-lg{
+    width: 614rpx;
+}
+/* 加入购物车弹出的页面 end */
+
+

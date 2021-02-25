@@ -1,0 +1,94 @@
+page{
+    background-color: #fff;
+}
+.container {
+    color: #666;
+}
+.red{
+    color: red;
+}
+.nav-item{
+    float: left;
+    width: 33.33%;
+    height: 90rpx;
+    line-height: 90rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28rpx;
+}
+.nav-item .ico-dg{
+    width: 32rpx;
+    height: 18rpx;
+    margin-left: 10rpx;
+    line-height: 0;
+}
+.coupon-box{
+    font-size: 26rpx;
+    padding: 0 30rpx;
+    margin: 15rpx 0;
+}
+.conpon-left{
+    float:left;
+    padding: 30rpx 0 30rpx 10rpx;
+}
+.conpon-img{
+    box-sizing: border-box;
+    float:left;
+    height: 150rpx;
+    width: 150rpx;
+    border: 1rpx solid #e3e5e9;
+}
+.coupon-detail{
+    float:left;
+    padding: 10rpx 10rpx;
+}
+.coupon-title{
+    width: 350rpx;
+    height: 40rpx;
+}
+.coupon-range{
+    width: 350rpx;
+    line-height: 40rpx;
+    font-size: 24rpx;
+    color: #999;
+}
+.coupon-info{
+    color: #4cb6b8;
+    margin-top: 10rpx;
+}
+.discounts{
+    font-size: 40rpx;
+    word-break: keep-all;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.conpon-right{
+    position: relative;
+    float:right;
+    width: 160rpx;
+    height: 160rpx;
+    padding-top:50rpx;
+    background-color: #74d2d4;
+    text-align: center;
+    color: #f6f6f6;
+    border-top-right-radius: 10rpx;
+    border-bottom-right-radius: 10rpx;
+}
+.circle{
+    position: absolute;
+    top:15rpx;
+    left: 0;
+    width: 160rpx;
+    height: 120rpx;
+    text-align:left;
+}
+.get-btn{
+    background: white;
+    color: #74d2d4;
+    border-radius: 26rpx;
+    width: fit-content;
+    padding: 0 8rpx;
+    border: 4rpx solid #48b3b5;
+    margin: 40rpx auto 0;
+}

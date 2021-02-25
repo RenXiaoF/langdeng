@@ -1,0 +1,82 @@
+<!--return_goods.wxml-->
+<view class="container">
+    <view class="goods-mes pd-bg-fff">
+        <view class="goods-img"><image class="wh100" src="{{url}}/api/goods/goodsThumImages?goods_id={{order.goods_id}}&width=100&height=100"></image></view>
+        <view class="goods-des">
+            <view class="goods-name ellipsis-1">{{order.goods_name}}</view>
+            <view class="goods-package">
+                <view class="goods-price">价格:￥{{order.goods_price}}</view>
+                <view class="goods-num">数量:×{{order.goods_num}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="service pd-bg-fff">
+        <view class="service-title">服务类型</view>
+        <view class="chcek-btns">
+            <view class="{{index==typeBtnIndex?'checkedBtn':''}}" data-i="{{index}}" wx:for="{{checkBtns}}"  wx:key="{{index}}" bindtap="selectServiceType">{{item}}</view>
+        </view>
+    </view>
+    <view class="apply-num">
+        <view class="apply-title">申请数量</view>
+        <view class="count">
+            <view class="sup-btns" bindtap="subNum">-</view>
+            <input type="number" value="{{applyNum}}" bindblur="setNum" />
+            <view class="add-btns" bindtap="addNum">+</view>
+        </view>
+    </view>
+    <view class="cause">
+        <view class="cause-title">提交原因</view>
+        <view class="cause-cont" bindtap="openPop">{{causeCont}}</view>
+    </view>
+
+    <!--提交原因弹出层-s-->
+    <view hidden="{{popState}}">
+        <view class="cover-layer" bindtap="closePop"></view>
+        <view class="cause-pop">
+            <view class="pop-title">提交原因</view>
+            <view class="close-btn" bindtap="closePop">×</view>
+            <view class="cause-list">
+                <view class="cause-item" data-i="{{index}}" wx:for="{{causeList}}" wx:key="{{index}}" bindtap="selectCause">
+                    <icon type="success" size="20" color="{{checkCauseIndex==index?'red':'gray'}}"/>{{item}}
+                </view>
+            </view>
+        </view>
+    </view>
+    <!--提交原因弹出层-e-->
+
+    <view class="receiving-wrap">
+        <view class="receiving-title">货物状态</view>
+        <view class="receiving-status">
+            <view class="receiving" bindtap="selectGoodsStatus" data-status="{{false}}">
+                <icon type="success" size="20" color="{{isReceive?'gray':'red'}}"  />
+                未收到货
+            </view>
+            <view class="receiving" bindtap="selectGoodsStatus" data-status="{{true}}">
+                <icon type="success" size="20" color="{{isReceive?'red':'gray'}}"/>
+                已收到货
+            </view>
+        </view>
+    </view>
+    <view class="evaluation">
+        <view class="evaluation-title">问题描述</view>
+        <textarea class="word-box" placeholder="请你在此描述详细问题" maxlength="500" bindinput="InputDescription" hidden="{{!popState}}"/>
+        <view class="words-num">{{500-maxWord}}/500</view>
+    </view>
+    <view class="upload-img">
+        <view class="upload-title">上传照片</view>
+        <view class="pic-list">
+            <view class="share-pic" wx:for="{{5}}" wx:key="{{index}}" >
+                <image class="wh100" src="{{filePaths[index]?filePaths[index]:defaultPhoto}}" bindtap="selectPhotos" data-idx="{{index}}" bindlongtap="removePhoto"></image>
+            </view>
+        </view>
+        <view class="upload-tips">为帮助我们更好的解决问题，请上传照片。最多5张，每张不超过5M，支持JPG、BMP、PNG</view>
+    </view>
+    <view class="contact pd-bg-fff">
+        <view class="address">店家:{{order.store_name}}</view>
+        <view class="address">联系地址:{{order.store_address}}</view>
+        <view class="tel">客服电话:{{order.service_phone}}</view>
+    </view>
+    <view class="btn-wrap">
+        <view class="submit-btn" bindtap="submiApply">提 交</view>
+    </view>
+</view>

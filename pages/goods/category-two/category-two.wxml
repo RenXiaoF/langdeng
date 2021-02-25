@@ -1,0 +1,25 @@
+<!-- pages/goods/category-two/category-two.wxml -->
+<view class="container">
+    <!-- 标签Bar -->
+    <view class="type-navbar">
+        <view class="fenlei" wx:for="{{catelist}}" wx:key="name" wx:for-item="catelist">
+            <view id="{{catelist.id}}" class="{{catetype == catelist.id ? 'fenlei_text' : ''}}" bindtap="tabClick">
+                {{catelist.name}}
+            </view>
+        </view>
+    </view>
+    <!-- 列表 -->
+    <view class="choice_list">
+        <block wx:for="{{goods_list}}" wx:key="{{index}}" wx:for-item="item">
+            <navigator class="choice_item" url="/pages/goods/goodsInfos/goodsInfos?goods_id={{item.goods_id}}">
+                <view class="img-wrap">
+                    <image mode="widthFix" src="{{url}}{{item.original_img}}"></image>
+                </view>
+                <view class="item-cont">
+                    <view class="title">{{item.goods_name}}</view>
+                    <view class="price">￥{{item.shop_price}}</view>
+                </view>
+            </navigator>
+        </block>
+    </view>
+</view>

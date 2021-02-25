@@ -1,0 +1,57 @@
+/* pages/goods/integralDraw/integralDraw.wxss */
+.container{
+    background-color: white;
+}
+/* 上三 */
+.title{
+    font-size: 35rpx;
+    padding-left: 20rpx;
+    padding-right: 20rpx;
+    display: flex;
+    margin-top: 60rpx;
+    margin-bottom: 60rpx;
+}
+.zhong{
+    margin: 60rpx 100rpx;
+    font-weight: bold;
+}
+.active{
+    color: red;
+}
+/* 中二 */
+.time{
+    padding-left: 20rpx;
+    margin-top: 60rpx;
+    margin-bottom: 60rpx;
+}
+/* 活动 */
+.image{
+    width: 100%;
+    display: flex;
+    margin-bottom: 60rpx;
+}
+.draw-image{
+    width: 30%;
+    height: 200rpx;
+}
+.image-text{
+    /* display: flex; */
+}
+.image-view{
+    margin-left: 20rpx;
+    margin-top: 30rpx;
+    margin-bottom: 30rpx;
+}
+/* 按钮 */
+.button{
+    background-color: red;
+    width: 200rpx;
+    border-radius: 10rpx;
+    margin-left: 500rpx;
+}
+.button button{
+    color: white;
+    padding: 20rpx;
+    /* float: right;
+    width: 40%; */
+}

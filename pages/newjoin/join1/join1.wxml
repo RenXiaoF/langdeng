@@ -1,0 +1,46 @@
+<import src="../../../utils/template/newjoin.wxml"/>
+<import src="../../../utils/regions/regions.wxml"/>
+
+<view class="container" hidden="{{!showPage}}">
+    <template data="{{step:1}}" is="progress-bar"></template>
+    <view class="notice">
+        <view class="content">
+            <view class="title">入驻须知：</view>
+            <view>1.认真填好个人信息。</view>
+            <view>2.以下信息都为必填信息。</view>
+            <view>3.姓名、号码具有真实性。</view>
+        </view>
+    </view>
+
+    <form bindsubmit="submitInfo">
+        <view class="item">
+            <view class="item-name">店主姓名:</view>
+            <input class="item-input" name="contacts_name"/>
+        </view>
+        <view class="item">
+            <view class="item-name">手机号:</view>
+            <input class="item-input" name="contacts_mobile"/>
+        </view>
+        <view class="item" data-id='0' bindtap="openRegionsModal">
+            <view class="item-name">所在地区:</view>
+            <view class="item-input">{{address.province_name}} {{address.city_name}} {{address.district_name}}</view>
+            <view class="item-img">
+                <image class="arrow" src="../../../images/icon-arrowdown.png"></image>
+            </view>
+        </view>
+        <view class="item">
+            <view class="item-name">详细地址:</view>
+            <input class="item-input" name="company_address"/>
+        </view>
+        <view class="item">
+            <view class="item-name">
+                <switch type="checkbox" checked="{{isAgree}}" color="#EC5151" bindchange="setAgree"></switch>
+                我已阅读《<navigator class="guide" url="">入驻指南</navigator>》同意签署在线协议！
+            </view>
+        </view>
+        <button class="next-btn" form-type="submit">下一步</button>
+    </form>
+</view>
+
+<!-- 选择地址弹框  -->
+<template is="regions" data="{{regions}}"/>

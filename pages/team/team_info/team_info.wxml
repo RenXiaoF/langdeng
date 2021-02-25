@@ -1,0 +1,237 @@
+<import src="../../../utils/wxParse/wxParse.wxml"/>
+<view class="container">
+    <view class="type-navbar">
+        <view class="type-box" wx:for="{{categories}}" wx:key="index">
+            <view id="{{item.id}}" class="type-navbar-item {{activeCategoryId == item.id ? 'type-item-on' : ''}}" bindtap="tabClick">
+                {{item.name}}
+            </view>
+        </view>
+    </view>
+    <view class="goods-detail">
+        <!-- 商品首页 -->
+        <view class="goods-info" hidden="{{activeCategoryId==0?false:true}}">
+            <swiper class="swiper_box" indicator-dots="{{true}}" vertical="{{false}}"
+                    autoplay="{{true}}" interval="{{3000}}" duration="{{1000}}">
+                <block wx:for="{{result.goods_images_list}}" wx:key="index">
+                    <swiper-item>
+                        <image class="wh100" src="{{url+item.image_url}}" />
+                    </swiper-item>
+                </block>
+            </swiper>
+            <view class="pt-goods">
+                <view class="pt-goods-name ellipsis-1">{{goods.goods_name}}</view>
+                <view class="pt-tips">
+                    <view class="co-red">￥{{select.teamPrice ? select.teamPrice : team.team_price}}</view>
+                    <view wx:if="{{select.teamId > 0}}" class="pt-btn">{{select.statusDesc}}</view>
+                </view>
+                <view class="pt-price">市场价格 :  <text>￥{{goods.market_price}}</text></view>
+                <view class="pt-des">{{select.shareDesc}}</view>
+                <view class="pt-icos">
+                    <view>
+                        <image src="../../../images/ico-pt1.png"></image>
+                        品质保障
+                    </view>
+                    <view>
+                        <image src="../../../images/ico-pt2.png"></image>
+                        放心物流
+                    </view>
+                    <view>
+                        <image src="../../../images/ico-pt3.png"></image>
+                        贴心服务
+                    </view>
+                </view>
+            </view>
+
+            <block wx:if="{{teamResult.teamFounds.length > 0}}">
+                <view class="pt-order-tips">以下小伙伴正在发起团购，您可以直接参与</view>
+                <view wx:for="{{teamResult.teamFounds}}" wx:key="{{index}}" class="pt-order-list">
+                    <view class="pt-order-item">
+                        <view class="pt-order-cont">
+                            <view class="pt-user">
+                                <view class="ellipsis-1 co-333">{{item.nickname ? item.nickname:defaultAvatar}}</view>
+                                <view class="ellipsis-1">{{item.address_region}}</view>
+                            </view>
+                            <view class="pt-time">
+                                <view class="ellipsis-1 co-red">还差{{item.surplus}}人成团</view>
+                                <view class="ellipsis-1">{{item.remainTime.hour}}:{{item.remainTime.minute}}:{{item.remainTime.second}}后结束</view>
+                            </view>
+                            <view class="pt-avtar">
+                            <image class="wh100" src="{{item.head_pic}}"></image>
+                            </view>
+                        </view>
+                        <navigator class="pt-order-btn" url="/pages/team/team_detail/team_detail?foundId={{item.found_id}}">去参与</navigator>
+                    </view>
+                </view>
+            </block>
+
+            <view class="pt-store">
+                <view class="pt-store-des">
+                    <image src="{{url+store.store_logo}}"></image>
+                    <view class="pt-store-cont">
+                        <view class="co-333 ellipsis-1">{{store.store_name}}</view>
+                        <view>销量 : {{store.store_sales}}</view>
+                    </view>
+                </view>
+                <navigator url="/pages/store/index/index?store_id={{store.store_id}}">
+                    <image src="../../../images/shop-ico.jpg"></image>
+                    进店逛逛
+                </navigator>
+            </view>
+
+            <view class="pt-rule">
+                <view class="pt-rule-name">拼团规则</view>
+                <view class="pt-rule-list">
+                    <view>
+                        <view class="pt-rule-num">1</view>
+                        <view>选择商品</view>
+                    </view>
+                    <view>
+                        <view class="pt-rule-num">2</view>
+                        <view>开团/参团</view>
+                    </view>
+                    <view>
+                        <view class="pt-rule-num">3</view>
+                        <view>邀请好友</view>
+                    </view>
+                    <view>
+                        <view class="pt-rule-num">4</view>
+                        <view>人满成团</view>
+                    </view>
+                </view>
+                <view class="pt-ico5 {{rule?'':'transform'}}" bindtap="showRule"><image src="../../../images/ico-pt4.png"></image></view>
+                <view class="pt-rule-cont" hidden="{{rule}}">
+                    <view>1.开团：在商城内选择喜欢的商品，点击“去开团”，付款成功后即为开团成功；</view>
+                    <view>2.参团：进入朋友分享的页面，点击“立即参团”，付款后即为参团成功，若多人同时支付，按先支付成功的用户获得参团资格；</view>
+                    <view>3.成团：在开团或参团之后,可以点击“分享出去”，在有效时间凑齐成团人数即拼团成功；</view>
+                    <view>4.组团失败：在有效时间内未凑齐人数，即为组团失败，此时商城会将原款分别退回；</view>
+                </view>
+            </view>
+            <view class="user-comment logistics-item pd-bg-fff" bindtap="tabComment">
+                <view>用户评论</view>
+                <view class="good-comment">好评率
+                    <view class="co-red"> {{goods.comment_statistics.high_rate}}%</view>
+                </view>
+                <view class="comment-num">
+                    <view class="co-red">{{goods.comment_statistics.total_sum}}</view>人评价
+                    <view class="item-img"><image class="wh100" src="../../../images/icon-arrowdown.png" ></image></view>
+                </view>
+            </view>    
+        </view>
+        <!-- 商品详情 -->
+        <view class="goods-norms" hidden="{{activeCategoryId==1?false:true}}">
+             <view class="type-navbar2">
+                <view class="type-box2" wx:for="{{categories2}}"  wx:key="{{index}}">
+                    <view id="{{item.id}}" class="{{activeCategoryId2 == item.id ? 'type-item2-on' : ''}}" bindtap="tabClick2">
+                        {{item.name}}
+                    </view>
+                </view>
+            </view>
+            <view hidden="{{activeCategoryId2==0?false:true}}" class="wxParse">
+                <template is="wxParse" data="{{wxParseData:content.nodes}}"/>
+            </view>
+            <view class="parameter" hidden="{{activeCategoryId2==1?false:true}}">
+                <view class="table">
+                    <view class="th-thitle tb">主体</view>
+                    <view class="td-cont tb" wx:for="{{goodsAttrs}}" wx:key="index">
+                        <view class="td-title">{{item.attr_name}}</view>
+                        <view class="td-text">{{item.attr_value}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <!-- 商品评论 -->
+        <view class="goods-comment" hidden="{{activeCategoryId==2?false:true}}">
+            <view class="type-navbar3">
+                <view class="type-box3" wx:for="{{categories3}}"  wx:key="{{index}}">
+                    <view id="{{item.id}}" class="{{activeCategoryId3 == item.id ? 'type-item3-on' : ''}}" bindtap="tabClick3">
+                        <view>{{item.name}}</view>
+                        <view>{{item.num}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="comment-list">
+                <view class="comment-item" wx:for="{{comments}}" wx:key="{{cIdx}}" wx:for-index="cIdx">
+                    <view class="comment-title">
+                        <view class="user-name">
+                            <view class="user-pic"><image class="wh100" src="{{item.is_anonymous ? defaultAvatar : item.head_pic ? url + item.head_pic : defaultAvatar}}"></image></view>
+                            {{item.is_anonymous ? '匿名用户' : item.nickname}}
+                        </view>
+                        <view>{{item.addTimeFormat}}</view>
+                    </view>
+                    <view class="comment-cont">
+                        <view>
+                            <view class="stars">
+                                <view class="stars-checked">
+                                    <image class="star" src="../../../images/star-red.png" wx:for="{{item.goods_rank}}"  wx:key="{{index}}"></image>
+                                </view>
+                                <view class="stars-unchecked">
+                                    <image class="star" src="../../../images/star-gray.png" wx:for="{{5-item.goods_rank}}" wx:key="{{index}}"></image>
+                                </view>
+                            </view>
+                            <view class="state-spec ellipsis-1">{{item.spec_key_name?item.spec_key_name:''}}</view>
+                        </view>
+                        <view class="comment-mes">{{item.content}}</view>
+                        <view class="img-ul">
+                             <view class="img-li" wx:for="{{item.img}}"  wx:key="{{index}}">
+                                <image class="wh100" src="{{item}}" bindtap="previewCommentImgs" data-cidx="{{cIdx}}" data-id="{{index}}"></image>
+                             </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<!-- 返回顶部按钮  -->
+<view class="toTop" bindtap="doScrollTop" wx:if="{{supportPageScroll}}">
+    <image class="wh100" src="../../../images/topup.png"></image>
+</view>
+<!-- 购买栏  -->
+<view class="join-cart">
+    <view class="custom-service cart-ico" bindtap="contactService">
+        <image class="cs-img" src="../../../images/custom-service.png"></image>
+        <view>客服</view>
+    </view>
+    <view class="custom-service cart-ico" bindtap="collectGoods">
+        <image hidden="{{result.collect}}" class="cs-img" src="../../../images/heart.png"></image>
+        <image hidden="{{!result.collect}}"  class="cs-img" src="../../../images/heart-h.png"></image>
+        <view>收藏</view>
+    </view>
+    <view class="join-btn cart-btn" bindtap="buyNormal">
+        <view class="classname">单独购买</view>
+        <view class="classname">￥{{select.price}}</view>
+    </view>
+    <view class="buy-btn cart-btn" bindtap="openSpecModel">
+        <view class="classname">{{select.needer ? select.needer : team.needer}}人团</view>
+        <view class="classname">￥{{select.teamPrice ? select.teamPrice : team.team_price}}</view>
+    </view>
+</view>
+<!-- 规格弹框  -->
+<view hidden="{{!openSpecModal}}">
+    <view class="cover-layer" bindtap="closeSpecModal"></view>
+    <view class="spec-model">
+        <icon type="cancel" color="gray" size="22" class="modal-close" bindtap="closeSpecModal"/>
+        <view class="spec-goods">
+            <image class="wh100 spec-img" src="{{url}}/api/goods/goodsThumImages?goods_id={{goods.goods_id}}&width=200&height=200"></image>
+            <view class="spec-goods-info">
+                <view class="spec-goods-name">{{goods.goods_name}}</view>
+                <view wx:if="{{select.teamId > 0}}" class="spec-goods-price">￥ {{select.teamPrice}}({{select.needer}}人团)</view>
+                <view wx:else class="spec-goods-price">￥ {{select.price}}</view>
+                <view class="spec-goods-stock">剩余库存：{{select.stock}}</view>
+            </view>
+        </view>
+        <view class="spec-name">数量</view>
+        <view class="count">
+            <view class="sub" bindtap="subCartNum">-</view>
+            <input type="number" value="{{goodsInputNum}}" bindblur="inputCartNum"/>
+            <view class="add" bindtap="addCartNum">+</view>
+        </view>
+        <block wx:for="{{result.filter_spec}}" wx:key="{{index}}" wx:for-index="listIdx">
+            <view class="spec-name">{{item.spec_name}}</view>
+            <view class="spec-wrap">
+                <view wx:for="{{item.spec_list}}" wx:for-item='spec' wx:key="{{index}}" class="spec-btn {{item.selectItemId==spec.item_id?'spec-btn-click':''}}" bindtap="selectSpec" data-listidx="{{listIdx}}" data-itemid="{{spec.item_id}}">{{spec.item}}</view>
+            </view> 
+        </block>
+        <view class="spec-cart-btn {{select.teamId<=0||select.stock<=0 ? 'spec-cart-disable':''}}" bindtap="buyNow">发起拼团</view>
+    </view>
+</view>

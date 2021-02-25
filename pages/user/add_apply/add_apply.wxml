@@ -1,0 +1,54 @@
+<!--pages/user/add_apply/add_apply.wxml-->
+<import src="../../../utils/regions/regions.wxml"/>
+<view class="container">
+    <form bindsubmit="submitApply">
+        <view class="item">
+            <view class="item-name">客户名称:</view>
+            <input class="item-input" placeholder="客户的名称" name="customer_name" value="{{apply.customer_name}}"/>
+        </view>
+        <view class="item">
+            <view class="item-name">客户简称:</view>
+            <input class="item-input" placeholder="客户简称" name="short_name" value="{{apply.short_name}}"/>
+        </view>
+        <view class="item">
+          <picker bindchange="bindPickerChange" name="picktype" value="{{applytype[index]}}" range="{{applytype}}">
+            <view class="picker">
+              客户类型：{{applytype[index]}}
+            </view>
+          </picker>
+        </view>
+        <view class="item">
+            <view class="item-name">联系人:</view>
+            <input class="item-input" placeholder="联系人" name="link_name" value="{{apply.link_name}}"/>
+        </view>
+        <view class="item">
+            <view class="item-name">联系电话:</view>
+            <input class="item-input" placeholder="联系电话" name="link_tel" value="{{apply.link_tel}}"/>
+        </view>
+        <view class="item" data-id='0' bindtap="openRegionsModal">
+            <view class="item-name">所在地区:</view>
+            <view class="item-input">{{apply.province_name}} {{apply.city_name}} {{apply.district_name}}</view>
+            <view class="item-img">
+                <image class="arrow" src="../../../images/icon-arrowdown.png"></image>
+            </view>
+        </view>
+        <view class="item">
+            <view class="item-name">详细地址:</view>
+            <input class="item-input" placeholder="详细地址" name="address" value="{{apply.address}}"/>
+        </view>
+        <view class="item">
+            <view class="item-name">身份证号:</view>
+            <input class="item-input" placeholder="请填写身份证号" name="id_card" value="{{apply.id_card}}"/>
+        </view>
+        <view class="item">
+            <view class="item-name">银行卡号:</view>
+            <input class="item-input" placeholder="请填写银行卡号" name="bank_card" value="{{apply.bank_card}}"/>
+        </view>
+        <view class="address-create">
+            <button class="create-btn" form-type="submit">确认提交</button>
+        </view>
+    </form>
+</view>
+
+<!-- 选择地址弹框  -->
+<template is="regions" data="{{regions}}"/>

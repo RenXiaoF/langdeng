@@ -1,0 +1,18 @@
+<!-- <form bindsubmit="submitRelate"> -->
+<form bindsubmit="submitRelate">
+    <view class="container login-wrap">
+        <view>
+            <view class="user-login">
+                <text>账 号:</text>
+                <input type="text" name="username" placeholder="请输入账号" />
+            </view>
+            <view class="user-login">
+                <text>密 码:</text>
+                <input type="password" name="password" placeholder="请输入密码" />
+            </view>
+        </view>
+        <button class="login-btn" formType="submit" bindsubmit="submitRelate">确 定</button>
+        <button class="login-btn" bindtap="goQuickLogin">快速登录</button>
+        <button class="login-btn" bindtap="goSignup">绑定手机</button>
+    </view>
+</form>

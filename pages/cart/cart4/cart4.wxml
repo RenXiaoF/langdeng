@@ -1,0 +1,21 @@
+<!--cart4.wxml-->
+<view class="order-list pd-bg-fff">
+    <view class="order-id">
+        <view>订单号</view>
+        <view class="co-red">{{order.order_sn}}</view>
+    </view>
+    <view class="order-price">
+        <view>订单金额</view>
+        <view class="co-red">{{order.order_amount}}元</view>
+    </view>
+</view>
+<view class="pay-way pd-bg-fff">
+    <view class="title">支付方式</view>
+    <view class="pay-item" bindtap="checkPayWay">
+        <icon class="ico-check" type="success" size="20" color="{{useWxPay?'red':'gray'}}" />
+        <view class="pay-img"><image class="wh100" src="../../../images/wx-pay.png"></image></view>
+        <view>微信支付</view>
+    </view>
+    <view class="pay-now" bindtap="payment">立即支付</view>
+</view>
+

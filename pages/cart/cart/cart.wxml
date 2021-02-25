@@ -1,0 +1,54 @@
+<view class="container" wx:if="{{carts.storeList.length > 0}}">
+    <view class="login-in">
+        <view class="store-list" wx:for="{{carts.storeList}}" wx:for-index="sidx" wx:key="{{index}}">
+            <view class="store-mes">
+                <view class="go-store">
+                    <icon type="success" size="16" color="{{item.selected?'red':'gray'}}" data-sidx='{{sidx}}' bindtap="selectStore"/>
+                    <view class="store-ico"><image class="wh100" src="../../../images/carnew.png"></image></view>
+                    <navigator class="store-name" url='/pages/store/index/index?store_id={{item.store_id}}'>{{item.store_name}}</navigator>
+                    <view class="store-arrow"><image class="wh100" src="../../../images/icon-arrowdown.png"></image></view>
+                </view>
+            </view>
+            <view class="order-item" wx:for="{{item.cartList}}" wx:for-index="cidx" wx:key="{{index}}">
+                <view class="goods-ico" bindtap="selectGoods" data-check="item.selected" data-sidx="{{sidx}}" data-cidx="{{cidx}}">
+                    <icon type="success" size="16" color="{{item.selected?'red':'gray'}}" />
+                </view>
+                <navigator class="goods-img" url="/pages/goods/goodsInfo/goodsInfo?goods_id={{item.goods_id}}">
+                    <image class="wh100" src="{{url}}/api/goods/goodsThumImages?goods_id={{item.goods_id}}&width=200&height=200"></image>
+                </navigator>
+                <!-- 商品删除  数量加减 -->
+                <view class="goods-cont">
+                    <!-- 商品预览  和  删除 -->
+                    <navigator class="goods-name ellipsis-2" url="/pages/goods/goodsInfo/goodsInfo?goods_id={{item.goods_id}}">{{item.goods_name}}</navigator>
+                    <view class="goods-attribute ellipsis-2">{{item.spec_key_name}}</view>
+                    <view class="goods-price co-red">￥{{item.member_goods_price}}</view>
+                    <view class="btn-del" bindtap="deleteItem" data-sidx="{{sidx}}" data-cidx="{{cidx}}">
+                        <image class="wh100" src="../../../images/dele.png"></image>
+                    </view>
+                    <!-- 商品数量   加减 -->
+                    <view class="count">
+                        <view class="sub" bindtap="subNum" data-sidx="{{sidx}}" data-cidx="{{cidx}}">-</view>
+                        <input type="number" value="{{item.goods_num}}" data-sidx="{{sidx}}" data-cidx="{{cidx}}" bindblur="valueToNum" />
+                        <view class="add" bindtap="addNum" data-sidx="{{sidx}}" data-cidx="{{cidx}}">+</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="pay-for">
+        <label class="checkbox" bindtap="selectAll">
+            <icon class="ico-check" type="success" size="20" color="{{checkAllToggle?'red':'gray'}}" />全选
+        </label>
+        <button class="pay-btn" bindtap="checkout">去结算</button>
+        <view class="consumer">
+            <view class="total">总计 : <text class="co-red">{{carts.total_price.total_fee}}</text></view>
+            <text class="tips">不包含运费</text>
+        </view>
+    </view>
+</view>
+
+<view class="no-data" wx:if="{{!carts.storeList || carts.storeList.length == 0}}">
+    <image src="../../../images/cart-null.png" class="cart-image"/>
+    <view class="no-data-title">购物车暂无商品</view>
+    <navigator url="/pages/index/index/index" class="lookat" open-type="switchTab"> 去逛逛 </navigator>
+</view>

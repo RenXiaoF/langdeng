@@ -1,0 +1,77 @@
+page{
+    height: 100%;
+}
+.cates{
+    height: 100%;
+    .search-box{
+        width: 100%;
+        .search-inner{
+            width: 90%;
+            margin-left: 35rpx;
+            .search-cont{
+                border: 3rpx solid red;
+                // background-color: white;
+            }
+        }
+    }
+    .cates_container{
+        /* less中使用calc的时候要注意 */
+        // height: ~'calc(100vh - 90rpx)';
+        display: flex;
+        margin-top: 30rpx;
+        .left_menu{
+            flex: 2;
+            background-color: white;
+            margin-right: 10rpx;
+            .menu_item{
+                height: 80rpx;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 32rpx;
+                border-bottom: 1rpx solid rgb(180, 178, 178);
+            }
+            .active{
+                color:red;
+              
+            }
+        }
+        .right_content{
+            flex: 5;
+            .goods_group{
+                .goods_title{
+                    height: 80rpx;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-top: 20rpx;
+                    margin-bottom: 20rpx;
+                }
+                .goods_list{
+                    display: flex;
+                    flex-wrap: wrap;
+                    background-color: white;
+                    .content-itemz{
+                        width: 33%;
+                        display: flex;
+                        navigator{
+                            // width: 33.33%;
+                            text-align: center;
+                            image{
+                                width: 150rpx;
+                            }
+                            .goods-name{
+                                font-size: 22rpx;
+                                width: 150rpx;
+                                // white-space: nowrap;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                            }
+                        }
+                    }
+                 
+                }
+            }
+        }
+    }
+}

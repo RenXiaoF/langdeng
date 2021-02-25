@@ -1,0 +1,22 @@
+<!-- pages/intefral_mall/check_address/check_address.wxml -->
+<view class="container" wx:for="{{addresslist}}" wx:key="index" wx:for-item="address">
+    <view class="user-mes" bindtap="enterAddressPage">
+        <view class="user-contact">{{address.consignee}}{{'　　'}}{{address.mobile}}</view>
+        <view wx:if="{{address.is_default == 1}}" class="moren">默认</view>
+        <view class="location">
+            <view class="address">
+                {{address.province_name}} {{address.city_name}} {{address.district_name}} {{address.address}}
+            </view>
+            <view class="pos-icon">
+                <image class="wh100" src="../../../images/iconfont-address.png" />
+            </view>
+        </view>
+        <view class="border-img">
+            <image class="wh100" src="../../../images/tt.png" />
+        </view>
+        <view class="update-logistics" bindtap="goToAddAddress">
+            <image class="arrow-rigth" src="../../../images/icon-arrowdown.png"></image>
+        </view>
+    </view>
+</view>
+<button class="login-btn" formType="submit" bindtap="goToAddAddress">+ 新增收货地址</button>

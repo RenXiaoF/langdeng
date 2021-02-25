@@ -1,0 +1,48 @@
+page{
+    background-color: white;
+}
+.container{
+    padding: 20rpx 30rpx;
+}
+.navbar{
+    width: 100%;
+}
+.navbar-box{
+    font-size: 35rpx;
+    display: inline-block; 
+    width:33.333333%;
+    border: 1rpx solid #f8f8f8;
+    box-sizing: border-box;
+    text-align: center;
+    line-height:85rpx;
+}
+.navbar-item-on{
+    background-color: #e01222;
+    border-radius: 6rpx;
+    color:#f8f8f8;
+}
+.point-box{
+    width: 100%;
+    font-size: 28rpx;
+    padding: 20rpx 0;
+    border-bottom: 1rpx solid #f8f8f8;
+    padding-left: 5rpx;
+}
+.point-item{
+    display: inline-block; 
+    width: 33.333333%;
+    word-break: keep-all;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.point-box .price{
+    color: #e01222;
+    text-align: center;
+}
+.point-box .time{
+    color: #999999;
+}
+.point-box .title{
+    text-align: center;
+}

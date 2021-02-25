@@ -1,0 +1,36 @@
+<!--brandstreet.wxml-->
+<view class="container">
+    <navigator class="copyright" url="#"><image class="wh100" src="{{resourceUrl}}/static/images/func_02.jpg"/></navigator>
+    <view>
+        <swiper class="swiper_box" indicator-dots="{{true}}" vertical="{{false}}"
+                autoplay="{{true}}" interval="3000" duration="1000">
+            <block wx:for="{{requestData.hot_list}}" wx:for-index="index2" wx:for-item="item2" wx:key="{{index2}}">
+            <block wx:if="{{index2 % 3 == 0}}">
+                 <swiper-item>
+                 <block  wx:for="{{requestData.hot_list}}" wx:key="{{index}}">
+                    <block wx:if="{{index>=index2 && index <=index2 + 2}}">
+                    <navigator class="slide-item" url="/pages/goods/goodsInfo/goodsInfo?goods_id={{item.goods_id}}">
+                        <view class="image-wrap">
+                            <image class="wh100" src="{{url}}/api/goods/goodsThumImages?goods_id={{item.goods_id}}&width=200&height=200"/>
+                        </view>
+                        <view class="current-price">￥{{item.shop_price}}</view>
+                        <view class="market-price">￥{{item.market_price}}</view>
+                    </navigator>
+                    </block>
+                </block>
+                </swiper-item>
+            </block>
+            </block>
+        </swiper>
+    </view>
+    <view class="recommend">
+        <view class="re-title">推荐大牌</view>
+        <view class="tab-list">
+            <block  wx:for="{{requestData.brand_list}}" wx:key="{{index}}">
+                <navigator class="brand-item" url="/pages/goods/search/search?brand_id={{item.id}}">
+                    <image src="{{url}}{{item.logo}}"/>
+                </navigator>
+            </block>
+        </view>
+    </view>
+</view>

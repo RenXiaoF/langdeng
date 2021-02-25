@@ -1,0 +1,40 @@
+<!--pages/user/point_redemption/point_redemption.wxml-->
+<view class="container">
+    <!-- 标题 -->
+    <view class="type-navbar">
+        <view class="type_box" wx:for="{{ordertypes}}" wx:key="index" wx:for-item="item">
+            <view id="{{item.id}}" bindtap="changeTab" class="type-navbar-item {{activeCategoryId == item.id ? 'type-item-on' : ''}}">
+                {{item.name}}
+            </view>
+        </view>
+    </view>
+    <!-- 内容 -->
+    <view class="goods-container" >
+        <view class="goods-box" wx:for="{{storelist}}" wx:key="index" wx:for-item="item" data-id="{{item.id}}">
+            <view class="goods-title">
+                <view class="store-name">{{item.store_name}}({{item.order_sn}})</view>
+            </view>
+            <view class="content" wx:for="{{item.goods_list}}" wx:key="tindex" wx:for-item="good">
+                <image class="image" src="good.original_img"></image>
+                <view>{{good.goods_name}}</view>
+                <view>{{good.spec_key_name}}</view>
+                <view>兑换积分:{{good.integral}}</view>
+                <view>*{{good.goods_num}}</view>
+            </view>
+            <view class="desc">[{{item.order_status_desc}}]</view>
+            <view wx:if="{{item.order_status_code=='WAITRECEIVE'}}">
+                <button bindtap="confirmOrder">点击收货</button>
+            </view>
+            <!-- <view wx:if="{{store.pay_status==0&&store.act_type==1}}">
+                <button class="act-button" bindtap="" >等待审核</button>
+            </view>
+            <view>
+                <button class="act-button" bindtap="" >申请售后</button>
+            </view> -->
+            <button class="act-button" bindtap="">兑换总积分:{{item.integral}}</button>
+        </view>
+    </view>
+    <view class="nothing" wx:if="storelist.length==0">
+        <image class="" src="" />
+    </view>
+</view>

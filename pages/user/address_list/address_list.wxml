@@ -1,0 +1,22 @@
+<!--address_list.wxml-->
+<view class="container">
+    <view class="address-box" wx:for="{{addresses}}" wx:key="{{index}}">
+        <view class="address-user">
+            <view class="user-name">{{item.consignee}}</view>
+            <text class="default" wx:if="{{item.is_default}}">默认</text>
+        </view>
+        <view class="address-info"  bindtap="selectAddress" data-item="{{item}}">
+            <view class="mobile">电话：{{item.mobile}}</view>
+            <view class="address">{{item.province_name}} {{item.city_name}} {{item.district_name}} {{item.twon_name}} {{item.address}}</view>
+        </view>
+        <view class="address-edit" bindtap="editAddress" data-id="{{item.address_id}}">
+            <image src="../../../images/address_edit.png"></image>
+        </view>
+        <view class="border-img">
+            <image class="wh100" style="height:8rpx" src="../../../images/tt.png"></image>
+        </view>
+    </view>
+    <navigator class="address-create" url="/pages/user/add_address/add_address">
+        <view class="create-btn">+新建地址</view>
+    </navigator>
+</view>

@@ -1,0 +1,146 @@
+/* goods_list.wxss */
+.container {
+    color: #666;
+}
+.search-bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #fff;
+    font-size: 28rpx;
+    margin: 10rpx 15rpx;
+    border-radius: 8rpx;
+    height: 56rpx;
+}
+.search-bar > input{
+    padding-left: 30rpx;
+    width: 100%;
+}
+.search-bar > icon{
+    padding: 0 30rpx;
+    padding-top: 8rpx;
+}
+.nav-item{
+    float: left;
+    width: 33.333333%;
+    height: 90rpx;
+    line-height: 90rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28rpx;
+    border-bottom: 1px solid #f8f8f8;
+    background-color: #fff;
+}
+.nav-item .ico-dg{
+    width: 18rpx;
+    height: 12rpx;
+    margin-left: 10rpx;
+    line-height: 0;
+}
+.nav-item .ico-filter{
+    width: 20rpx;
+    height: 20rpx;
+    margin-left: 10rpx;
+    line-height: 0;
+}
+.ico-dir{
+    width: 16rpx;
+    height: 22rpx;
+    margin-left: 10rpx;  
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: 0;
+}
+.ico-dir-dn {
+    background-position-x: -16rpx;
+}
+.ico-dir-up {
+    background-position-x: -32rpx;
+}
+.choice_list{
+    background-color: #fff;
+}
+.choice_item{
+    position: relative;
+    width: 100%;
+    min-height: 200rpx;
+    padding: 10rpx 0;
+    border-bottom: 1px solid #f8f8f8;
+    font-size: 28rpx;
+}
+.img-wrap{
+    float: left;
+    width: 180rpx;
+    height: 180rpx;
+    padding:0 10rpx 10rpx;
+}
+.img-wrap image{
+    width: 100%;
+    height: 100%;
+}
+.item-cont .title{
+    height: 72rpx;
+    margin: 16rpx 0;
+    padding-right: 10rpx;
+    line-height: 36rpx;
+    color: #333;
+    overflow: hidden;   
+}
+.price{
+    display: inline-block;
+    color: #f23030;
+    padding-bottom: 20rpx;
+}
+.comment{
+    font-size: 25rpx;
+}
+/* 弹框相关 */
+.filter-modal{
+    position: fixed;
+    left: 150rpx;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 20;
+    background-color: white;
+    overflow-x: hidden;
+    padding-bottom: 30rpx;
+}
+.filter-box{
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 28rpx;
+    padding: 20rpx;
+}
+.filter-name{
+    width: 100%;
+    padding: 20rpx 0;
+    word-break: keep-all;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 30rpx;
+}
+.filter-items{
+    width: 100%;
+}
+.filter-item{
+    float: left;
+    width: fit-content;
+    max-width: 500rpx;
+    word-break: keep-all;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding: 10rpx;
+    border-radius: 10rpx;
+    border: 1rpx #ddd solid;
+    margin: 0 10rpx 10rpx 0;
+    background-color: #fdfdfd;
+    color: #666;
+}
+.viewall-btn{
+    margin-top: 20rpx;
+    width: 300rpx;
+}

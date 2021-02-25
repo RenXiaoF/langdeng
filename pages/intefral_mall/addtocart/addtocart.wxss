@@ -1,0 +1,117 @@
+/* pages/intefral_mall/addtocart/addtocart.wxss */
+.spec-model{
+    position: fixed;
+    bottom: 0;
+    z-index: 20;
+    background: white;
+    width: 100%;
+    padding: 0 30rpx;
+    font-size: 32rpx;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+.spec-goods{
+    padding: 15rpx 0 30rpx;
+    float: left;
+    width: 100%;
+    border-bottom: 1px solid #f8f8f8;
+}
+.spec-img{
+    float: left;
+    height: 150rpx;
+    width: 150rpx;
+    margin-top:16rpx;
+}
+.spec-goods-info{
+    float: left;
+    padding: 0 25rpx; 
+    width: 490rpx;
+}
+.spec-goods-name{
+    font-size: 30rpx;
+    line-height: 35rpx;
+    height: 70rpx;
+    margin: 15rpx 20rpx 25rpx 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.spec-goods-price{
+    color: #ec5151;
+    font-size: 30rpx;
+    font-weight: bold;
+}
+.spec-goods-stock{
+    margin-top: 10rpx;
+    font-size: 26rpx;
+    color: #999999;
+}
+.spec-name{
+    clear: both;
+    padding: 20rpx 0;
+    font-size: 30rpx;
+}
+.count{
+    float: left;
+    width: 184rpx;
+    height: 50rpx;
+    border: 1rpx solid #f8f8f8;
+    font-size: 28rpx;
+}
+.count>view,.count>input{
+    float: left;
+    width: 60rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    text-align: center;
+}
+.sub{
+    border-right: 1px solid #ddd;
+}
+.add{
+    border-left: 1px solid #ddd;
+}
+.spec-btn{
+    color: black;
+    background-color: white;
+    padding: 10rpx 10rpx;
+    font-size: 26rpx;
+    line-height: 28rpx;
+    float: left;
+    border: 1rpx solid #dedede;
+    margin: 4rpx 10rpx 4rpx 0;
+    border-radius: 4rpx;
+}
+.spec-btn-click{
+    color: white;
+    background-color: #f23030;
+    border: 1rpx solid #f23030;
+}
+.spec-cart-btns{
+    background-color: #f8f8f8;
+    margin:40rpx -30rpx 0;
+    padding: 20rpx 34rpx;
+    float: left;
+    width: 100%;
+    line-height: 80rpx;
+}
+.spec-cart-btn{
+    float: left;
+    width: 324rpx;
+    font-size: 30rpx;
+    text-align: center;
+    color: white;
+    border-radius: 4rpx;
+}
+.spec-add-cart{
+    background-color: #ffb03f;
+}
+.spec-buy{
+    background-color: #f23030;
+    margin-left: 34rpx;
+}
+.spec-cart-disable{
+    background: #bbbbbb;
+}
+.spec-cart-btn-lg{
+    width: 614rpx;
+}

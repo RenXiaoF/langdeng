@@ -1,0 +1,118 @@
+<!-- pages/user/reservation/reservation.wxml -->
+<view class="container">
+    <!-- 标题 -->
+    <view class="type-navbar">
+        <view class="type_box" wx:for="{{ordertypes}}" wx:key="index" wx:for-item="item">
+            <button id="{{item.id}}" bindtap="changeTab" class="type-navbar-item {{activeCategoryId == item.id ? 'type-item-on' : ''}}">
+                {{item.name}}
+            </button>
+        </view>
+    </view>
+    <view class="goods-container">
+        <!-- all -->
+        <view class="reservation-all" wx:if="{{resetype == 'all'}}">
+            <!-- <view class="reservation-all"> -->
+            <!-- 加载中 -->
+            <view class="loading" wx:if="{{stazt == 0 }}">
+                <text class="">加载中...</text>
+            </view>
+            <!-- 内容 -->
+            <view class="res-content">
+                <view wx:for="{{anp_list}}" wx:key="index" wx:for-item="item">
+                    <view>预约电话：{{item.mobile}}</view>
+                    <view>客户姓名：{{item.realname}}</view>
+                    <view>预约地址：{{item.address}}</view>
+                    <view>预约时间：{{item.appoint_time}}</view>
+                    <view>
+                        目前进度：
+                        <text wx:if="{{item.status == 0}}">安排中</text>
+                        <text wx:if="{{item.status == 1}}">已完成</text>
+                        <text wx:if="{{item.status == 2}}">已取消</text>
+                    </view>
+                    <view class="botton" wx:if="{{item.status == 0}}">
+                        <button bindtap="" bindtap="confirm_close">取消预约</button>
+                    </view>
+                </view>
+            </view>
+            <!-- 暂无资料 -->
+            <view class="loading" wx:if="{{stazt == 2 }}">
+                <text class="">暂无资料</text>
+            </view>
+        </view>
+        <!-- doing -->
+        <view class="reservation-all" wx:if="{{resetype == 'doing'}}">
+            <!-- <view class="reservation-all"> -->
+            <!-- 加载中 -->
+            <view class="loading" wx:if="{{stazt == 0 }}">
+                <text class="">加载中...</text>
+            </view>
+            <!-- 内容 -->
+            <view class="res-content">
+                <view wx:for="{{anp_list}}" wx:key="index" wx:for-item="item">
+                    <view>预约电话：{{item.mobile}}</view>
+                    <view>客户姓名：{{item.realname}}</view>
+                    <view>预约地址：{{item.address}}</view>
+                    <view>预约时间：{{item.appoint_time}}</view>
+                    <view>目前进度：安排中</view>
+                    <view class="botton" wx:if="{{item.status == 0}}">
+                        <button bindtap="" bindtap="confirm_close">取消预约</button>
+                    </view>
+                </view>
+            </view>
+            <!-- 暂无资料 -->
+            <view class="loading" wx:if="{{stazt == 2 }}">
+                <text class="">暂无资料</text>
+            </view>
+        </view>
+        <!-- done -->
+        <view class="reservation-all" wx:if="{{resetype == 'done'}}">
+            <!-- <view class="reservation-all"> -->
+            <!-- 加载中 -->
+            <view class="loading" wx:if="{{stazt == 0 }}">
+                <text class="">加载中...</text>
+            </view>
+            <!-- 内容 -->
+            <view class="res-content">
+                <view wx:for="{{anp_list}}" wx:key="index" wx:for-item="item">
+                    <view>预约电话：{{item.mobile}}</view>
+                    <view>客户姓名：{{item.realname}}</view>
+                    <view>预约地址：{{item.address}}</view>
+                    <view>预约时间：{{item.appoint_time}}</view>
+                    <view>目前进度：安排中</view>
+                    <!-- <view class="botton" wx:if="{{item.status == 0}}">
+                        <button bindtap="" bindtap="confirm_close">取消预约</button>
+                    </view> -->
+                </view>
+            </view>
+            <!-- 暂无资料 -->
+            <view class="loading" wx:if="{{stazt == 2 }}">
+                <text class="">暂无资料</text>
+            </view>
+        </view>
+        <!-- close -->
+        <view class="reservation-all" wx:if="{{resetype == 'close'}}">
+            <!-- <view class="reservation-all"> -->
+            <!-- 加载中 -->
+            <view class="loading" wx:if="{{stazt == 0 }}">
+                <text class="">加载中...</text>
+            </view>
+            <!-- 内容 -->
+            <view class="res-content">
+                <view wx:for="{{anp_list}}" wx:key="index" wx:for-item="item">
+                    <view>预约电话：{{item.mobile}}</view>
+                    <view>客户姓名：{{item.realname}}</view>
+                    <view>预约地址：{{item.address}}</view>
+                    <view>预约时间：{{item.appoint_time}}</view>
+                    <view>目前进度：安排中</view>
+                    <!-- <view class="botton" wx:if="{{item.status == 0}}">
+                        <button bindtap="" bindtap="confirm_close">取消预约</button>
+                    </view> -->
+                </view>
+            </view>
+            <!-- 暂无资料 -->
+            <view class="loading" wx:if="{{stazt == 2 }}">
+                <text class="">暂无资料</text>
+            </view>
+        </view>
+    </view>
+</view>

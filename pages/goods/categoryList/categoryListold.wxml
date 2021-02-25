@@ -1,0 +1,37 @@
+<view>
+  <!-- 搜索栏 -->
+  <view class="search-box">
+    <view class="search-inner">
+        <navigator url="/pages/goods/search/search" open-type="navigate">
+             <input class="search-cont"  type="text" placeholder="请输入您所搜索的商品" />
+        </navigator>
+        <image class="search-image" src="../../../images/qdn/search.png"></image>
+    </view>
+  </view>
+</view>
+
+<view class="container" wx:if="{{firstCategoris && firstCategoris.length > 0}}">
+    <view class="nav">
+        <view class="nav-item {{item.id==currentCategoryId?'nav-item-on':''}}" wx:for="{{firstCategoris}}" wx:key="{{index}}" bindtap="switchFirstCategory" data-id="{{item.id}}">{{item.mobile_name}}</view>
+    </view>
+    <view class="content">
+        <image class='cate-img' src='{{url + ad.ad_code}}'></image>
+        <view class="content-box" wx:for="{{categories}}" wx:key="{{index}}">
+            <block wx:if="{{item.sub_category.length>0}}">
+                <view class="content-name" bindtap='goodsList' data-id='{{item.id}}'>{{item.mobile_name}}</view>
+                <view class="content-items">
+                    <navigator class="content-item" wx:for="{{item.sub_category}}" wx:key="{{index}}" url="/pages/goods/goodsList/goodsList?cat_id={{item.id}}">
+                        <image class="item-image" src="{{url}}{{item.image?item.image:'/public/upload/logo/2018/07-25/7ed0f698dc5b56f7faec639db2f0347f.jpg'}}"></image>
+                        <view class="item-name">{{item.mobile_name}}</view>
+                    </navigator>
+                </view>
+            </block>
+        </view>
+    </view>
+</view>
+
+<view class="no-data" wx:if="{{!firstCategoris || firstCategoris.length == 0}}">
+    <image src="../../../images/cart-null.png" class="cart-image"/>
+    <view class="no-data-title">暂无分类</view>
+    <navigator url="/pages/index/index/index" class="lookat" open-type="switchTab"> 去逛逛 </navigator>
+</view>

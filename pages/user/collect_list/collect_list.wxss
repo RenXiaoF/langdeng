@@ -1,0 +1,65 @@
+/* collect_list.wxss */
+.follow-nav{
+    display: flex;
+}
+.nav-item{
+    width:305rpx;
+    padding: 0 20rpx;
+    height: 80rpx;
+    font-size: 32rpx;
+    text-align: center;
+    line-height: 80rpx;
+    overflow: hidden;
+    border-bottom: 1px solid transparent;
+}
+.nav-item-on{
+    color:#e23435;
+    border-bottom-color:#e23435; 
+}
+.collect-li{
+    display: flex;
+    padding:20rpx 0;
+    height: 180rpx; 
+    border-bottom: 1px solid #eee;
+}
+.collect-img{
+    width:180rpx;
+    height:180rpx;
+    margin-right: 20rpx;
+    border: 1px solid #eee;
+}
+.collect-li-cont{
+    width: 490rpx;
+}
+.collect-name{
+    width:490rpx;
+    height:30rpx;
+    font-size:30rpx;
+    line-height:1; 
+    margin-bottom:20rpx;
+}
+.collect-price{
+    color:#e23435;
+}
+.collect-word{
+    font-size:24rpx;
+    height: 24rpx;
+    color: #666;
+}
+.collect-btn{
+    float: right;
+    height: 42rpx;
+    line-height: 42rpx;
+    font-size: 30rpx;
+    padding:0 20rpx;
+    border: 1px solid #eee;
+}
+.store-star{
+    height: 28rpx;
+    margin-bottom: 20rpx;
+}
+.star-item{
+    width: 28rpx;
+    height: 26rpx;
+    margin-right: 2rpx;
+}

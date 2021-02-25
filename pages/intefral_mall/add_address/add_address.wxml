@@ -1,0 +1,33 @@
+<!-- pages/intefral_mall/add_address/add_address.wxml -->
+<import src="../../../utils/regions/regions.wxml" />
+<form bindsubmit="newaddress">
+    <view class="container user-container">
+        <view class="label-input item">
+            <text class="label">姓名：</text>
+            <input class="input" placeholder="请输入您的姓名" value="{{address.consignee}}" name="consignee" auto-focus />
+        </view>
+        <view class="label-input item">
+            <text class="label">手机号:</text>
+            <input class="input" placeholder="请输入您的手机号" value="{{address.mobile}}" name="mobile" data-name="mobile" type="number" bindinput="setMobile" auto-focus />
+        </view>
+        <view class="label-input item" data-id='0' bindtap="openRegionsModal">
+            <text class="label">地址：</text>
+            <view class="item-input">{{address.province_name}} {{address.city_name}} {{address.district_name}} {{address.twon_name}}</view>
+            <view class="item-img">
+                <image class="arrow" src="../../../images/icon-arrowdown.png"></image>
+            </view>
+        </view>
+        <view class="label-input item">
+            <text class="label">具体地址：</text>
+            <input class="input" placeholder="详细地址(必填)" value="{{address.address}}" name="address" auto-focus />
+        </view>
+        <!-- 是否是默认 -->
+        <view class="item">
+            <view class="item-name">设为默认地址</view>
+            <switch type="switch" class="item-switch" color="#e30000" name="is_default" checked="{{address.is_default==1?true:false}}"/>
+        </view>
+        <button class="submit" form-type="submit">保存</button>
+    </view>
+</form>
+<!-- 选择地址弹框 -->
+<template is="regions" data="{{regions}}" />

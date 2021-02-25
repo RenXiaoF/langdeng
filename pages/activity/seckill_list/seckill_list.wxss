@@ -1,0 +1,72 @@
+/* seckill_list.wxss */
+.kill-time{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 90rpx;
+    border-bottom:1px solid #ddd;
+    border-top:1px solid #ddd;
+    background-color: #fff; 
+}
+.kill-time>view{
+    width: 20%;
+    text-align: center;
+    line-height: 30rpx;
+    font-size: 24rpx;
+    color: #555;
+}
+.kill-time>.timeac{
+    color: #e23245;
+}
+.kill-item{
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    padding:10rpx 20rpx;
+    margin-bottom: 10rpx;
+}
+.kill-pic{
+    width: 200rpx;
+    height: 200rpx;
+}
+.kill-cont{
+    width: 480rpx;
+}
+.goods-name{
+    height: 96rpx;
+    line-height: 48rpx;
+    font-size: 24rpx;
+    color: #555;
+}
+.goods-num{
+    padding-top: 10rpx;
+    display: flex;
+    justify-content: space-between;
+    line-height: 42rpx;
+    font-size: 24rpx;
+    color: #999;
+}
+.goods-num .co-red{
+    font-size: 30rpx;
+    font-weight: bold;
+}
+.underline{
+    text-decoration: line-through;
+}
+.kill-btn{
+    text-align: right;
+}
+.kill-btn>navigator{
+    padding:0 20rpx;
+    background: #e23245;
+    color: #fff;
+}
+.kill-btn .gray{
+    background-color: #555; 
+}
+.no-more{
+    font-size: 30rpx;
+    line-height: 2;
+    text-align: center;
+    color: #333;
+}

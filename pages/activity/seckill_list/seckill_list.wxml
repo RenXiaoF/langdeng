@@ -1,0 +1,33 @@
+<!--seckill_list.wxml-->
+<view class="kill-time">
+    <block wx:for="{{killtime}}" wx:key="index">
+        <view class="{{index==timeac?'timeac':''}}" data-index="{{index}}" bindtap="changeTimeAc">
+            <view>{{item.font}}</view>
+            <view wx:if="{{index==0}}">秒杀中</view>
+            <view wx:else>即将秒杀</view>
+        </view>
+    </block>
+</view>
+<view class="kill-list">
+    <block wx:for="{{goodlist}}" wx:key="index">
+        <view class="kill-item">
+            <navigator class="kill-pic" url="/pages/goods/goodsInfo/goodsInfo?goods_id={{item.goods_id}}&item_id={{item.item_id}}"><image class="wh100" src="{{url}}/api/goods/goodsThumImages?goods_id={{item.goods_id}}&width=400&height=400"></image></navigator>
+            <view class="kill-cont">
+                <navigator class="goods-name ellipsis-2" url="/pages/goods/goodsInfo/goodsInfo?goods_id={{item.goods_id}}&item_id={{item.item_id}}">{{item.goods_name}}</navigator>
+                <view class="goods-num">
+                    <view>
+                        <view class="co-red">￥{{item.price}}</view>
+                        <view class="underline">￥{{item.shop_price}}</view>
+                    </view>
+                    <view class="kill-btn">
+                        <navigator wx:if="{{timeac == 0 && item.percent != 100}}" url="/pages/goods/goodsInfo/goodsInfo?goods_id={{item.goods_id}}&item_id={{item.item_id}}">去抢购</navigator>
+                        <navigator wx:if="{{item.percent == 100}}" class="gray">已售罄</navigator>
+                        <navigator class="gray" wx:else url="/pages/goods/goodsInfo/goodsInfo?goods_id={{item.goods_id}}">去购买</navigator>
+                        <view class="classname">已抢{{item.percent}}%</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+</view>
+<view class="no-more">没有更多</view>

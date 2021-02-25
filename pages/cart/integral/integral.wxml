@@ -1,0 +1,120 @@
+<!--integral.wxml-->
+<form bindsubmit="submitForm">
+<view class="container">
+    <view class="user-mes" bindtap="enterAddressPage">
+        <view class="user-contact">{{order.addressList.consignee}}{{'　　'}}{{order.addressList.mobile}}</view>
+        <view class="location">
+            <view class="address">{{order.addressList.total_address}}</view>
+            <view class="pos-icon"><image class="wh100" src="../../../images/iconfont-address.png" /></view>
+        </view>
+        <view class="border-img"><image class="wh100" src="../../../images/tt.png" /></view>
+        <view class="update-logistics">
+            <image class="arrow-rigth" src="../../../images/icon-arrowdown.png"></image>
+        </view>
+    </view>
+    <!-- 商品列表 -->
+    <view class="order-meg">
+        <view class="store-list" wx:for="{{order.cartList}}" wx:key="{{index}}">
+            <view class="store-mes">
+                <view class="store-ico"><image class="wh100" src="http://demo6.tp-shop.cn/template/mobile/default/static/images/s.png"></image></view>
+                <view class="store-name">{{item.store.store_name}}</view>
+            </view>
+            <view class="order-detail">
+                <view class="goods-img">
+                <image class="wh100" src="{{url}}/api/goods/goodsThumImages?goods_id={{item.goods_id}}&width=100&height=100"></image>
+                </view>
+                <navigator class="order-cont" url="/pages/goods/goodsInfo/goodsInfo?goods_id={{item.goods_id}}">
+                    <view class="goods-name ellipsis-2">{{item.goods_name}}</view>
+                    <view class="goods-color ellipsis-1">{{item.spec_key_name}}</view>
+                </navigator>
+                <view class="order-num">
+                    <view class="co-red">￥{{item.shop_price}}</view>
+                    <view class="goods-num">x{{item.goods_num}}</view>
+                </view>
+            </view>
+            <view class="set-mes">
+                 <view class="delivery set-item"> 
+                    <view>运费： {{orderPrices.store_list_pay_info[item.store_id].shipping_price > 0 ? '￥'+ orderPrices.store_list_pay_info[item.store_id].shipping_price : '包邮'}}</view>
+                     <view class="set-btn">
+                        <view></view>
+                    </view> 
+                </view>
+                <view class="set-item">
+                     <view>备注：</view>
+                     <textarea name="user_note" class="word-box" maxlength="30" placeholder="选填,最多30个字" bindinput="keyUpChangeNum"/>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 使用其他支付 -->
+    <view class="set-mes">
+        <view wx:if="{{order.store_prom}}">
+            <icon type="info" size="16" color="#f23030"/>{{order.store_prom}}
+        </view>
+        <view class="use-item">
+            <view>使用余额 : </view>
+            <input type="digit" name="user_money" maxlength="20" placeholder="可用余额:{{order.userInfo.user_money}}" bindblur="keyUpChangePay1"/>
+            <button class="use-btn" form-type="submit">使用</button>
+        </view>
+        <view class="use-item" >
+            <view>支付密码 : </view>
+            <input type="text" name="paypwd" password placeholder="请输入密码" maxlength="20"/>
+        </view>
+    </view>
+    <!-- 发票 -->
+    <view class="set-mes invoice-wrap">
+        <view class="invoice set-item">
+            <view>发票信息</view>
+            <view class="set-btn">
+                <switch type="switch" color="#EC5151" bindchange="setInvoice"/>
+            </view>
+        </view>
+        <view class="invoice-remarks" wx:if="{{invoice.is_use}}">
+             <radio-group class="radio-group" bindchange="isPersonChange">
+                <radio color="#EC5151" value="person" checked="{{invoice.is_person}}"/>个人
+                <radio color="#EC5151" value="company" checked="{{!invoice.is_person}}"/>单位
+            </radio-group> 
+        </view>
+        <view class="invoice-remarks" wx:if="{{invoice.is_use&&!invoice.is_person}}">
+            <view>发票抬头： </view> <input type="text" name="invoice_title" placeholder="公司名称"/>
+        </view>
+        <view class="invoice-remarks" wx:if="{{invoice.is_use&&!invoice.is_person}}">
+            <view>纳税人识别号： </view> <input type="text" name="taxpayer"/>
+        </view>
+        <view class="set-item" wx:if="{{invoice.is_use}}">
+            <picker bindchange="selectInvoiceContent" value="{{invoice.content_idx}}" range="{{invoice.contents}}"> 
+                <view>发票内容： {{invoice.contents[invoice.content_idx]}}</view>
+            </picker> 
+            <view class="set-btn">
+                <image class="arrow-rigth" src="../../../images/icon-arrowdown.png"></image>
+            </view>
+        </view>
+    </view>
+    <!-- 价格栏 -->
+    <view class="information">
+        <view class="item">
+            <view>商品金额</view>
+            <view class="co-red">￥ {{orderPrices.goods_price}}元</view>  
+        </view>
+        <view class="item">
+            <view>配送费用</view>
+            <view class="co-red">￥ {{orderPrices.shipping_price}}元</view>
+        </view>
+        <view class="item">
+            <view>已使用积分</view>
+            <view class="co-red">{{orderPrices.pay_points}}</view>  
+        </view>
+        <view class="item">
+            <view>使用余额</view>
+            <view class="co-red">- ￥ {{orderPrices.user_money}}元</view>  
+        </view>
+    </view>
+    <view class="btn-wrap">  
+        <button form-type="submit" class="tips-btn" id='submitOrder'>提交订单</button>
+        <view class="pay-amount">
+            <view class="payable">应付金额 : </view>
+            <view class="co-red">￥ {{orderPrices.order_amount}}元</view>  
+        </view>
+    </view>
+</view>
+</form>

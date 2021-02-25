@@ -1,0 +1,53 @@
+<!--add_comment.wxml-->
+<view class="goods-mes pd-bg-fff">
+    <view class="goods-img"><image class="wh100" src="{{url}}/api/goods/goodsThumImages?goods_id={{options.goods_id}}&width=100&height=100"></image></view>
+    <view class="goods-des">
+        <view class="goods-name ellipsis-1">{{options.goods_name}}</view>
+        <view class="goods-package ellipsis-1">{{options.spec_key_name!='null'?options.spec_key_name:''}}</view>
+    </view>
+</view>
+<view class="evaluation">
+    <textarea class="word-box" placeholder="写下购买体会和使用感受来帮助其他小伙伴吧~" maxlength="500" bindinput="keyUpChangeNum" />
+    <view class="words-num">{{500-maxWord}}/500</view>
+</view>
+<view class="pic-list pd-bg-fff">
+    <view class="share-pic" wx:for="{{5}}" wx:key="{{index}}">
+        <image class="wh100" src="{{filePaths[index]?filePaths[index]:defaultPhoto}}" bindtap="selectPhotos" data-idx="{{index}}" bindlongtap="removePhoto"></image>
+    </view>
+</view>
+<view class="anonymous">
+    <icon type="success" size="20" color="{{is_anonymous?'red':'gray'}}" bindtap="checkAnonymous" /> 匿名评价
+</view>
+<view class="score-list pd-bg-fff">
+    <view class="score-title">
+        <view>评分</view>
+        <view>满意请给5分哦</view>
+    </view>
+    <view class="score-item">
+        <view>与描述相符</view>
+        <view class="stars">
+            <image wx:for="{{5}}" wx:key="{{index}}" data-i="{{index}}" src="{{index<goods_rank?'../../../images/star-red.png':'../../../images/star-gray.png'}}" bindtap="checkGoodsRank"></image>
+        </view>
+    </view>
+    <view class="score-item">
+        <view>卖家服务</view>
+        <view class="stars">
+            <image wx:for="{{5}}" wx:key="{{index}}" data-i="{{index}}" src="{{index<service_rank?'../../../images/star-red.png':'../../../images/star-gray.png'}}" bindtap="checkServiceRank"></image>
+        </view>
+    </view>
+    <view class="score-item">
+        <view>物流服务</view>
+        <view class="stars">
+            <image wx:for="{{5}}" wx:key="{{index}}" data-i="{{index}}" src="{{index<deliver_rank?'../../../images/star-red.png':'../../../images/star-gray.png'}}" bindtap="checkDeliverRank"></image>
+        </view>
+    </view>
+    <view class="score-item">
+        <view>商品满意度</view>
+        <view class="stars">
+            <image wx:for="{{5}}" wx:key="{{index}}" data-i="{{index}}" src="{{index<goods_score?'../../../images/star-red.png':'../../../images/star-gray.png'}}" bindtap="checkGoodsScore"></image>
+        </view>
+    </view>
+</view>
+<view class="btn-wrap">
+    <view class="submit-btn" bindtap="submitComment">提 交</view>
+</view>

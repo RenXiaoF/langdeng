@@ -1,0 +1,70 @@
+<!-- pages/user/quick_appointment/quick_appointment.wxml -->
+<import src="../../../utils/regions/regions.wxml" />
+<form bindsubmit="requestUpdateUser">
+    <view class="container user-container">
+        <view class="label-input item">
+            <text class="label">昵称</text>
+            <input class="input" placeholder="请输入您的昵称" value="{{cost.nickname}}" name="nickname" auto-focus />
+        </view>
+        <view class="label-input item">
+            <text class="label">手机号码</text>
+            <input class="input" placeholder="请输入您的手机号" value="{{cost.mobile}}" name="mobile" data-name="mobile" type="number" bindinput="setMobile" auto-focus />
+        </view>
+        <view class="label-input item" data-id='0' bindtap="openRegionsModal">
+            <text class="label">所在地区</text>
+            <!-- <view class="item-input">{{cost.province_name}} {{cost.city_name}}{{cost.district_name}} {{cost.twon_name}}</view> -->
+            <view class="item-input">{{cost.get_address}}</view>
+            <view class="item-img">
+                <image class="arrow" src="../../../images/icon-arrowdown.png"></image>
+            </view>
+        </view>
+        <view class="label-input item">
+            <text class="label">详细地址</text>
+            <input class="input" placeholder="详细地址(必填)" value="{{cost.address}}" name="address" auto-focus />
+        </view>
+        <!-- 选择预约时间 -->
+        <view class="atime" bindtap="turnn">
+            <text class="label">预约时间</text>
+            <view class="item-img">
+                <!-- <image class="arrow" src="../../../images/icon-arrowdown.png"></image> -->
+            </view>
+
+       <!-- <view>
+                <view>{{year}}年{{month}}月{{day}}日</view>
+                <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}" bindchange="bindChange">
+                    <picker-view-column>
+                        <view wx:for="{{years}}" wx:key="year" style="line-height: 50px">{{item}}年</view>
+                    </picker-view-column>
+                    <picker-view-column>
+                        <view wx:for="{{months}}" wx:key="mon" style="line-height: 50px">{{item}}月</view>
+                    </picker-view-column>
+                    <picker-view-column>
+                        <view wx:for="{{days}}" wx:key="da" style="line-height: 50px">{{item}}日</view>
+                    </picker-view-column>
+                </picker-view>
+            </view>
+              <view wx:if="{{year != '' }}">{{year}}年{{month}}月{{day}}日请保持电话畅通,我们会尽快安排联系.</view> -->
+            <picker bindchange="selectShipping" range-key="name" value="{{shipping_index}}" range="{{shipping}}">
+                <view class="set-btn">
+                    <input type="hidden" hidden="true" name="shipping_code" value="{{shipping[shipping_index].code}}" />
+                    <view wx:if="{{dattt == '0'}}">当天</view>
+                    <view wx:for="{{datalist}}" wx:key="index" wx:for-item="ddat">
+                        <view>{{ddat}}天后</view>
+                    </view>
+                    <image class="arrow" src="../../../images/icon-arrowdown.png"></image>
+                </view>
+            </picker>
+        
+            <!-- <view>
+                <view wx:if="{{dattt == '0'}}">当天</view>
+                <view wx:for="{{datalist}}" wx:key="index" wx:for-item="ddat">
+                    <view>{{ddat}}天后</view>
+                </view>
+            </view>
+            <view wx:if="{{newdate != '' }}">{{newdate}}请保持电话畅通,我们会尽快安排联系.</view> -->
+        </view>
+        <button class="submit" formType="submit">保存</button>
+    </view>
+</form>
+<!-- 选择地址弹框 -->
+<template is="regions" data="{{regions}}" />

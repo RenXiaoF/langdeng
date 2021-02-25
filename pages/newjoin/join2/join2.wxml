@@ -1,0 +1,34 @@
+<import src="../../../utils/template/newjoin.wxml"/>
+<import src="../../../utils/category/category.wxml"/>
+
+<view class="container">
+    <template data="{{step:2}}" is="progress-bar"></template>
+    <form bindsubmit="submitInfo">
+        <view class="item">
+            <view class="item-name">店铺名称:</view>
+            <input class="item-input" name="store_name"/>
+        </view>
+        <view class="item">
+            <view class="item-name">店铺登录名:</view>
+            <input class="item-input" name="seller_name"/>
+        </view>
+        <picker class="item" bindchange="selectStoreType" value="{{index}}" range="{{storeTypes}}" range-key="name">
+            <view class="item-name">店铺类型:</view>
+            <view class="item-input">{{storeTypes[storeType].name}}</view>
+            <view class="item-img">
+                <image class="arrow" src="../../../images/icon-arrowdown.png"></image>
+            </view>
+        </picker>
+        <view class="item" bindtap="openCategoryModal">
+            <view class="item-name">经营类目:</view>
+            <view class="item-input">{{categorydata.category3_name}}</view>
+            <view class="item-img">
+                <image class="arrow" src="../../../images/icon-arrowdown.png"></image>
+            </view>
+        </view>
+        <button class="next-btn" form-type="submit">下一步</button>
+    </form>
+</view>
+
+<!-- 经营类目弹框  -->
+<template is="category" data="{{data:categories}}"/>

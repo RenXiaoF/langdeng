@@ -1,0 +1,28 @@
+<!--pages/user/exchange_coin/exchange_coin.wxml-->
+<view class="container">
+    <form bindsubmit="formSubmit">
+        <view class="item">
+            <view class="item-name">当前A积分:</view>
+            <input class="item-input" name="" value="{{user.user_money}}" disabled/>
+        </view>
+        <view class="item">
+            <view class="item-name">当前管理积分:</view>
+            <input class="item-input" name="" value="{{user_b_coin}}" disabled/>
+        </view>
+        <view class="item">
+            <view class="item-name">当前兑换比例:</view>
+            <view>1:{{exchange_coin_rate?exchange_coin_rate:1}}</view>
+        </view>
+        <view class="item">
+            <view class="item-name">请输入A积分:</view>
+            <input bindinput="changea" type="number" class="item-input" name="user_money" value=""/>
+        </view>
+        <view class="item">
+            <view class="item-name">兑换的B积分为:</view>
+            <input class="item-input" name="" value="{{bcoin}}" disabled/>
+        </view>
+        <view class="address-create">
+            <button class="create-btn" form-type="submit">确认</button>
+        </view>
+    </form>
+</view>

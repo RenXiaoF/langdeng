@@ -1,0 +1,89 @@
+page{
+    background-color: #fff;
+}
+.container {
+    color: #666;
+}
+.nav-item{
+    float: left;
+    width: 33.33%;
+    height: 90rpx;
+    line-height: 90rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28rpx;
+}
+.nav-item .ico-dg{
+    width: 32rpx;
+    height: 18rpx;
+    margin-left: 10rpx;
+    line-height: 0;
+}
+.group-purchase{
+    width: 100%;
+    height: 340rpx;
+}
+.choice_box{
+    background-color: #f0f2f5;
+}
+.choice_box .choice_item{
+    position: relative;
+    float: left;
+    width: 370rpx;
+    margin: 2rpx;
+    font-size: 28rpx;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+.choice_item .img-wrap{
+    position: relative;
+    width:370rpx;
+    height:370rpx;
+    overflow: hidden;
+}
+.choice_item .img-wrap image{
+    width: 100%;
+    height: 100%;
+}
+ .discount{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 78rpx;
+    height: 46rpx;
+    line-height: 46rpx;
+    text-align: center;
+    font-size: 24rpx;
+    color: #fff;
+    background-color: #fc0c4a;
+}
+.choice_item .title{
+    margin-top:16rpx;
+    padding: 0 10rpx;
+    height: 72rpx;
+    line-height: 36rpx;
+    color: #333;
+    overflow: hidden;
+    word-break: break-all;
+}
+.involved{
+    font-size: 22rpx;
+    padding:10rpx;
+    color: #666;
+}
+.choice_item .price{
+    height: 30rpx;
+    line-height: 30rpx;
+    padding-bottom:20rpx;
+    padding-left:10rpx;
+    color: #f23030;
+    font-size: 24rpx;
+}
+.count-down{
+    position: absolute;
+    right: 0;
+    bottom: 20rpx;
+    font-size: 22rpx;
+    color: #666;
+}

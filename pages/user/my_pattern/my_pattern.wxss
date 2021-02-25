@@ -1,0 +1,49 @@
+page {
+  width: 100%;
+  background-color: white;
+}
+.container {
+  width: 100%;
+}
+.container .jiazai {
+  width: 100%;
+  font-size: 25rpx;
+  color: #858282;
+  justify-content: center;
+  text-align: center;
+  align-content: center;
+  margin: 15rpx 0rpx;
+}
+.container .content {
+  width: 93%;
+  border: 1rpx solid black;
+  padding: 20rpx;
+}
+.container .content .img {
+  width: 56rpx;
+  height: 56rpx;
+  border-radius: 10%;
+}
+.container .content .nin {
+  margin-bottom: 15rpx;
+}
+.container .content .phones {
+  width: 100%;
+  display: inline-block;
+  margin: 25rpx 0rpx;
+}
+.container .content .phones .phone {
+  width: 50%;
+}
+.container .content .phones .phone button {
+  border-radius: 5%;
+  margin-right: 5rpx;
+  background-color: #10193a;
+  color: white;
+}
+.container .submit {
+  width: 80%;
+  color: white;
+  background-color: #b99d6b;
+  margin-top: 50rpx;
+}

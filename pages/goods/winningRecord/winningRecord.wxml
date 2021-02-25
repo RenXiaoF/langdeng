@@ -1,0 +1,10 @@
+<!-- pages/goods/winningRecord/winningRecord.wxml -->
+<view class="container">
+    <view class="no-data" wx:if="{{!data.coupon_list || data.coupon_list.length == 0}}">
+        <image src="../../../images/qdn/xiaoxiong.png" class="cart-image" />
+        <view class="no-data-title">抱歉未查到数据！</view>
+        <navigator url="/pages/index/index/index" class="lookat" open-type="switchTab">
+            去逛逛
+        </navigator>
+    </view>
+</view>

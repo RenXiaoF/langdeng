@@ -1,0 +1,36 @@
+<!-- pages/goods/integralDraw/integralDraw.wxml -->
+<view class="container">
+    <!-- 上三 -->
+    <view class="title">
+        <text>幸运大转盘</text>
+        <navigator url="/pages/goods/winningRecord/winningRecord" open-type="navigate">
+            <text class="zhong">中奖记录</text>
+        </navigator>
+        <text class="active">活动进行中</text>
+    </view>
+    <!-- 中二 -->
+    <view class="time">活动开始时间:2019-10-24 10:36:27</view>
+    <view class="time">活动结束时间:2019-11-12 15:00:00</view>
+    <!-- 活动 -->
+    <view class="image">
+        <!-- <navigator url="/pages/games/wheel/wheel" open-type="navigate"> -->
+            <image class="draw-image" src="../../../images/qdn/shuang11.png"></image>
+        <!-- </navigator> -->
+        <view class="image-text">
+            <view class="image-view">
+                <navigator url="/pages/games/wheel/wheel" open-type="navigate">
+                    <text>双11会员幸运抽奖</text>
+                </navigator>
+            </view>
+            <view class="image-view">
+                <text>参与人数：0</text>
+            </view>
+        </view>
+    </view>
+    <!-- 按钮 -->
+    <view class="button">
+        <navigator url="/pages/games/wheel/wheel" open-type="navigate">
+            <button>立即参与</button>
+        </navigator>
+    </view>
+</view>

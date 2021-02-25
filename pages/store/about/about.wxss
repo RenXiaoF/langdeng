@@ -1,0 +1,85 @@
+/* about.wxss */
+.shops-item{
+    padding:20rpx 30rpx;
+    background-color: #fff;
+}
+.shops-info{
+    display: flex;
+    height: 200rpx;
+    padding-bottom: 20rpx;
+}
+.shops-pic{
+    width: 200rpx;
+    height: 200rpx;
+    margin-right: 20rpx;
+    border: 1px solid #eee;
+}
+.shops-mes{
+    padding-top:48rpx;
+    overflow:hidden;
+}
+.shops-name{
+    line-height:36rpx;
+    font-size: 36rpx;
+    font-weight: 700;
+    letter-spacing: 5rpx;
+    color: #333;
+}
+.goods-num-list{
+    height: 100rpx;
+    display: flex;
+}
+.goods-num-item{
+    width: 33.33%;
+    text-align: center;
+}
+.goods-num{
+    height: 72rpx;
+    line-height: 72rpx;
+    font-size: 36rpx;
+}
+.num-item-title{
+    font-size: 24rpx;
+    line-height: 1;
+    color: #666;
+}
+.score-list{
+    height: 88rpx;
+    line-height: 88rpx;
+    font-size: 28rpx;
+    display: flex;
+    border-bottom: 1px solid #eee;
+    border-top: 1px solid #eee;
+}
+.score-list>view{
+    width: 33.33%;
+    text-align: center;
+}
+.co-pink{
+    color:#e716bd;
+}
+.service-list{
+    margin: 20rpx 0;
+}
+.service-list>view{
+    display: flex;
+    justify-content: space-between;
+    height: 40rpx;
+    padding: 22rpx 0;
+    font-size: 28rpx;
+    line-height: 40rpx;
+    color: #666;
+    border-bottom: 1px solid #eee;
+}
+.service-tel{
+    font-size: 30rpx;
+}
+.service-ico{
+    width: 45rpx;
+    height: 40rpx;
+}
+.shop-adr>view{
+    min-height: 88rpx;
+    line-height: 88rpx;
+    font-size: 28rpx;
+}

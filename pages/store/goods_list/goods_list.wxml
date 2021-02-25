@@ -1,0 +1,35 @@
+<view class="container">
+    <view class="search-bar">
+        <input placeholder="请输入关键字..." bindinput="inputSearch"/>
+        <icon type="search" size="20" bindtap="searchGoods"/>
+    </view>
+    <view class="nav">
+        <navigator class="nav-item" bindtap="changeTab" data-href="{{requestData.orderby_default}}">综合<view class="ico-dg"><image class="wh100" src="../../../images/dg.png"></image></view></navigator>
+        <navigator class="nav-item" bindtap="changeTab" data-href='{{requestData.orderby_sales_sum}}'>销量</navigator>
+        <navigator class="nav-item" bindtap="changeTab" data-href='{{requestData.orderby_price}}'>
+            价格
+            <view class="ico-dir {{requestData.sort!='price'?'':(requestData.sort_asc=='asc'?'ico-dir-up':'ico-dir-dn')}}" style="background-image: url({{resourceUrl+'/static/images/sxjt.png'}});"></view>
+        </navigator>
+    </view>
+
+    <view class="choice_list">
+        <block wx:for="{{requestData.goods_list}}" wx:key="{{index}}">
+            <navigator class="choice_item" url="/pages/goods/goodsInfo/goodsInfo?goods_id={{item.goods_id}}">
+                <view class="img-wrap">
+                    <image src="{{url}}/api/goods/goodsThumImages?goods_id={{item.goods_id}}&width=400&height=400"></image>
+                </view>
+                <view class="item-cont">
+                    <view class="title">{{item.goods_name}}</view>
+                    <view class="price">￥{{item.shop_price}}</view>
+                    <view class="comment">评论{{item.comment_count}} 销量{{item.sales_sum}}</view>
+                </view>
+            </navigator>
+        </block>
+    </view>
+    
+    <view class="no-data" wx:if="{{!requestData.goods_list || requestData.goods_list.length == 0}}">
+        <image src="../../../images/cart-null.png" class="cart-image"/>
+        <view class="no-data-title">抱歉未查到数据！</view>
+        <navigator url="/pages/index/index/index" class="lookat" open-type="switchTab"> 去逛逛 </navigator>
+    </view>
+</view>

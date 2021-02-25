@@ -1,0 +1,21 @@
+<!--message_notice.wxml-->
+<view class="container">
+    <view class="type-navbar">
+        <view class="type-box" wx:for="{{categories}}" wx:key="{{index}}">
+            <view data-status="{{item.status}}" class="type-navbar-item {{activeStatus == item.status ? 'type-item-on' : ''}}" bindtap="changeTab">
+                {{item.name}}
+            </view>
+        </view>
+    </view>
+    <view class="msg-list">
+        <view class="msg-box" wx:for="{{messages}}" wx:key="{{index}}">
+            <view class="msg-time">{{item.sendTimeFommat}}</view>
+            <view>{{item.message}}</view>
+        </view>
+    </view>
+    <view class="no-data" wx:if="{{!messages || messages.length == 0}}">
+        <image src="../../../images/cart-null.png" class="cart-image"/>
+        <view class="no-data-title">暂无消息</view>
+        <navigator url="/pages/index/index/index" class="lookat" open-type="switchTab"> 去逛逛 </navigator>
+    </view>
+</view>

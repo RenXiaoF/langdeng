@@ -1,0 +1,14 @@
+<!--pages/user/feedback/feedback.wxml-->
+<view class="container">
+    <form >
+        <view class="item">
+            <input type="number" class="item-input" placeholder="请输入手机号码" name="" value=""/>
+        </view>
+        <view class="from-item">
+            <textarea focus class="from-item-input" placeholder="您的意见反馈让我们更好" name="" value=""></textarea>
+        </view>
+         <view class="address-create">
+            <button class="create-btn" form-type="submit">确认提交</button>
+        </view>
+    </form>
+</view>

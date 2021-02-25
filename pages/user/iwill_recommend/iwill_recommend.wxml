@@ -1,0 +1,12 @@
+<!--pages/user/iwill_recommend/iwill_recommend.wxml-->
+<view class="container">
+    <view class="button" bindtap="get_my_qrcode">从新获取</view>
+    <view class="content">
+        <view class="one" wx:if="{{statac == 0 }}">
+            <text >{{msg}}</text>
+        </view>
+        <view class="two" wx:if="{{statac == 1 }}">
+            <image class="img" src="{{url}}{{img}}"></image>
+        </view>
+    </view>
+</view>

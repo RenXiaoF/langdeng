@@ -1,0 +1,233 @@
+/* cart2.wxss */
+.user-mes{
+    position: relative;
+    background-color: #fff;
+    font-size: 32rpx;
+    color: #444;
+}
+.user-contact{
+    padding: 24rpx 80rpx;
+}
+.location{
+    position: relative;
+    padding:0 80rpx 24rpx;
+}
+.pos-icon{
+    position: absolute;
+    left: 30rpx;
+    top: 0;
+    width: 32rpx;
+    height: 32.5rpx;
+}
+.border-img{
+    width: 100%;
+    height: 16rpx;
+    font-size: 0;
+}
+.update-logistics{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 80rpx;
+    height: 148rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.arrow-rigth{
+    width: 32rpx;
+    height: 32rpx; 
+}
+.order-meg{
+    font-size: 28rpx;
+}
+.order-detail{
+    padding: 30rpx 0;
+    color: #777;
+    min-height: 100rpx;
+    background-color:#f8f8f8;
+    margin-bottom: 10rpx;
+}
+.goods-img{
+    float: left;
+    width: 100rpx;
+    height: 100rpx;
+    margin:0 20rpx; 
+}
+.order-cont{
+    float: left;
+    width: 460rpx;
+}
+.goods-name{
+    height: 60rpx;
+    line-height: 30rpx;
+    overflow: hidden;
+    margin-bottom: 16rpx;
+}
+.goods-color{
+    font-size: 24rpx;
+}
+.order-num{
+    float: right;
+    font-size: 24rpx;
+    margin-top: 10rpx;
+    margin-right: 20rpx;
+    text-align: right;
+    line-height: 42rpx;
+}
+.set-mes{
+    background-color: #fff;
+    padding: 0 20rpx;
+    font-size: 30rpx;
+    color: #444;
+}
+.set-mes>view{
+    display: flex;
+    align-items: center;
+    height: 92rpx;
+    border-bottom: 1px solid #f5f5f5;
+}
+.set-item{
+    justify-content: space-between;
+}
+.set-btn{
+    display: flex;
+    font-size: 24rpx;
+}
+.set-mes input{
+    width: 380rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    border:1px solid #ddd;
+}
+.use-btn{
+    width: 100rpx;
+    height: 50rpx;
+    margin-left: 20rpx;
+    line-height: 50rpx;
+    text-align: center;
+    background-color: #f23030;
+    color: #fff;
+}
+.coupon-num{
+    height: 36rpx;
+    margin-left: 20rpx;
+    padding: 0 16rpx;
+    line-height: 36rpx;
+    text-align: center;
+    background-color: #f23030;
+    color: #fff;
+    font-size: 24rpx;
+}
+.word-box{
+    width: 600rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+}
+.information{
+    padding: 0 20rpx;
+    background-color: #fff;
+    margin: 20rpx 0;
+}
+.information .item{
+    display: flex;
+    justify-content: space-between;
+    height: 60rpx;
+    line-height: 60rpx;
+    font-size: 26rpx;
+    color: #777;
+}
+.btn-wrap{
+    height: 100rpx;
+    background-color: #fff;
+}
+.tips-btn{
+    float: right;
+    width: 200rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+    text-align: center;
+    font-size: 30rpx;
+    color: #fff;
+    background-color: #f23030;
+}
+.pay-amount{
+    float: right;
+    display: flex;
+    align-items: center;
+    height: 100rpx;
+    font-size: 26rpx;
+    margin-right: 40rpx;
+}
+.payable{
+    color: #444;
+    margin-right: 20rpx;
+}
+/* 物流列表弹框 */
+.shipping-modal{
+    z-index: 20;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow-y: hidden;
+    color: #666666;
+    background-color: white;
+}
+.shipping-nav{
+    text-align: center;
+    font-size: 35rpx;
+    padding-top: 30rpx;
+}
+.shipping-list{
+    padding: 20rpx 30rpx 40rpx;
+    font-size: 28rpx;
+}
+.shipping-item{
+    display: block;
+    padding: 20rpx 0;
+}
+.shipping-btn{
+    width: 100%;
+    color: white;
+    background-color: #f23030;
+    line-height: 90rpx;
+    text-align: center;
+    font-size: 40rpx;
+}
+.store-list{
+    background-color: #fff;
+    margin-bottom: 20rpx;
+}
+.store-mes{
+    height: 34rpx;
+    padding: 33rpx 20rpx;
+    display: flex;
+}
+.coupon{
+    display: flex;
+}
+.totle-weight{
+    padding-right: 20rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    text-align: right;
+}
+.invoice-wrap{
+    margin-top: 20rpx;
+    margin-bottom:0rpx;
+}
+.store-ico{
+    height: 34rpx;
+    width: 34rpx;
+    margin-right: 20rpx;
+}
+
+switch .wx-switch-input{
+    height: 42rpx;
+    border-radius: 4rpx;
+}
+switch .wx-switch-input::before,switch .wx-switch-input::after{
+    height: 40rpx;
+    border-radius: 4rpx;
+}

@@ -1,0 +1,21 @@
+<view class="container">
+    <view class="withdrawal-box">
+        <view class="withdrawal-item pay title">编号</view>
+        <view class="withdrawal-item time title">申请日期</view>
+        <view class="withdrawal-item price title">金额</view>
+        <view class="withdrawal-item status title">状态</view>
+    </view>
+    <view class="withdrawal-box" wx:for="{{withdrawals}}" wx:key="{{index}}">
+        <view class="withdrawal-item pay">{{item.id}}</view>
+        <view class="withdrawal-item time">{{item.createTimeFommat}}</view>
+        <view class="withdrawal-item price">{{item.money}}</view>
+        <view class="withdrawal-item status">
+            {{item.status==-2?'无效作废':''}}
+            {{item.status==-1?'审核失败':''}}
+            {{item.status==0?'申请中':''}}
+            {{item.status==1?'审核通过':''}}
+            {{item.status==2?'提现完成':''}}
+            {{item.status==3?'转款失败':''}}
+        </view>
+    </view>
+</view>

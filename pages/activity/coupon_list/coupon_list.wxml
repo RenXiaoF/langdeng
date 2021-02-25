@@ -1,0 +1,38 @@
+<view class="container">
+    <view class="nav">
+        <navigator class="nav-item {{typeId==1?'red':''}}" bindtap="changeTab" data-id='1'>默认</navigator>
+        <navigator class="nav-item {{typeId==2?'red':''}}" bindtap="changeTab" data-id='2'>
+            即将过期
+            <view class="ico-dg"><image class="wh100" src="../../../images/dg.png"></image></view>
+        </navigator>
+        <navigator class="nav-item {{typeId==3?'red':''}}" bindtap="changeTab" data-id='3'>
+            面值最大
+            <view class="ico-dg"><image class="wh100" src="../../../images/dg.png"></image></view>
+        </navigator>
+    </view>
+    <view class="coupon-box" wx:for="{{data.coupon_list}}" wx:key="index" wx:if="{{!item.isget}}">
+        <view class="conpon-left">
+            <image class="wh100 conpon-img" src="../../../images/coupon.png"></image>
+            <view class="coupon-detail">
+                <view class="coupon-title">{{item.name}}</view>
+                <view class="coupon-range">{{item.store_name}} {{item.use_scope}}</view>
+                <view class="coupon-info">
+                    <text class="discounts">{{item.money}} </text> 满{{item.condition}}元可用
+                </view>
+            </view>
+        </view>
+        <view class="conpon-right">
+            <canvas class="circle" canvas-id="{{item.id}}"/>
+            <view>已抢</view>
+            <view>{{item.percent}}%</view>
+            <view class="get-btn" bindtap="getCoupon" data-cid="{{item.id}}">
+                {{item.createnum!=0&&item.send_num>=item.createnum ? '已抢完':'点击领取'}}
+            </view>
+        </view>
+    </view>
+    <view class="no-data" wx:if="{{!data.coupon_list || data.coupon_list.length == 0}}">
+        <image src="../../../images/cart-null.png" class="cart-image"/>
+        <view class="no-data-title">抱歉未查到数据！</view>
+        <navigator url="/pages/index/index/index" class="lookat" open-type="switchTab"> 去逛逛 </navigator>
+    </view>
+</view>

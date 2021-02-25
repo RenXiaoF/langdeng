@@ -1,0 +1,54 @@
+<import src="../../../utils/wxParse/wxParse.wxml" />
+<view class="container">
+    <view class="goods-detail">
+        <!-- 商品首页 -->
+        <view class="goods-info">
+            <!-- 第一部分 轮播图 -->
+            <swiper class="swiper_box" indicator-dots="{{true}}" vertical="{{false}}" autoplay="{{true}}" interval="{{3000}}" duration="{{1000}}">
+                <block wx:for="{{result.good.imgs_list}}" wx:key="index">
+                    <swiper-item>
+                        <image class="wh100" src="{{item.img}}" />
+                    </swiper-item>
+                </block>
+            </swiper>
+            <!-- 详情图片 -->
+            <view class="info" wx:for="{{result.result.images}}" wx:key="index">
+                <image class="info-image" src="item[index]"></image>
+            </view>
+            <!-- 第二部分  商品名称  收藏 -->
+            <view class="goods-title pd-bg-fff">
+                <view class="goods-name ellipsis-2">{{data.goods.goods_name}}</view>
+                <view class="goods-collect" bindtap="collectGoods">
+                    <view class="collect-img">
+                        <image hidden="{{data.goods.is_collect}}" class="wh100" src="../../../images/heart.png"></image>
+                        <image hidden="{{!data.goods.is_collect}}" class="wh100" src="../../../images/heart-h.png"></image>
+                    </view>
+                    <view class="collect-des">收藏</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<!-- 加入购物车栏 -->
+<view class="join-cart">
+    <view class="shopping-cart cart-ico">
+        <navigator url="/pages/index/index/index" open-type="switchTab">
+            <image class="sc-img" src="../../../images/nav/home1.png"></image>
+            <view>首页</view>
+        </navigator>
+    </view>
+
+    <view class="custom-service cart-ico" bindtap="collectGoods">
+        <image class="cs-img" hidden="{{data.goods.is_collect}}"  src="../../../images/heart.png"></image>
+        <image class="cs-img" hidden="{{!data.goods.is_collect}}"  src="../../../images/heart-h.png"></image>
+        <view>收藏</view>
+    </view>
+
+    <view  class="buy-btn cart-btn cart-btn-lg" bindtap="openSpecModel">
+        马上下单预约
+    </view>
+</view>
+<!-- 返回顶部按钮 -->
+<view class="toTop" bindtap="doScrollTop" wx:if="{{supportPageScroll}}">
+    <image class="wh100" src="../../../images/topup.png"></image>
+</view>

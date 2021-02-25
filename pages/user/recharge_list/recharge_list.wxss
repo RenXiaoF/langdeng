@@ -1,0 +1,36 @@
+page{
+    background-color: white;
+}
+
+.recharge-box{
+    font-size: 28rpx;
+    padding: 25rpx 30rpx;
+    border-bottom: 1rpx solid #f8f8f8;
+}
+.recharge-item{
+    display: inline-block; 
+    word-break: keep-all;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #666666;
+    box-sizing: border-box;
+    text-align: center;
+}
+.recharge-box .pay{
+    width: 35%;
+}
+.recharge-box .time{
+    width: 23%;
+}
+.recharge-box .price{
+    width: 20%;
+}
+.recharge-box .status{
+    width: 22%;
+    color: #e01222;
+}
+.recharge-box .title{
+    color: #666666;
+    font-size: 32rpx;
+}

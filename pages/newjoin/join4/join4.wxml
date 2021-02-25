@@ -1,0 +1,12 @@
+<import src="../../../utils/template/newjoin.wxml"/>
+
+<view class="container">
+    <template data="{{step:4}}" is="progress-bar"></template>
+    <view class="content">
+        <view class="status">{{status==0?'正在审核...':''}}{{status==1?'审核已通过':''}}{{status==2?'审核失败':''}}</view>
+        <view class="desc" wx:if="{{status==0||status==2}}">商城期待你的加入</view>
+        <view class="desc" wx:if="{{status==0||status==2}}">到PC端补全信息吧</view>
+        <image class="status-img" src="../../../images/status-ok.jpg"  wx:if="{{status==0||status==1}}"></image>
+        <view class="btn-home" bindtap='goBack'>返回首页</view>
+    </view>
+</view>

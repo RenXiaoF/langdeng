@@ -1,0 +1,76 @@
+/* index.wxss */
+.menu{
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-around;
+    background-color: #fff;
+}
+.menu-item{
+    width: 20%;
+    text-align: center;
+}
+.menu-ico{
+    width: 48rpx;
+    height: 48rpx;
+    margin: 0 auto 12rpx;
+}
+.menu-cont{
+    height: 42rpx;
+    font-size: 30rpx;
+    line-height: 42rpx;
+    overflow: hidden;
+    color: #555;
+}
+.team-list{
+    margin-top: 20rpx;
+}
+.team-item{
+    padding: 0 30rpx;
+    background-color: #fff;
+    padding-bottom: 20rpx;
+    margin-bottom: 12rpx;
+}
+.team-pic{
+    width: 690rpx;
+    height: 400rpx;
+}
+.team-name{
+    font-size: 28rpx;
+    line-height: 42rpx;
+    max-height: 84rpx;
+    margin: 10rpx 0;
+    color: #555;
+}
+.team-des{
+    display: flex;
+    justify-content: space-between;
+}
+.team-price{
+    display: flex;
+    font-size: 28rpx;
+    color: #555;
+    align-items: center;
+}
+.team-price>view{
+    margin-right:12rpx;
+}
+.team-ico{
+    display: flex;
+    align-items: center;
+
+}
+.team-ico>view{
+    width: 36rpx;
+    height: 30rpx;
+    margin-right: 6rpx;
+}
+.go-team{
+    font-size: 28rpx;
+    padding: 6rpx 12rpx;
+    color: #fff;
+    background-color: #e23435;
+}
+.no-more{
+    text-align: center;
+    line-height: 2;
+}

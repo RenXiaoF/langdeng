@@ -1,0 +1,236 @@
+/* return_goods.wxss */
+.goods-mes{
+    height: 100rpx;
+    display: flex;
+    padding:20rpx 30rpx;
+    justify-content:space-between;
+}
+.goods-img{
+    width: 100rpx;
+    height: 100rpx;
+    overflow: hidden;
+}
+.goods-des{
+    width: 560rpx;
+}
+.goods-des>view{
+    width: 100%;
+    line-height: 1;
+    font-size: 30rpx;
+    color: #444;
+}
+.goods-package{
+    display:flex;
+    margin-top:36rpx;
+}
+.goods-package>view{
+    font-size:24rpx;
+    color:#777;
+}
+.goods-price{
+    margin-right:30rpx;
+}
+.service{
+    margin-top:20rpx;
+    color: #444;
+}
+.service-title{
+    font-size:32rpx;
+    height: 80rpx;
+    line-height: 80rpx; 
+}
+.chcek-btns{
+    display: flex;
+    padding-bottom: 20rpx;
+}
+.chcek-btns>view{
+    height: 54rpx;
+    padding: 0 30rpx;
+    margin-right: 20rpx;
+    line-height: 54rpx;
+    border: 1px solid  #ccc;
+    font-size: 30rpx;
+    border-radius: 8rpx;
+}
+.chcek-btns .checkedBtn{
+    border-color: #e23435;
+    color: #e23435;
+}
+.apply-num{
+    margin-top:20rpx;
+    color: #444;
+    font-size: 32rpx;
+    padding: 0 30rpx 20rpx;
+    background-color: #fff; 
+}
+.apply-title{
+    height: 80rpx;
+    line-height: 80rpx; 
+}
+.count{
+    display: flex;
+    width: 152rpx;
+    border: 1px solid #ccc;
+    border-radius: 8rpx;
+    
+}
+.count>view,.count>input{
+    width: 50rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    text-align: center;
+}
+.count>input{
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+.cause{
+    display: flex;
+    padding: 20rpx 30rpx;
+    margin-top: 20rpx;
+    background-color: #fff;
+    line-height: 42rpx;
+    overflow: hidden;
+}
+.cause-title{
+    font-size: 32rpx;
+    color: #444;
+    margin-right: 20rpx;
+}
+.cause-cont{
+    font-size: 28rpx;
+    color: #777;
+    width: 540rpx;
+    height: 42rpx;
+}
+.cause-pop{
+    position: fixed;
+    z-index: 12;
+    left: 0;
+    bottom: 0;
+    width:690rpx;
+    padding:20rpx 30rpx 50rpx;
+    color: #777;
+    font-size: 28rpx;
+    background-color: #fff;
+}
+.close-btn{
+    position: absolute;
+    right: 30rpx;
+    top: 35rpx;
+    font-size: 40rpx;
+    width: 50rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    text-align: center;
+    color: #444;
+}
+.pop-title{
+    height: 72rpx;
+    line-height: 72rpx;
+    text-align: center;
+    color: #444;
+}
+.cause-item{
+    display: flex;
+    align-items: center;
+    height: 60rpx;
+    margin:10rpx 0;
+}
+.cause-item>icon{
+    margin-right: 20rpx;
+}
+.receiving-wrap{
+    padding: 20rpx 30rpx;
+    margin-top: 20rpx;
+    background-color: #fff;
+}
+.receiving-title{
+    line-height: 60rpx;
+    font-size:32rpx;
+    color:#444;
+}
+.receiving-status{
+    display: flex;
+}
+.receiving{
+    height:60rpx;
+    display: flex;
+    align-items: center;
+    font-size: 30rpx;
+    color: #777;
+    margin-right: 30rpx;
+}
+.receiving>icon{
+    margin-right: 20rpx;
+}
+.evaluation{
+    padding: 30rpx 30rpx;
+    margin-top: 20rpx;
+    position: relative;
+    font-size: 28rpx;
+    background-color: #fff;
+}
+.evaluation-title{
+    margin-bottom:20rpx; 
+    line-height: 50rpx;
+    font-size: 32rpx;
+    color: #444;
+    border-bottom: 1px solid #ddd;  
+}
+.word-box{
+    color: #444;
+    line-height: 40rpx;
+    width: 100%;
+    height: 200rpx;
+}
+.words-num{
+    position: absolute;
+    right:30rpx;
+    bottom:30rpx;
+    color: #777;
+}
+.upload-img{
+    padding: 20rpx 30rpx;
+    margin-top: 20rpx;
+    background-color: #fff;
+}
+.upload-title{
+    line-height: 60rpx;
+    font-size: 32rpx;
+    color: #444;
+}
+.pic-list{
+    display: flex;
+    padding: 20rpx 0;
+    justify-content: space-around;
+}
+.share-pic{
+    width: 126rpx;
+    height: 126rpx;
+    border: 1px solid #ddd;
+    overflow: hidden;
+}
+.upload-tips{
+    font-size: 28rpx;
+    color: #777;
+    line-height: 40rpx;
+}
+.contact{
+    margin-top: 20rpx;
+    line-height: 72rpx;
+    font-size: 32rpx;
+    color: #444;
+}
+.btn-wrap{
+    padding: 20rpx 0;
+}
+.submit-btn{
+    width: 320rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+    background-color:#f15353;
+    color: #fff;
+    margin:auto;
+}

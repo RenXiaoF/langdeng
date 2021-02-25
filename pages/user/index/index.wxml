@@ -1,0 +1,110 @@
+<!-- index.wxml -->
+<!-- 用户信息 -->
+<view class="container">
+    <view class="userinfo">
+        <view class="user-box">
+            <navigator url='/pages/user/userinfo/userinfo'>
+                <image class="userinfo-avatar" src="{{userInfo.head_pic?userInfo.head_pic:defaultAvatar}}"></image>
+            </navigator>
+            <view class="usercard">
+                <view class="text">{{cost.nickname ? cost.nickname : ''}}</view>
+                <view class="text">{{cost.realname ? cost.realname : ''}}</view>
+                <view class="text">{{cost.mobile ? cost.mobile : ''}}</view>
+                <view class="text">{{cost.get_address ? cost.get_address : ''}}</view>
+                <!-- <text>ID:{{cost.user_id}}</text> -->
+                <!-- <view class="usergrade .co-red">{{userInfo.user_level_name}}</view> -->
+            </view>
+            <view class="infonavi">
+                <navigator class="infonaviitem" url='/pages/user/userinfo/userinfo'>
+                    <image class="set-btn" src="../../../images/set.png"></image>
+                </navigator>
+            </view>
+        </view>
+    </view>
+</view>
+<!-- 积分 余额 -->
+<view class="jfye">
+    <view class="jifen">
+        <navigator url="/pages/user/account_list/account_list" open-type="navigate">
+            <text>积分</text>
+            <text>{{cost.pay_points}}</text>
+            <image class="" src="../../../images/qdn/ios-arrow-forward.png" />
+        </navigator>
+    </view>
+    <view class="yue">
+        <navigator url="/pages/user/account_list/account_list" open-type="navigate">
+            <text>余额</text>
+            <text>{{cost.user_money*1}}</text>
+            <image class="" src="../../../images/qdn/ios-arrow-forward.png" />
+        </navigator>
+    </view>
+</view>
+<!-- 各种记录 -->
+<view class="myRecord">
+    <view class="yuyue">
+        <navigator class="" url="/pages/user/reservation/reservation" open-type="navigate">
+            <image src="../../../images/qdn/ios-alarm.png" />
+            <view>我的预约</view>
+        </navigator>
+    </view>
+    <view class="yuyue">
+        <navigator class="" url="/pages/user/order_list/order_list" open-type="navigate">
+            <image src="../../../images/qdn/ios-clipboard.png" />
+            <view>我的订单</view>
+        </navigator>
+    </view>
+    <view class="yuyue">
+        <navigator class="" url="/pages/user/my_pattern/my_pattern" open-type="navigate">
+            <image src="../../../images/qdn/ios-person.png" />
+            <view>我的量体师</view>
+        </navigator>
+    </view>
+    <view class="yuyue">
+        <navigator class="" url="/pages/user/quick_appointment/quick_appointment" open-type="switchTab">
+            <image src="../../../images/qdn/ios-cart.png" />
+            <view>一键复购</view>
+        </navigator>
+    </view>
+    <view class="yuyue">
+        <navigator class="" url="/pages/user/iwill_recommend/iwill_recommend" open-type="navigate">
+            <image src="../../../images/qdn/ios-thumbs-up.png" />
+            <view>我要推荐</view>
+        </navigator>
+    </view>
+    <view class="yuyue">
+        <navigator class="" url="/pages/user/my_recommend/my_recommend" open-type="navigate">
+            <image src="../../../images/qdn/logo-dropbox.png" />
+            <view>我的推荐</view>
+        </navigator>
+    </view>
+    <view class="yuyue">
+        <navigator class="" url="/pages/intefral_mall/intefral_mall/intefral_mall" open-type="navigate">
+            <image src="../../../images/qdn/ios-basket.png" />
+            <view>积分商城</view>
+        </navigator>
+    </view>
+    <view class="yuyue">
+        <navigator class="" url="/pages/user/my_collect/my_collect" open-type="navigate">
+            <image src="../../../images/qdn/ios-heart.png" />
+            <view>我的收藏</view>
+        </navigator>
+    </view>
+    <view class="yuyue" bindtap="call">
+        <navigator class=""  open-type="navigate">
+            <image src="../../../images/qdn/headset.png" />
+            <view>联系客服</view>
+        </navigator>
+    </view>
+    <view class="yuyue">
+        <navigator class="" url="/pages/user/point_redemption/point_redemption" open-type="navigate">
+            <image src="../../../images/qdn/ios-basket1.png" />
+            <view>积分订单</view>
+        </navigator>
+    </view>
+</view>
+<!-- 浪登  电话 -->
+<view class="tel" bindtap="call">
+    <text class="tel-name">{{gongsi.store_name}}</text>
+    <text class="tel-tel">电话:</text>
+    <text class="tel-num">{{gongsi.phone}}</text>
+</view>

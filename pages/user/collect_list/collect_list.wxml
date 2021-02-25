@@ -1,0 +1,41 @@
+<!--collect_list.wxml-->
+<view class="pd-bg-fff">
+    <view class="follow-nav">
+        <view data-i="1" class="nav-item {{activeFollow==1?'nav-item-on':''}}" bindtap="checkNav">商品收藏</view>
+        <view data-i="2" class="nav-item {{activeFollow==2?'nav-item-on':''}}" bindtap="checkNav">店铺关注</view>
+    </view>
+    <view class="goods-ul collect-ul" wx:if="{{activeFollow==1}}">
+        <view class="goods-li collect-li" wx:for="{{goodsCollects}}" wx:key="{{index}}">
+            <navigator url="/pages/goods/goodsInfo/goodsInfo?goods_id={{item.goods_id}}">
+                <image class="collect-img" src="{{url}}/api/goods/goodsThumImages?goods_id={{item.goods_id}}&width=400&height=400"></image>
+            </navigator>
+            <view class="collect-li-cont">
+                <view class="collect-name ellipsis-1">{{item.goods_name}}</view>
+                <view class="collect-price collect-name">￥{{item.shop_price}}</view>
+                <view class="collect-word collect-name">{{item.comment_count}}条评价</view>
+                <view class="collect-btn" bindtap="cancelCollectGoods" data-id="{{item.goods_id}}">取消关注</view>
+            </view>
+        </view>
+    </view>
+    <view class="store-ul collect-ul" wx:if="{{activeFollow==2}}">
+        <view class="store-li collect-li" wx:for="{{storeCollects}}" wx:key="{{index}}">
+            <navigator url="/pages/store/index/index?store_id={{item.store_id}}">
+                <image class="collect-img" src="{{url + item.store_avatar}}"></image>
+            </navigator>
+            <view class="collect-li-cont">
+                <view class="collect-name ellipsis-1">{{item.store_name}}</view>
+                <view class="store-star">
+                    <image class="star-item" src="../../../images/heart-h.png" wx:for="{{item.store_servicecredit}}" wx:key="{{index}}"></image>
+                </view>
+                <view class="collect-word collect-name">{{item.store_collect}}人关注</view>
+                <view class="collect-btn" bindtap="cancelCollectStore" data-id="{{item.store_id}}">取消关注</view>
+            </view>
+        </view>
+    </view>
+</view>
+
+<view class="no-data" wx:if="{{(activeFollow==1&&(!goodsCollects || goodsCollects.length == 0))||(activeFollow==2&&(!storeCollects || storeCollects.length == 0))}}">
+    <image src="../../../images/cart-null.png" class="cart-image"/>
+    <view class="no-data-title">抱歉未查到数据！</view>
+    <navigator url="/pages/index/index/index" class="lookat" open-type="switchTab"> 去逛逛 </navigator>
+</view>

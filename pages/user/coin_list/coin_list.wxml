@@ -1,0 +1,43 @@
+<!--pages/user/coin_list/coin_list.wxml-->
+
+<view class="container">
+
+    <view class="type-navbar">
+        <view class="type-box" wx:for="{{categories}}" wx:key="{{index}}">
+            <view id="{{item.id}}" class="type-navbar-item {{activeCategoryId == item.id ? 'type-item-on' : ''}}" bindtap="changeTab">
+                {{item.name}}
+            </view>
+        </view>
+    </view>
+
+    <navigator class="addcoin" url="/pages/user/add_coinlist/add_coinlist">
+      <image class="addimg" src="../../../images/q3.png"></image>
+      <view class="addsubmit">点击立即申请管理积分</view>
+    </navigator>
+
+    <view class="goods-container">
+      <view class="coinlist">
+        <view class="bigdiv">
+          <view class="littlediv" wx:for="{{orderList}}" wx:key="{{index}}" data-id="{{item.id}}">
+            <view>
+              事项说明:{{item.name}}
+            </view>
+            <view>
+              <view class="littleitem">奖扣时间:{{item.work_time}}</view>
+              <view class="littleitem">申请积分:{{item.b_coin}}</view>
+              <view class="littleitem">审核状态:{{item.status}}</view>
+              <view class="littleitem">申请时间:{{item.apply_time}}</view>
+            </view>
+            <view>
+            <navigator url="/pages/user/add_coinlist/add_coinlist?edit_id={{item.id}}">
+              <button class="littleitem">编辑</button>
+            </navigator>
+              <button class="littleitem" id="{{item.id}}" bindtap="delcoin">删除</button>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+</view>
+
+

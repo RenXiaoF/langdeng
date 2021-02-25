@@ -1,0 +1,38 @@
+<!-- pages/user/my_pattern/my_pattern.wxml -->
+<view class="container">
+    <view class="jiazai" wx:if="{{statac == 0 }}">加载ing~~</view>
+    <view class="jiazai" wx:if="{{statac == 2 }}">暂无量体师~~</view>
+    <view class="content" wx:if="{{statac == 1}}">
+        <image class="img" src="{{designer.design_pic}}"></image>
+        <view class="nin">
+            <text class="">您的量体师:</text>
+            <text class="">{{designer.realname}}</text>
+        </view>
+        <view class="nin">
+            <text class="">迄今总服务用户数:</text>
+            <text class="">{{designer.service_count_user}}次</text>
+        </view>
+        <view class="nin">
+            <text class="">迄今为您定制次数:</text>
+            <text class="">{{designer.service_my_count_num}}次</text>
+        </view>
+        <view class="nin">
+            <text class="">您对量体师的综合评价:</text>
+            <text class="">暂无</text>
+        </view>
+        <view class="jiayou" bindtap="buildings">
+            <view>给量体师加加油</view>
+            <view>推荐给我的好友</view>
+        </view>
+        <view class="phones">
+            <view class="phone">
+                <button>联系电话:{{designer.mobile}}</button>
+            </view>
+            <view class="phone">
+                <button>客服电话:{{designer.mobile}}</button>
+            </view>
+        </view>
+    </view>
+    <!-- <button class="submit" bindtap="one_step_appoint">一键复购</button> -->
+    <button class="submit" bindtap="jumpTo">一键复购</button>
+</view>

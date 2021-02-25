@@ -1,0 +1,248 @@
+/* return_goods_info.wxss */
+.order-mes{
+    padding:10rpx 30rpx;
+    background-color: #fff;
+}
+.order-mes .order-name{
+    height: 54rpx;
+    line-height: 54rpx;
+    font-size: 30rpx;
+    color: #777;
+    width: 500rpx;
+    display: inline-block;
+}
+.order-name view{
+    word-break: keep-all;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.apply-btn{
+    width: 150rpx;
+    float: right;
+    margin-top: 20rpx;
+} 
+.goods-mes{
+    padding:10rpx 30rpx;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+}
+.goods-pic{
+    width: 180rpx;
+    height: 180rpx;
+}
+.goods-des{
+    width: 490rpx;
+    font-size: 30rpx;
+}
+.goods-name{
+    width: 100%;
+    height: 30rpx;
+    color: #444;
+    line-height: 1;
+    margin-bottom: 20rpx;
+}
+.apply-mes{
+    padding:30rpx;
+}
+.apply-item{
+    display: flex;
+    height: 60rpx;
+    line-height: 60rpx;
+    font-size: 28rpx;
+    overflow: hidden;
+    color: #777;
+}
+.apply-til{
+    color: #444;
+    margin-right: 40rpx;
+}
+.apply-state{
+    margin-top: 20rpx;
+    background-color: #fff;
+    padding-left: 50rpx;
+    padding-top: 80rpx;
+}
+.img-title{
+    position: relative;
+    border-top: 1rpx solid #dedede;
+    margin-top: 40rpx;
+    text-align: center;
+}
+.img-title view{
+    position: relative;
+    top: -28rpx;
+    font-size: 28rpx;
+    color: #666666;
+    display: inline;
+    background: white;
+    padding: 0 5rpx;
+}
+.img-box{
+    display: inline-block;
+}
+.img-box image{
+    height: 120rpx;
+    width: 120rpx;
+    padding: 8rpx;
+}
+.state-item{
+    border-left: 1px solid #ccc;
+    padding-left: 40rpx;
+}
+.item-wrap{
+    position: relative;
+    margin-bottom:80rpx;
+    padding-bottom:50rpx;
+    border-bottom: 1px solid #eee;
+    font-size: 24rpx;
+    color: #aaa;
+    line-height: 1;
+}
+.item-wrap::before{
+    content: '';
+    position: absolute;
+    left:-61rpx;
+    top: 0;
+    width: 26rpx;
+    height: 26rpx;
+    border-radius: 50%;
+    background-color: #e23435;
+    border:4px solid #ed8182;
+}
+.state-title{
+    font-size: 28rpx;
+    font-weight: bold;
+    color: #666;
+    padding-bottom:20rpx; 
+}
+.state-title view{
+    font-weight: normal;
+}
+.state-time{
+    padding-bottom: 20rpx;
+}
+.progress-desc{
+    
+    padding: 30rpx;
+    background-color: #fff;
+    font-size: 28rpx;
+}
+/* 进度条 */
+.progress-bar-list{
+    width: 100%;
+    height:160rpx;
+    padding: 30rpx 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    background-color: #fff;
+}
+.bar-item{
+    width: 150rpx;
+    height: 160rpx;
+    position: relative;
+}
+.tips-wrap{
+    height: 66rpx;
+}
+.bar-item .tips{
+    position: relative;
+    width: 90rpx;
+    height: 36rpx;
+    line-height: 36rpx;
+    text-align: center;
+    font-size: 24rpx;
+    color: #fff;
+    background-color: #50c65f;
+    border-radius: 18rpx;
+    margin:0 auto;
+}
+.bar-item .tips::before{
+    content: '';
+    position: absolute;
+    right: 35rpx;
+    bottom: -20rpx;
+    width: 0;
+    height: 0;
+    border: 10rpx solid transparent;
+    border-top-color: #50c65f;
+}
+.bar-ico{
+    width: 44rpx;
+    height: 44rpx; 
+    margin: 0 auto;
+}
+.bar-s{
+    display: none;
+}
+.bar-steps{
+    width: 100%;
+    text-align: center;
+    height: 50rpx;
+    line-height: 50rpx;
+    font-size:24rpx;
+    color: #ccc;
+}
+.line{
+    position: absolute;
+    top: 85rpx;
+    right: 114rpx;
+    width: 72rpx;
+    height: 6rpx;
+    background-color: #ccc;
+    border-radius: 3rpx;
+}
+.bar-check .bar-s{
+    display: block;
+}
+.bar-check .bar-f{
+    display: none;
+}
+.bar-check .bar-steps{
+    color: #50c65f;
+}
+.bar-check .line{
+    background-color: #50c65f;
+}
+.notice{
+    margin-top: 20rpx;
+    background-color: #fff;
+    font-size: 28rpx;
+    padding: 30rpx;
+}
+.border-top{
+  border-top: 1px solid #eee;
+}
+.item{
+    float: left;
+    padding: 0 30rpx; 
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 28rpx;
+    border-bottom: 1rpx #f5f5f5 solid;
+    line-height: 100rpx;
+    height: 100rpx;
+    position: relative;
+    background-color: white;
+}
+.item-name{
+    float: left;
+}
+.item-input{
+    float: left;
+    height: 100rpx;
+    width: 450rpx;
+    margin-left: 20rpx;
+    word-break: keep-all;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.tuihuo-bt{
+  width:80%;
+  color:#fff;
+  background: #f23030;
+  border-radius: 8rpx;
+  margin:50rpx auto 20rpx auto;
+}

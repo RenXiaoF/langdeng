@@ -1,0 +1,6 @@
+<!--pages/index/bowknot/bowknot.wxml-->
+<view class="container">
+    <view class="fenlei" wx:for="{{catelist}}" wx:key="name" wx:for-item="catelist" >
+        <view class="fenlei_text">{{catelist.name}}</view>
+    </view>
+</view>

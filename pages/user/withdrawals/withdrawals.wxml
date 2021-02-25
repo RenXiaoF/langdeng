@@ -1,0 +1,33 @@
+<!--withdrawals.wxml-->
+<view class="panel pd-bg-fff">
+    <form bindsubmit="submitWithdrawals">
+        <view class="apply-item">
+            <view class="title">提现金额 : </view>
+            <input type="digit" placeholder="可提现金额 : {{userMoney}}元" name="money"/>
+        </view>
+        <view class="apply-item">
+            <view class="title">银行名称 : </view>
+            <input type="text" placeholder="如 : 工商银行,支付宝,微信" name="bank_name"/>
+        </view>
+        <view class="apply-item">
+            <view class="title">收款账号 : </view>
+            <input type="number" placeholder="收款账号" name="account_bank"/>
+        </view>
+        <view class="apply-item">
+            <view class="title">开户号 : </view>
+            <input type="text" placeholder="持卡人姓名" name="account_name"/>
+        </view>
+        <view class="apply-item">
+            <view class="title">支付密码 : </view>
+            <input type="password" placeholder="支付密码" name="paypwd"/>
+        </view>
+        <view class="apply-item">
+            <view class="title">验证码 : </view>
+            <input class="v-code-text" type="text" placeholder="请输入验证码" name="verify_code"/>
+            <view class="v-code" bindtap="getCapache">
+                <image class="wh100" src="{{capacheUrl}}"></image>
+            </view>
+        </view>
+        <button class="apply-btn" form-type="submit">提交申请</button>
+    </form>
+</view>

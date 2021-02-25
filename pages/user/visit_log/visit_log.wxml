@@ -1,0 +1,22 @@
+<view class="container">
+    <block wx:for="{{ visits }}" wx:for-item="visit" wx:for-index="vidx"  wx:key="{{vidx}}">
+        <view class="log_date">
+            <view class="maleri30">{{ visit.date }}</view>
+        </view>
+        <view class="visit" wx:for="{{ visit.visit }}" wx:key="{{index}}">
+            <navigator class="goods_img" url="/pages/goods/goodsInfo/goodsInfo?goods_id={{item.goods_id}}">
+                <image class="wh100" src="{{url}}/api/goods/goodsThumImages?goods_id={{item.goods_id}}&width=200&height=200"/>
+            </navigator>
+            <view class="goods_detail">
+                <navigator class="goods_name" url="/pages/goods/goodsInfo/goodsInfo?goods_id={{item.goods_id}}">
+                    {{ item.goods_name }}
+                </navigator>
+                <view class="goods_footer">
+                    <text class="price">￥{{ item.shop_price }}</text>
+                    <navigator class="similar" url="/pages/goods/goodsList/goodsList?cat_id={{item.cat_id3}}">看相似</navigator>
+                    <view class="similar" bindtap='deleteVisit' data-vidx='{{vidx}}' data-gidx='{{index}}'>删除</view>
+                </view>
+            </view>
+        </view>
+    </block>
+</view>

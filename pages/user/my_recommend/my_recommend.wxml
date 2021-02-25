@@ -1,0 +1,15 @@
+<!--pages/user/my_recommend/my_recommend.wxml-->
+<view class="container">
+    <view class="one" wx:if="{{statac == 0}}">加载ing~~</view>
+    <view class="one" wx:if="{{statac == 2}}">暂无资料~~</view>
+    <view class="two" wx:if="{{statac == 1}}">
+        <view class="content" wx:for="{{fans_list}}" wx:key="index" wx:for-item="item">
+            <image class="image" src="{{item.head_pic}}"  />
+            <view >昵称：{{item.nickname}}</view>
+            <view > {{item.order_ddtime}}</view>
+            <view > 订单金额：{{item.total_amount}} </view>
+            <view >返佣金额：{{item.rebate_money}}</view>
+              
+        </view>
+    </view>
+</view>

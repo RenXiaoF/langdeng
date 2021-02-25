@@ -1,0 +1,33 @@
+<!--comment.wxml-->
+<view class="container">
+    <view class="type-navbar">
+        <view class="type-box" wx:for="{{categories}}" wx:key="{{index}}">
+            <view data-status="{{item.status}}" class="type-navbar-item {{activeStatus == item.status ? 'type-item-on' : ''}}" bindtap="changeTab">
+                {{item.name}}
+            </view>
+        </view>
+    </view>
+    <view class="goods-container">
+        <view class="goods-box" wx:for="{{comments}}" wx:key="{{index}}">
+            <navigator class="goods-img" url="/pages/goods/goodsInfo/goodsInfo?goods_id={{item.goods_id}}">
+                <image class="wh100" src="{{url}}/api/goods/goodsThumImages?goods_id={{item.goods_id}}&width=100&height=100"></image>
+            </navigator>
+            <navigator class='goods-desc' url="/pages/goods/goodsInfo/goodsInfo?goods_id={{item.goods_id}}">
+                <view class="goods-name ellipsis-1">{{ item.goods_name }}</view>
+                <view class="goods-name ellipsis-1">{{ item.spec_key_name?item.spec_key_name:'' }}</view>
+                <view class="buy-time">购买时间：{{ item.payTimeFommat }}</view>
+            </navigator>
+            <navigator class="comment-button change-order" hidden="{{!item.goods_comment}}" url="/pages/user/order_detail/order_detail?order_id={{item.order_id}}">
+                <image class="button-icon" src="../../../images/c23.png"></image> 查看订单
+            </navigator>
+            <view class="comment-button"  hidden="{{item.goods_comment}}" bindtap="comment" data-idx="{{index}}">
+                <image class="button-icon" src="../../../images/co.png"></image> 评价订单
+            </view>
+        </view>
+    </view>
+    <view class="no-data" wx:if="{{!comments || comments.length == 0}}">
+        <image src="../../../images/cart-null.png" class="cart-image"/>
+        <view class="no-data-title">抱歉未查到数据！</view>
+        <navigator url="/pages/index/index/index" class="lookat" open-type="switchTab"> 去逛逛 </navigator>
+    </view>
+</view>

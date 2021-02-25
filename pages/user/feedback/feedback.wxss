@@ -1,0 +1,41 @@
+/* pages/user/feedback/feedback.wxss */
+.container{
+    background-color: white;
+}
+.item{
+    width: 100%;
+    background-color: white;
+    margin-bottom: 60rpx;
+    margin-left: 60rpx;
+}
+.item-input{
+    width: 80%;
+    font-size: 35rpx;
+    border-bottom: 1rpx solid #999999;
+    padding-top: 30rpx;
+    padding-bottom: 30rpx;
+}
+.from-item{
+    width: 100%;
+    background-color: white;
+    margin-left: 60rpx;
+    margin-top: 60rpx;
+}
+.from-item-input{
+    width: 80%;
+    font-size: 35rpx;
+    border: 1rpx solid #999999;
+    margin-bottom: 60rpx;
+    padding-top: 30rpx;
+    padding-left: 20rpx;
+}
+.address-create{
+    width: 100%;
+    margin-top: 120rpx;
+}
+.create-btn{
+    font-size: 30rpx;
+    color: white;
+    background-color: red;
+    border-radius: 5rpx;
+}

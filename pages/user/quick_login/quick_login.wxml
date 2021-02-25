@@ -1,0 +1,17 @@
+<!--pages/user/quick_login/quick_login.wxml-->
+<form bindsubmit="submitRelate">
+<view class="container login-wrap">
+    <block>
+        <view class="label-input simple">
+            <text class="label">手机号</text>
+            <input class="input" placeholder="请输入您的手机号" name="username" bindchange="setMobile"/>
+        </view>
+        <view class="verify-box item">
+            <input class="verify-input" placeholder="请输入短信验证码" name="code"/>
+            <button class="verify-btn" bindtap="getCode">获取短信验证码</button>
+        </view>
+    </block>
+    
+    <button class="login-btn" formType="submit" bindsubmit="submitRelate">确 定</button>
+</view>
+</form>

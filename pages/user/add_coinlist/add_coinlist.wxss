@@ -1,0 +1,17 @@
+/* pages/user/add_coinlist/add_coinlist.wxss */
+page{
+  background: #fff;
+}
+.radio{
+  display:flex;
+  align-items:center;
+  margin-bottom:8rpx;
+  border-bottom:1px solid #eee;
+  padding: 5rpx 0;
+}
+.radio-group{
+  display:flex;
+  flex-direction:column;
+  font-size:28rpx;
+  padding:50rpx 10rpx;
+}

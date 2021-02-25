@@ -1,0 +1,70 @@
+/* pages/user/apply_list/apply_list.wxss */
+page{
+    margin-bottom: 200rpx;
+}
+.address-box{
+    background-color: white;
+    padding: 25rpx 0 25rpx 25rpx;
+    font-size: 28rpx;
+    border-bottom: 3rpx #f8f8f8 solid;
+}
+.address-user{
+    box-sizing: border-box;
+    float: left;
+    width:150rpx;
+}
+.user-name{
+    font-size: 30rpx;
+    padding-bottom: 20rpx;
+    word-break:keep-all;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    overflow: hidden;
+}
+.default{
+    color: white;
+    background-color: red;
+    padding: 4rpx;
+    width:fit-content;
+    border-radius:6rpx;
+}
+.address-info{
+    box-sizing: border-box;
+    float: left;
+    width: 480rpx;
+    padding-left: 10rpx;
+}
+.mobile{
+    padding-bottom: 25rpx;
+}
+.address{
+    height: 70rpx;
+    overflow: hidden;
+}
+.address-edit{
+    box-sizing: border-box;
+    width:95rpx;
+    float: left;
+    text-align: center;
+    padding-top: 32rpx;
+}
+.address-edit>image{
+    width: 36rpx;
+    height: 42rpx;
+}
+.address-create{
+    width: 50%;
+    text-align: center;
+    position: fixed;
+    bottom: 80rpx;
+    left: 25%;
+}
+.create-btn{
+    font-size: 28rpx;
+    color: white;
+    background-color: #f23030;
+    border-radius: 10rpx;
+    text-align: center;
+    line-height: 80rpx;
+    display: block;
+}

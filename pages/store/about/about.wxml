@@ -1,0 +1,49 @@
+<!--about.wxml-->
+<view class="shops-item">
+    <view class="shops-info">
+        <view class="shops-pic"><image class="wh100" src="{{url + store.store_logo}}"></image></view>
+        <view class="shops-mes">
+            <view class="shops-name">{{store.store_name}}</view>
+        </view>
+    </view>
+    <view class="score-list">
+        <view>商品 <text class="co-pink">{{store.store_desccredit}}分</text></view>
+        <view>服务 <text class="co-pink">{{store.store_servicecredit}}分</text></view>
+        <view>物流 <text class="co-pink">{{store.store_deliverycredit}}分</text></view>
+    </view>
+    <view class="goods-num-list">
+        <view class="goods-num-item" bindtap='remindLookGoods' data-mode=''>
+            <view class="goods-num">{{store.total_goods}}</view>
+            <view class="num-item-title">全部商品</view>
+        </view>
+        <view class="goods-num-item" bindtap='remindLookGoods' data-mode='is_new'>
+            <view class="goods-num">{{store.new_goods}}</view>
+            <view class="num-item-title">新品</view>
+        </view>
+        <view class="goods-num-item" bindtap='remindLookGoods' data-mode='is_hot'>
+            <view class="goods-num">{{store.hot_goods}}</view>
+            <view class="num-item-title">热销</view>
+        </view>
+    </view>
+</view>
+<view class="service-list pd-bg-fff">
+    <!-- <view class="service-item">
+        <view>在线客服</view>
+        <view class="service-ico"><image class="wh100" src="../../../images/custom-service.png"></image></view>
+    </view>
+    <view class="service-item">
+        <view>店铺二维码</view>
+        <view class="service-ico"><image class="wh100" src="../../../images/qr-code.png"></image></view>
+    </view> -->
+    <view class="service-item">
+        <view>在线客服 <text class="service-tel">{{store.store_phone}}</text></view>
+        <view class="service-ico"><image class="wh100" src="../../../images/shop-tel.png"></image></view>
+    </view>
+</view>
+
+<view class="shop-adr pd-bg-fff">
+    <view class="shop-time">
+        开店时间：<text class="service-tel">{{store.store_time ? store.storeTimeFormat : '未知'}}</text>
+    </view>
+    <view class="address">店铺地址：{{store.location}}{{store.store_address}}</view>
+</view>

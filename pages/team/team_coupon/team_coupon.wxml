@@ -1,0 +1,21 @@
+<view class="container">
+    <view class="coupon-list">
+        <view class="coupon-box" wx:for="{{coupons}}" wx:key="index">
+            <view class="coupon-head" style="border-image-source:url({{resourceUrl}}/static/images/coupon_a.png)">
+                <view class="coupon-money">￥ <text class="money">{{item.money}}</text></view>
+                <view class="ellipsis-2">满 {{item.condition}} 元使用</view>
+                <view class="ellipsis-1">{{item.name}}</view>
+            </view>
+            <view class="coupon-body">
+                <view class="range">{{item.store_name + item.use_type_title}}</view>
+                <view class="use-btn" bindtap="useCoupon" data-idx="{{index}}">{{lid==item.id?'取消使用':'立即使用'}}</view>
+            </view>
+            <view class="use-end">限{{item.deadTimeFommat}}前使用</view>
+        </view>
+    </view>
+</view>
+
+<view class="no-data" wx:if="{{!coupons || coupons.length == 0}}">
+    <image src="../../../images/cart-null.png" class="cart-image"/>
+    <view class="no-data-title">没有找到相关的数据</view>
+</view>

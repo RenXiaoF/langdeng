@@ -1,0 +1,66 @@
+<import src="../../../utils/regions/regions.wxml"/>
+
+<image wx:if='{{stores.ad.ad_code}}' class="banner wh100" src="{{url + stores.ad.ad_code}}"></image>
+<view class="nav">
+    <navigator data-i="1" class="nav-item {{activeNavId == 1 ? 'nav-item-on' : ''}}" bindtap="openRegionsModal"> 地区
+        <view class="ico-dg"><image class="wh100" src="../../../images/dg.png"></image></view>
+        <view class="ico-dg-h"><image class="wh100" src="../../../images/d.png"></image></view>
+    </navigator>
+    <navigator data-i="2" class="nav-item {{activeNavId == 2 ? 'nav-item-on' : ''}}" bindtap="openCategoryModal"> 类别
+        <view class="ico-dg"><image class="wh100" src="../../../images/dg.png"></image></view>
+        <view class="ico-dg-h"><image class="wh100" src="../../../images/d.png"></image></view>
+    </navigator>
+    <navigator data-i="3" class="nav-item {{activeNavId == 3 ? 'nav-item-on' : ''}}" bindtap="changeTab"> 销量
+        <view class="ico-dg"><image class="wh100" src="../../../images/dg.png"></image></view>
+        <view class="ico-dg-h"><image class="wh100" src="../../../images/d.png"></image></view>
+    </navigator>
+</view>
+
+<!-- 店铺列表  -->
+<view class="shops-item" wx:for="{{stores.store_list}}" wx:key="{{index}}">
+    <view class="shops-info">
+        <navigator class="shops-pic" url="/pages/store/index/index?store_id={{item.store_id}}">
+            <image class="wh100" src="{{url + item.store_avatar}}"></image>
+        </navigator>
+        <navigator class="shops-mes" url="/pages/store/index/index?store_id={{item.store_id}}">
+            <view class="shops-name">{{item.store_name}}</view>
+            <view class="shops-des">已经有{{item.store_collect}}人关注</view>
+            <view class="shops-des" wx:if="{{isGetLocation && item.distance>0}}">距离：{{item.distance}}千米</view>
+        </navigator>
+        <view class="follow-dtns {{item.is_collect?'is-focus':''}}" data-idx="{{index}}" bindtap="focusStore">{{item.is_collect?'已':''}}关注</view>
+    </view>
+    <view class="scores-list">
+        <view class="scores-item">
+            宝贝描述<text class="co-red">{{item.store_desccredit}}分</text> 
+            <text class="scores-grade">{{item.descScoreDesc}}</text>
+        </view>
+        <view class="scores-item">
+            卖家服务<text class="co-red">{{item.store_servicecredit}}分</text> 
+            <text class="scores-grade">{{item.serviceScoreDesc}}</text>
+        </view>
+        <view class="scores-item">
+            物流速度<text class="co-red">{{item.store_deliverycredit}}分</text> 
+            <text class="scores-grade">{{item.deliveryScoreDesc}}</text>
+        </view>
+    </view>
+    <view class="recommend-list">
+        <view class="recommend-item" wx:for="{{item.cartList}}" wx:key="{{index}}" wx:if="{{index < 3}}">
+            <navigator class="goods-pic" url="/pages/goods/goodsInfo/goodsInfo?goods_id={{item.goods_id}}">
+                <image class="wh100" src="{{url}}/api/goods/goodsThumImages?goods_id={{item.goods_id}}&width=200&height=200"></image>
+            </navigator>
+            <view class="goods-name ellipsis-1">{{item.goods_name}}</view>
+            <view class="goods-pirce">￥{{item.shop_price}}</view>
+        </view>
+    </view>
+</view>
+
+<!--类别弹窗  -->
+<view hidden="{{!showCategoryModal}}">
+    <view class="cover-layer" bindtap="closeCategoryModal"></view>
+    <view class="category-list">
+        <view class="category-item {{activeCategoryId==index?'category-item-on':''}}" data-i="{{index}}" data-scid="{{item.sc_id}}" bindtap="selectCategory" wx:for="{{stores.store_class}}" wx:key="{{index}}">{{item.sc_name}}</view>
+    </view>
+</view>
+
+<!-- 选择地址弹框  -->
+<template is="regions" data="{{regions}}"/>

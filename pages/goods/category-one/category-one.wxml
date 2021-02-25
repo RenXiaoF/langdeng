@@ -1,0 +1,54 @@
+<!-- pages/goods/category-one/category-one.wxml -->
+<view>
+    <!-- 搜索栏 -->
+    <view class="search-box">
+        <view class="search-inner">
+            <input class="search-cont" type="text" placeholder="请输入您所搜索的商品" />
+            <view class="search-img" bindtap="submitSearch">
+                <image class="wh100" src="../../../images/search.png"></image>
+            </view>
+        </view>
+        <view class="images" bindtap="openFilterModal">
+            <view>
+                <image class="image" src="../../../images/qdn/adjust.png"></image>
+            </view>
+            <view class="images-text">筛选</view>
+        </view>
+    </view>
+</view>
+<!-- 内容 -->
+<view class="container">
+    <view class="choice_list">
+        <block wx:for="{{goods_list}}" wx:key="{{index}}" wx:for-item="item">
+            <navigator class="choice_item" url="/pages/goods/goodsInfos/goodsInfos?good_id={{item.goods_id}}">
+                <view class="img-wrap">
+                    <image mode="widthFix" src="{{url}}{{item.original_img}}"></image>
+                </view>
+                <view class="item-cont">
+                    <view class="title">{{item.goods_name}}</view>
+                    <view class="price">￥{{item.shop_price}}</view>
+                </view>
+            </navigator>
+        </block>
+    </view>
+</view>
+<!-- 筛选弹框 -->
+<view hidden="{{!openFilterModal}}">
+    <view class="cover-layer" bindtap="closeFilterModal"></view>
+    <view class="filter-modal">
+        <icon type="cancel" color="gray" size="22" class="modal-close" bindtap="closeFilterModal" />
+        <button class="viewall-btn" bindtap="restoreData">显示全部分类</button>
+        <view class="filter-box" wx:for="{{catelist}}" wx:key="{{index}}" wx:for-item="listone">
+            <view class="filter-name">{{listone.name}}</view>
+            <view class="filter-items">
+                <view class="filter-item" wx:for="{{listone.list}}" wx:key="{{index}}" data-href="{{item.href}}" bindtap="filterGoods">
+                    {{item.name}}
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<!-- 返回顶部按钮 -->
+<view class="toTop" bindtap="doScrollTop" wx:if="{{supportPageScroll}}">
+    <image class="wh100" src="../../../images/topup.png"></image>
+</view>

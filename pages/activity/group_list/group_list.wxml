@@ -1,0 +1,29 @@
+<!--group_list.wxml-->
+<view class="container">
+    <view class="nav">
+        <navigator class="nav-item" bindtap="changeTab" id='tab_default'>默认</navigator>
+        <navigator class="nav-item" bindtap="changeTab" id='tab_new'>最新<view class="ico-dg"><image class="wh100" src="../../../images/dg.png"></image></view></navigator>
+        <navigator class="nav-item" bindtap="changeTab" id='tab_comment'>评论数<view class="ico-dg"><image class="wh100" src="../../../images/dg.png"></image></view></navigator>
+    </view>
+    <image wx:if='{{requestData.ad.ad_code}}' class="group-purchase" src="{{url}}{{requestData.ad.ad_code}}"/>
+    <view class="choice_box">
+        <navigator wx:for="{{requestData.groups}}" class="choice_item" url="/pages/goods/goodsInfo/goodsInfo?goods_id={{item.goods_id}}&item_id={{item.item_id}}" wx:key="{{index}}">
+            <view class="img-wrap">
+                <image src="{{url}}/api/goods/goodsThumImages?goods_id={{item.goods_id}}&width=400&height=400"></image>
+                <view class="discount">{{item.rebate}}折</view>
+            </view>
+            <view class="title">{{item.title}}</view>
+            <view class="involved">{{item.virtual_num + item.buy_num}}人参与</view>
+            <view class="price">￥{{item.price}}</view>
+            <view class="count-down">
+                <view class="tip-count">剩余</view>
+                <view class="tip-count">{{ item.remainTime }}</view>
+            </view>
+        </navigator>
+    </view>
+    <view class="no-data" wx:if="{{!requestData.groups || requestData.groups.length == 0}}">
+        <image src="../../../images/cart-null.png" class="cart-image"/>
+        <view class="no-data-title">抱歉未查到数据！</view>
+        <navigator url="/pages/index/index/index" class="lookat" open-type="switchTab"> 去逛逛 </navigator>
+    </view>
+</view>

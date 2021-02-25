@@ -1,0 +1,104 @@
+/* add_comment.wxss */
+.goods-mes{
+    height: 100rpx;
+    display: flex;
+    padding: 30rpx;
+    justify-content:space-between;
+}
+.goods-img{
+    width: 100rpx;
+    height: 100rpx;
+    overflow: hidden;
+}
+.goods-des{
+    width: 560rpx;
+}
+.goods-des>view{
+    width: 100%;
+    height: 32rpx;
+    line-height: 1;
+    font-size: 32rpx;
+    color: #444;
+}
+.goods-package{
+    margin-top: 36rpx;
+}
+.evaluation{
+    padding: 30rpx 30rpx;
+    position: relative;
+    font-size: 28rpx;
+}
+.word-box{
+    color: #444;
+    line-height: 40rpx;
+    width: 100%;
+    height: 200rpx;
+}
+.words-num{
+    position: absolute;
+    right:30rpx;
+    bottom:30rpx;
+    color: #777;
+}
+.pic-list{
+    padding:40rpx 20rpx 20rpx;
+    display: flex;
+    justify-content: space-around;
+}
+.share-pic{
+    width: 126rpx;
+    height: 126rpx;
+    border: 1px solid #ddd;
+    overflow: hidden;
+}
+.anonymous{
+    height:60rpx;
+    padding:0 20rpx 20rpx;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    font-size: 30rpx;
+    color: #777;
+}
+.anonymous>icon{
+    margin-right: 20rpx;
+}
+.score-list{
+    margin-top: 20rpx;
+}
+.score-list>view{
+    display: flex;
+    justify-content: space-between;
+    font-size: 30rpx;
+    color: #444;
+}
+.score-title{
+    height: 90rpx;
+    line-height: 90rpx;
+    border-bottom: 1px solid #eee;
+}
+.score-item{
+    align-items: center;
+    height: 80rpx;
+}
+.stars{
+    display: flex;
+}
+.stars image{
+    width: 44rpx;
+    height: 40rpx;
+}
+.btn-wrap{
+    padding: 20rpx 0;
+    background-color: #fff;
+    border-top: 1px solid #eee;
+}
+.submit-btn{
+    width: 320rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+    background-color:#f15353;
+    color: #fff;
+    margin:auto;
+}

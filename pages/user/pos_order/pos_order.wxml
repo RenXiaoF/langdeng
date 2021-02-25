@@ -1,0 +1,47 @@
+<view class="container">
+    <view class="type-navbar">
+        <view class="type-box" wx:for="{{categories}}" wx:key="{{index}}">
+            <view id="{{item.id}}" class="type-navbar-item {{activeCategoryId == item.id ? 'type-item-on' : ''}}" bindtap="changeTab">
+                {{item.name}}
+            </view>
+        </view>
+    </view>
+    <view class="goods-container">
+        <view class="goods-box" wx:for="{{orderList}}" wx:key="{{index}}" data-id="{{item.id}}">
+
+
+
+            <view class="goods-title">
+                <view class="store-name"><image src="../../../images/carnew.png" class="store-logo"></image>{{item.locate_name?item.locate_name:'未知门店'}}</view>
+                <view class="pay-status">{{item.pos_state}}</view>
+            </view>
+            <view class="order-number">商户单号:{{item.matioid}}({{item.billtype_name}})</view>
+
+            <block wx:for="{{item.goods_list}}" wx:for-item="goods" wx:key="{{index}}">
+                <view class="goods-cont">
+                    <navigator class="img-box" url='/pages/user/order_detail/order_detail?order_id={{goods.goods_id}}'>
+                        <image class="wh100" src="{{url}}/api/goods/goodsThumImages?goods_id={{goods.goods_id}}&width=200&height=200"></image>
+                    </navigator>
+                    <navigator class="goods-mes" url='/pages/user/order_detail/order_detail?order_id={{goods.goods_id}}'>
+                        <view class="goods-name">{{goods.goods_name}}</view>
+                        <view class="goods-price">¥ {{goods.goods_price}}</view>
+                        <view class="goods-num">数量 {{goods.qty}}</view>
+                    </navigator>
+                </view>
+            </block>
+
+            <view class="goods-tips">
+                <view class="order-total">
+                    <view class="goods-total">￥{{item.total}}付款日期：{{item.paydate?item.paydate:'未付款'}}</view>
+                </view>
+            </view>
+
+        </view>
+        
+        <view class="no-data" wx:if="{{!orderList || orderList.length == 0}}">
+            <image src="../../../images/cart-null.png" class="cart-image"/>
+            <view class="no-data-title">抱歉未查到数据！</view>
+            <navigator url="/pages/index/index/index" class="lookat" open-type="switchTab"> 去逛逛 </navigator>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,73 @@
+<import src="../../../utils/regions/regions.wxml"/>
+<form bindsubmit="requestUpdateUserInfo">
+    <view class="container user-container">
+        <view class="label-input item" wx:if="{{address.type=='nickname'}}">
+            <text class="label">昵称</text>
+            <input class="input" placeholder="请输入您的昵称" value="{{user.nickname}}" name="nickname" auto-focus />
+        </view>
+
+        <view wx:if="{{address.type == 'sex'}}">
+           <view class="gender-box">
+               <view style="background-image:url('{{resourceUrl}}/static/images/bag.png');" class="gender boy {{user.sex == 1 && 'boy-click'}}" bindtap="changeGender" data-gender='boy'></view>
+           </view>
+           <view class="gender-box">
+               <view style="background-image:url('{{resourceUrl}}/static/images/bag.png');" class="gender girl {{user.sex == 2 && 'girl-click'}}" bindtap="changeGender" data-gender='girl'></view>
+           </view>
+       </view>
+
+        <block wx:if="{{address.type=='mobile'}}">
+            <view class="label-input simple item">
+                <text class="label">手机号码</text>
+                <input class="input" placeholder="请输入您的手机号" value="{{user.mobile}}" name="mobile" data-name="mobile" type="number" bindblur="setMobile" auto-focus />
+            </view>
+            <view class="verify-box item">
+               <input class="verify-input" placeholder="请输入验证码" name="mobile_code"/>
+               <button class="verify-btn {{canGetCode?'btn-disable':''}}" bindtap="getCode">获取短信验证码</button>
+            </view>
+        </block>
+
+        <view class="label-input item" wx:if="{{address.type=='email'}}">
+            <text class="label">邮箱</text>
+            <input class="input" placeholder="请输入您的邮箱" value="{{user.email}}" name="email" data-name="email" auto-focus />
+        </view>
+
+       <block wx:if="{{address.type == 'password'}}">
+           <view class="label-input simple">
+               <text class="label">旧密码</text>
+               <input class="input" placeholder="旧密码" name="old_password" password auto-focus/>
+           </view>
+           <view class="label-input simple">
+               <text class="label">新密码</text>
+               <input class="input" placeholder="新密码" name="new_password" password/>
+           </view>
+           <view class="label-input simple item">
+               <text class="label">确认密码</text>
+               <input class="input" placeholder="确认密码" name="confirm_password" password/>
+           </view>
+       </block>
+
+       <block wx:if="{{address.type == 'paypwd'}}">
+           <view class="label-input simple item">
+               <text class="label">手机号</text>
+               <input disabled="true" class="input" placeholder="请输入您的手机号" value="{{user.mobile}}" name="paypwd_mobile" bindinput="setMobile" auto-focus/>
+           </view>
+           <view class="verify-box item">
+               <input class="verify-input" placeholder="请输入验证码" name="paypwd_code"/>
+               <button class="verify-btn {{canGetCode?'btn-disable':''}}" bindtap="getCode">获取短信验证码</button>
+           </view>
+           <view class="label-input simple">
+               <text class="label">新密码</text>
+               <input class="input" placeholder="新密码" name="paypwd" password/>
+           </view>
+           <view class="label-input simple item">
+               <text class="label">确认密码</text>
+               <input class="input" placeholder="确认密码" name="paypwd_confirm" password/>
+           </view>
+       </block>
+
+       <button class="submit" formType="submit">保存</button>
+    </view>
+</form>
+
+<!-- 选择地址弹框  -->
+<template is="regions" data="{{regions}}"/>

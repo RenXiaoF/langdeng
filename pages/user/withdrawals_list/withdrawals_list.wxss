@@ -1,0 +1,35 @@
+page{
+    background-color: white;
+}
+.withdrawal-box{
+    font-size: 28rpx;
+    padding: 25rpx 30rpx;
+    border-bottom: 1rpx solid #f8f8f8;
+}
+.withdrawal-item{
+    display: inline-block; 
+    word-break: keep-all;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #666666;
+    box-sizing: border-box;
+    text-align: center;
+}
+.withdrawal-box .pay{
+    width: 20%;
+}
+.withdrawal-box .time{
+    width: 27%;
+}
+.withdrawal-box .price{
+    width: 28%;
+}
+.withdrawal-box .status{
+    width: 25%;
+    color: #e01222;
+}
+.withdrawal-box .title{
+    color: #666666;
+    font-size: 32rpx;
+}

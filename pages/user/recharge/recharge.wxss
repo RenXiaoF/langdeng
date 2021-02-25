@@ -1,0 +1,39 @@
+/* recharge.wxss */
+.balance{
+    font-size: 28rpx;
+    line-height: 64rpx;
+    color: #444;
+    border-bottom: 1px solid #ddd;
+}
+.recharge{
+    display: flex;
+    align-items: center;
+    height: 120rpx;
+    font-size: 28rpx;
+    color: #444;
+    border-bottom: 1px solid #ddd;
+}
+.recharge .title{
+    word-break: keep-all;
+    white-space: nowrap;
+}
+.recharge input{
+    height: 120rpx;
+    margin-left: 30rpx;
+}
+.pic-wrap{
+    margin-left: 30rpx;
+    width: 240rpx;
+    height: 72rpx;
+}
+.recharge-btns{
+    margin: 60rpx auto 0;
+    width: 580rpx;
+    height: 88rpx;
+    font-size: 28rpx;
+    line-height: 88rpx;
+    text-align: center;
+    color: #fff;
+    background-color: #e30000;
+    border-radius: 8rpx;
+}

@@ -1,0 +1,42 @@
+<import src="../../../utils/template/newjoin.wxml"/>
+
+<view class="container">
+    <template data="{{step:3}}" is="progress-bar"></template>
+    <view class="notice">需要上传在有效期内的营业执照，且为原件照片</view>
+    <view class="pic-list pd-bg-fff">
+        <view class="share-pic">
+            <image class="wh100" src="{{filePath?filePath:defaultPhoto}}" bindtap="selectPhotos"></image>
+        </view>
+    </view>
+    <form bindsubmit="submitInfo">
+        <view class="item">
+            <view class="item-name">长期有效</view>
+            <switch type="switch" class="item-right" color="#EC5151" checked="{{isLongValid}}" bindchange="setLongValid"/>
+        </view>
+        <picker class="item" mode="date" bindchange="bindStartDate" wx:if="{{!isLongValid}}">
+            <view class="item-name">有效期开始时间:</view>
+            <view class="item-input">{{startDate}}</view>
+            <view class="item-right">
+                请选择 <image class="arrow" src="../../../images/icon-arrowdown.png"></image>
+            </view>
+        </picker>
+        <picker class="item" mode="date" bindchange="bindEndDate" wx:if="{{!isLongValid}}">
+            <view class="item-name">有效期结束时间:</view>
+            <view class="item-input">{{endDate}}</view>
+            <view class="item-right">
+                请选择 <image class="arrow" src="../../../images/icon-arrowdown.png"></image>
+            </view>
+        </picker>
+        <view class="item">
+            <view class="item-name">营业执照号:</view>
+            <input class="item-input" name="business_licence_number" value="" placeholder="请与营业执照上保持一致"/>
+            <view class="item-desc">请按照营业执照上的信息填写，仅支持数字、字母和汉字。如：410998000018866(1-1)，请输入：410998000018866</view>
+        </view>
+        <view class="item">
+            <view class="item-name">字号名称（法人）:</view>
+            <input class="item-input" name="legal_person" value="" placeholder="请填写营业执照上的字号"/>
+            <view class="item-desc">如果个体户营业执照没有名称，名称中请填写营业者姓名。企业执照请填写法人代表、个体户执照请填写经营者姓名。</view>
+        </view>
+        <button class="next-btn" form-type="submit">提 交</button>
+    </form>
+</view>

@@ -1,0 +1,38 @@
+<!--pages/user/myfans/myfans.wxml-->
+
+<view class="bigdiv">
+    <view class="type-navbar">
+        <view class="type-box" wx:for="{{categories}}"  wx:key="index">
+            <view id="{{item.id}}" class="type-navbar-item {{typeId == item.id ? 'type-item-on' : ''}}" bindtap="changeTab">
+                {{item.name}}
+            </view>
+        </view>
+    </view>
+    <view class="listview" wx:if="{{fanslists}}">
+      <view class="title">
+        <view class="titleitem">头像</view>
+        <view class="titleitem">昵称</view>
+        <view class="titleitem">订单数量</view>
+      </view>
+      <view class="fanslists">
+        <!-- <view class="list">
+          <view class="listitem">
+            <image class="headicon" src="../../../images/pic-member1.png"></image>
+          </view>
+          <view class="listitem">jyj</view>
+          <view class="listitem">100</view>
+        </view> -->
+        <view class="list" wx:for="{{fanslists}}" wx:key="index">
+            <view class="listitem">
+              <image class="headicon" src="{{item.head_pic?item.head_pic:'../../../images/pic-member1.png'}}"></image>
+            </view>
+            <view class="listitem">{{item.nickname}}</view>
+            <view class="listitem">{{item.order_num}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="no-data" wx:if="{{!fanslists||fanslists.length==0}}">
+        <image src="../../../images/cart-null.png" class="cart-image"/>
+        <view class="no-data-title">没有找到相关的数据</view>
+    </view>
+</view>

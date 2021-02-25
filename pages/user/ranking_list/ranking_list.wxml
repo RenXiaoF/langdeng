@@ -1,0 +1,28 @@
+<!--pages/user/ranking_list/ranking_list.wxml-->
+<view class="listview" wx:if="{{list}}">
+      <view class="title">
+        <view class="titleitem">排名</view>
+        <view class="titleitem">昵称</view>
+        <view class="titleitem">B积分</view>
+      </view>
+      <view class="fanslists">
+        <!-- <view class="list">
+          <view class="listitem">
+            1
+          </view>
+          <view class="listitem">jyj</view>
+          <view class="listitem">100</view>
+        </view> -->
+        <view class="list" wx:for="{{list}}" wx:key="index">
+            <view class="listitem">
+              {{item.ranking}}
+            </view>
+            <view class="listitem">{{item.nickname}}</view>
+            <view class="listitem">{{item.b_coin}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="no-data" wx:if="{{!list}}">
+        <image src="../../../images/cart-null.png" class="cart-image"/>
+        <view class="no-data-title">没有找到相关的数据</view>
+    </view>

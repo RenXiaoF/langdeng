@@ -1,0 +1,64 @@
+<!-- 分类按钮 -->
+<!-- <view class="anniu">
+    <button class="jifen" bindtap="requestAccountList">积分</button>
+    <button class="yue" bindtap="requestAccountList">余额</button>
+</view> -->
+<!-- 分类内容 -->
+<view class="container">
+    <!-- 标题 -->
+    <view class="type-navbar">
+        <view class="type_box" wx:for="{{ordertypes}}" wx:key="index" wx:for-item="item">
+            <view id="{{item.id}}" bindtap="changeTab" class="type-navbar-item {{activeCategoryId == item.id ? 'type-item-on' : ''}}">
+                {{item.name}}
+            </view>
+        </view>
+    </view>
+    <!-- 积分 -->
+    <!-- <view class="point" wx:if="{{accounttype == 'point'}}"> -->
+    <view class="point">
+        <view class="loadding" wx:if="{{statac == 0}}">加载ing~~</view>
+        <view class="loadding" wx:if="{{statac == 2}}">暂无资料~~</view>
+        <view wx:if="{{statac == 1}}">
+            <view class="content" wx:for="{{acc_list}}" wx:key="index" wx:for-item="item" data-id="{{item.id}}">
+                <view>{{item.change_time}}</view>
+                <view class="jifen">
+                    <view>{{item.desc}}</view>
+                    <view class="pay_points">{{item.pay_points}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 余额 -->
+    <!-- <view class="money" wx:if="{{accounttype == 'money'}}">
+        <view wx:if="{{statac == 0}}">加载ing~~</view>
+        <view wx:if="{{statac == 2}}">暂无资料~~</view>
+        <view wx:if="{{statac == 1}}">
+            <view class="content" wx:for="{{acc_list}}" wx:key="index" wx:for-item="item">
+                <text>{{item.change_time}}</text>
+                <text>{{item.desc}}</text>
+                <text>{{item.user_money}}</text>
+            </view>
+        </view>
+    </view> -->
+</view>
+<!-- <view class="container">
+    <view class="navbar">
+        <view class="navbar-box" wx:for="{{categories}}" wx:key="{{index}}">
+            <view id="{{item.type}}" class="{{activeType == item.type ? 'navbar-item-on' : ''}}" bindtap="changeTab">
+                {{item.name}}
+            </view>
+        </view>
+    </view>
+    <view class="account-box">
+        <view class="account-item title">描述</view>
+        <view class="account-item title">订单号</view>
+        <view class="account-item title">时间</view>
+        <view class="account-item title">A积分增减</view>
+    </view>
+    <view class="account-box" wx:for="{{accounts}}" wx:key="{{index}}">
+        <view class="account-item">{{item.desc}}</view>
+        <view class="account-item">{{item.order_sn?item.order_sn:'无'}}</view>
+        <view class="account-item time">{{item.changeTimeFommat}}</view>
+        <view class="account-item price">{{item.user_money}}</view>
+    </view>
+</view> -->

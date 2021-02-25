@@ -1,0 +1,106 @@
+<!--return_goods_info.wxml-->
+<view class="order-mes">
+    <view class="order-name">
+        <view>订单编号：{{return_goods.order_sn}}</view>
+        <view>申请时间：{{return_goods.addTimeFormat}}</view>
+    </view>
+    <!--<button class="apply-btn" hidden="{{!(return_goods.status==2&&return_goods.type==1)}}" bindtap="receiveOrder">确定收货</button>-->
+    <button class="apply-btn" hidden="{{!(return_goods.status!=-2&&return_goods.status<1)}}" bindtap="cancelReturn">取消服务</button>
+
+</view>
+<!-- 进度条  -->
+<view class="progress-bar-list">
+    <!-- 进度项模板  -->
+    <template name="bar">
+        <view class="bar-item {{check?'bar-check':''}}">
+            <view class="line" wx:if="{{!noline}}"></view>
+            <view class="tips-wrap">
+                <view wx:if="{{title}}" class="tips">{{title}}</view>
+            </view>
+            <view class="bar-ico">
+                <image class="wh100 bar-s" src="../../../images/ico-bar-s.png"></image>
+                <image class="wh100 bar-f" src="../../../images/ico-bar-f.png"></image> 
+            </view>
+            <view class="bar-steps">{{state}}</view>
+        </view>
+    </template>
+    <!-- 使用模板  -->
+    <template data="{{check:true,noline:true,title:'',state:'提交申请'}}" is="bar"></template>
+    <template wx:if="{{return_goods.status<=0}}" data="{{check:true,title:(return_goods.status==0?'待审核':''),state:'商城审核'}}" is="bar"></template>
+    <template wx:if="{{return_goods.status==-2}}" data="{{check:true,title:'已取消',state:'服务单已取消'}}" is="bar"></template>
+    <template wx:elif="{{return_goods.status==-1}}" data="{{check:true,title:'',state:'审核不通过'}}" is="bar"></template>
+    <block wx:elif="{{return_goods.status<6}}">
+        <block wx:if="{{return_goods.type<2}}">
+            <block wx:if="{{return_goods.type<1}}">
+              <template wx:if="{{return_goods.status>=1}}" data="{{check:true,title:(return_goods.status==1?'待退款':''),state:'审核通过'}}" is="bar"></template>
+            </block>
+            <block wx:if="{{return_goods.type==1}}">
+                <template wx:if="{{return_goods.status>=1}}" data="{{check:true,title:(return_goods.status==1?'待发货':''),state:'审核通过'}}" is="bar"></template>
+                <template data="{{check:return_goods.status>=2,title:(return_goods.status==2?'待收货':''),state:'用户已发货'}}" is="bar"></template>
+                <template data="{{check:return_goods.status>=3,title:(return_goods.status==3?'待退款':''),state:'卖家已收货'}}" is="bar"></template>
+            </block>
+            <template data="{{check:return_goods.status==5,title:(return_goods.status==5?'已完成':''),state:'完成退款'}}" is="bar"></template>
+        </block>
+        <block wx:else>
+            <template wx:if="{{return_goods.status>=1}}" data="{{check:true,title:(return_goods.status==1?'用户发货':''),state:'审核通过'}}" is="bar"></template>
+            <template data="{{check:return_goods.status>=2,title:(return_goods.status==2?'待收货':''),state:'用户已发货'}}" is="bar"></template>
+            <template data="{{check:return_goods.status>=3,title:(return_goods.status==3?'已收货':''),state:'卖家发货'}}" is="bar"></template>
+            <template data="{{check:return_goods.status==4,title:(return_goods.status==4?'已完成':''),state:'完成'}}" is="bar"></template>
+        </block>
+    </block>
+    <block wx:else>
+        <template data="{{check:true,title:'',state:'审核不通过'}}" is="bar"></template>
+        <template data="{{check:true,title:(return_goods.status==5?'待平台仲裁':''),state:'申请仲裁'}}" is="bar"></template>
+        <template data="{{check:return_goods.status==6,title:'',state:'完成交易纠纷'}}" is="bar"></template>
+    </block>
+</view>
+<view class="progress-desc">审核进度：
+    {{return_goods.status==-2?'尊敬的客户，您的服务单已取消，感谢您对'+platformName+'的大力支持':''}}
+    {{return_goods.status==-1?return_goods.remark:''}}
+    {{return_goods.status==0?'亲爱的客户，您的服务单已经提交成功，请您耐心等待'+return_goods.store_name+'客服审核':''}}
+    {{return_goods.status==1&&return_goods.type==1?'尊敬的客户，很抱歉出现这样的情况，如情况属实且非人为因素造成损坏，我们可以为您办理。请将商品全套及发票原件自行返回，如属商品质量问题，运费会以余额方式返还到您的商城账户；如非质量问题（误购），运费将由您承担(拒收到付），寄回商品时请附上您的订单号及收货人姓名电话、发货单详情（运单号、快递公司、快递费用），以便我们在收到返回商品时及时为您处理，感谢您的支持，谢谢！':''}}
+    {{return_goods.status==1&&return_goods.type < 1?'尊敬的客户，您的服务单已经审核通过。等待平台退款':''}}
+    {{return_goods.status==2?'尊敬的客户，您的快递已寄出，等待卖家'+return_goods.store_name+'收货':''}}
+    {{return_goods.status==3?'尊敬的客户，'+return_goods.store_name+'已收到您的快递，正在处理您的服务单':''}}
+    {{return_goods.status==4||return_goods.status==5?'尊敬的客户，您的服务单已完成，感谢您对'+platformName+'的大力支持':''}}
+    {{return_goods.status==6?'尊敬的客户，您的服务单已申请仲裁，请在交易纠纷记录中查看':''}}
+</view>
+
+<view class="apply-mes pd-bg-fff border-top">
+    <view class="apply-item">
+        <view class="apply-til">售后信息</view>
+        <view>{{return_goods.status_name}}</view>
+    </view>
+    <view class="apply-item">
+        <view class="apply-til">处理方式</view>
+        <view>期望处理方式“{{return_method[return_goods.type]}}”</view>
+    </view>
+    <view class="apply-item">
+        <view class="apply-til">问题描述</view>
+        <view>{{return_goods.reason}}</view>
+    </view>
+    <view class="apply-item">
+        <view class="apply-til">售后备注</view>
+        <view>{{return_goods.remark}}</view>
+    </view>
+    <view class="img-title" wx:if="{{return_goods.imgs.length>0}}"><view>问题图片</view></view>
+    <view class="img-box">
+        <image src="{{url + item}}" wx:for="{{return_goods.imgs}}" bindtap="previewImgs" data-idx="{{index}}" wx:key='{{index}}'></image>
+    </view>
+
+</view>
+<view class="apply-mes pd-bg-fff border-top" wx:if="{{(return_goods.status==1 && return_goods.type > 0)}}">请填写退货物流信息
+   <form bindsubmit="submitInfo">
+        <view class="item">
+            <view class="item-name">物流公司:</view>
+            <input class="item-input" name="invoice_name"/>
+        </view>
+        <view class="item">
+            <view class="item-name">快递单号:</view>
+            <input class="item-input" name="invoice_no"/>
+        </view>
+        <view style='clear:both;'></view>
+        <button class="tuihuo-bt" form-type="submit">提交</button>
+    </form>    
+</view>
+<view class="notice">提示：为避免数据遗失或泄露，请您提前做好数据备份，商城将不承担相应责任。</view>

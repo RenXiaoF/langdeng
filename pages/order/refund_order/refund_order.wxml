@@ -1,0 +1,42 @@
+<view class="container">
+    <view class="message">
+        <view>温馨提示：</view>
+        <view>1.限时特价、预约资格等购买优惠可能一并取消</view>
+        <view>2.如遇订单拆分、使用优惠券无法返还</view>
+        <view>3.支付金额，抵扣余额积分都按原路退款</view>
+        <view>4.订单一旦取消，无法恢复</view>
+    </view>
+    <form bindsubmit="refundOrder">
+        <view class="item" data-id='0' bindtap="openReasonModal">
+            <view class="item-name">退款原因:</view>
+            <view class="item-input">{{reasonList[reasonSelect]}}</view>
+            <view class="item-img">
+                <image class="arrow" src="../../../images/icon-arrowdown.png"></image>
+            </view>
+        </view>
+        <view class="item">
+            <view class="item-name">联系人:</view>
+            <input class="item-input" name="consignee" value="{{order.consignee}}"/>
+        </view>
+        <view class="item">
+            <view class="item-name">手机号码:</view>
+            <input class="item-input" name="mobile" value="{{order.mobile}}"/>
+        </view>
+        <button class="submit-btn" form-type="submit">申请退款</button>
+    </form>
+</view>
+
+<!-- 取消订单原因弹框 -->
+<view hidden="{{!openReasonModal}}">
+    <view class="cover-layer" bindtap="closeReasonModal"></view>
+    <view class="reason-modal">
+        <icon type="cancel" color="gray" size="22" class="modal-close" bindtap="closeReasonModal"/>
+        <view class="reason-nav">取消原因</view>
+        <radio-group class="reason-list" bindchange="reasonChange">
+            <label class="reason-item" wx:for="{{reasonList}}" wx:key='{{index}}'>
+                <radio value="{{index}}" color="#f23030" checked="{{index==reasonSelect}}"/> {{item}}
+            </label>
+        </radio-group>
+        <view class="reason-btn" bindtap="closeReasonModal">确 定</view>
+    </view>
+</view>

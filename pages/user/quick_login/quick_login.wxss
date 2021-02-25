@@ -1,0 +1,66 @@
+/* pages/user/quick_login/quick_login.wxss */
+page{
+    padding-top: 40%;
+    background-color: white;
+    
+}
+.login-wrap{
+    padding: 30rpx;
+    background-color: #fff;
+}
+.login-btn{
+    margin:80rpx auto 0;
+    width: 640rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+    font-size: 28rpx;
+    color: #fff;
+    background-color: #10193a;
+    border-radius: 6rpx;
+}
+.label-input{
+    font-size: 28rpx;
+    width: 680rpx;
+    line-height: 90rpx;
+    border: 1rpx #ddd solid;
+    border-radius: 10rpx;
+}
+.label{
+    box-sizing: border-box;
+    float: left;
+    padding: 0 25rpx;
+}
+.input{
+    box-sizing: border-box;
+    float: left;
+    height: 90rpx;
+    width: 500rpx;
+    padding-right: 5rpx;
+}
+.verify-box{
+    font-size: 28rpx;
+    width: 680rpx;
+    line-height: 90rpx;
+}
+.verify-input{
+    box-sizing: border-box;
+    float: left;
+    height: 90rpx;
+    width: 400rpx;
+    padding-left: 20rpx;
+    border-bottom: 1rpx #ddd solid;
+}
+.verify-btn{
+    box-sizing: border-box;
+    float: right;
+    line-height: 90rpx;
+    padding: 0 10rpx;
+    background-color: #10193a;
+    color: white;
+    border-radius: 10rpx;
+}
+
+.item{
+    margin-bottom: 40rpx;
+}

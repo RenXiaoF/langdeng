@@ -1,0 +1,31 @@
+<!--pages/user/coin_apply/coin_apply.wxml-->
+<form bindsubmit="formSubmit">
+    <input name="project_id" value="{{project.id}}" hidden/>
+    <input name="edit_id" value="{{info.id}}" hidden/>
+    <view class="item">
+        <view class="item-name">已选项目:{{project.name}}</view>
+        <!-- <input value="{{project.name}}" disabled/> -->
+    </view>
+    <view class="item">
+        <view class="item-name">可申请积分上限:</view>
+        <input value="{{project.max_coin?project.max_coin:0}}" disabled/>
+    </view>
+
+    <view class="item">
+        <view class="item-name">选择奖扣时间:</view>
+        <!-- <input name="work_time" value="{{info.work_time}}"/> -->
+        <picker mode="date" name="work_time" value="{{info.work_time}}" bindchange="bindDateChange">
+          <view class="picker">
+            {{date}}
+          </view>
+        </picker>
+    </view>
+
+    <view class="item">
+        <view class="item-name">申请积分数量:</view>
+        <input class="item-input" type="number" name="CoinNum" value="{{info.b_coin}}"/>
+    </view>
+    <view class="address-create">
+        <button class="create-btn" form-type="submit">确认提交</button>
+    </view>
+</form>

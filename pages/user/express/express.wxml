@@ -1,0 +1,23 @@
+<!--express.wxml-->
+<view class="logistics-mes">
+    <view class="logistics-num">
+        <view class="logistics-title">订单编号 : </view>
+        <view class="logistics-cont">{{ delivery.invoice_no }}</view>
+    </view>
+    <view class="logistics-num">
+        <view class="logistics-title">国内承运人 : </view>
+        <view class="logistics-cont">{{ delivery.shipping_name }}</view>
+    </view>
+</view>
+<view class="apply-state">
+    <view class="state-item">
+        <view class="item-wrap" wx:if="{{express.status != '200'}}">
+            <view class="state-title">{{ express.message }}</view>
+            <view class="state-time">{{'    '}}</view>
+        </view>
+        <view class="item-wrap" wx:for="{{express.data}}" wx:key="{{index}}">
+            <view class="state-title">{{ item.context }}</view>
+            <view class="state-time">{{ item.time }}</view>
+        </view>
+    </view>
+</view>

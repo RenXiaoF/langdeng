@@ -1,0 +1,49 @@
+<!--userinfo.wxml-->
+<view class="container">
+    <view class="user-container">
+        <view class="user-head" bindtap="changeAvatar">
+            <view class="user-txt">头像</view>
+            <image class="user_headimg" src="{{user.head_pic?user.head_pic:defaultAvatar}}"></image>
+        </view>
+        <view class="user-name" data-type="nickname" bindtap="editUserInfo">
+            <view class="user-name-txt">用户名</view>
+            <image class="arrow-right" src="../../../images/icon-arrowdown.png"></image>
+            <view class="user-txt-right one-line">{{user.nickname}}</view>
+        </view>
+        <view class="user-name" data-type="sex" bindtap="editUserInfo">
+            <view class="user-name-txt">性别</view>
+            <image class="arrow-right" src="../../../images/icon-arrowdown.png"></image>
+            <view class="user-txt-right">{{user.sex?(user.sex==1?'男':'女'):'保密'}}</view>
+        </view>
+        <view class="user-name" data-type="mobile" bindtap="editUserInfo">
+            <view class="user-name-txt">手机</view>
+            <image class="arrow-right" src="../../../images/icon-arrowdown.png"></image>
+            <view class="user-txt-right">{{user.mobile}}</view>
+        </view>
+        <view class="user-name" data-type="email" bindtap="editUserInfo">
+            <view class="user-name-txt">邮箱</view>
+            <image class="arrow-right" src="../../../images/icon-arrowdown.png"></image>
+            <view class="user-txt-right one-line">{{user.email}}</view>
+        </view>
+        <view class="user-change" data-type="password" bindtap="editUserInfo">
+            <view class="user-name-txt">修改密码</view>
+            <image class="arrow-right" src="../../../images/icon-arrowdown.png"></image>
+        </view>
+        <view class="user-name" data-type="paypwd" bindtap="editUserInfo">
+            <view class="user-name-txt">支付密码</view>
+            <image class="arrow-right" src="../../../images/icon-arrowdown.png"></image>
+        </view>
+        <navigator class="user-name" url="/pages/user/address_list/address_list">
+        <!--<navigator class="user-name" url="/pages/intefral_mall/check_address/check_address">-->
+            <view class="user-name-txt">收货地址</view>
+            <image class="arrow-right" src="../../../images/icon-arrowdown.png"></image>
+        </navigator>
+    </view>
+    <!-- 安全退出 -->
+     <view class="no-data" bindtap="clearAuth">
+        <navigator url="/pages/index/index/index" class="lookat" open-type="switchTab">
+            安全退出
+        </navigator>
+    </view>
+  
+</view>

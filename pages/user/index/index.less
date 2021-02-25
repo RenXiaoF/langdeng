@@ -1,0 +1,148 @@
+/**index.wxss**/
+page{
+    width: 100%;
+    background-color:rgb(194, 194, 194) ;
+}
+.container{
+    width: 100%;
+    .userinfo {
+        width: 100%;
+        // width: 750rpx;
+        height: 310rpx;
+        background-size: cover;
+        color: #fff;
+        // background-color: rgb(194, 194, 194);
+        .user-box{
+            width: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            height: 222rpx;
+            font-size: 36rpx;
+            .userinfo-avatar {
+                width: 128rpx;
+                height: 128rpx;
+                margin:0 40rpx;
+                border-radius: 50%;
+            }
+            .usercard{
+                display:flex;
+                flex-direction:column;
+                .text{
+                    color: black;
+                    font-size: 22rpx;
+                    width: 350rpx;
+                    padding-bottom: 10rpx;
+                }
+            }
+            .infonavi{
+                display:flex;
+                align-self:flex-start;
+                margin:20rpx 0 0 100rpx;
+                .infonaviitem{
+                    margin-right:10rpx;
+                }
+                .set-btn{
+                    // margin-left: 20rpx;
+                    width: 56rpx;
+                    height: 56rpx;
+                    background-color: rgb(12, 9, 43);
+                }
+            
+            }
+        }
+    }
+}
+/**积分余额**/
+.jfye{
+    width: 100%;
+    background-color:rgb(12, 9, 43);
+    line-height: 120rpx;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: inline-block;
+    .jifen{
+        display: inline-block;
+        margin-left: 50rpx;
+        padding-right: 40rpx;
+        border-right: 1rpx solid white;
+        text{
+            color: white;
+            padding: 0 30rpx;
+        }
+        image{
+            width: 40rpx;
+            height: 40rpx;
+            color: white;
+        }
+    }
+    .yue{
+        display: inline-block;
+        margin-left: 50rpx;
+        margin-right: 30rpx;
+        text{
+            color: white;
+            padding: 0 30rpx;
+
+        }
+        image{
+            width: 40rpx;
+            height: 40rpx;
+            color: white;
+        }
+    }
+}
+/**各种分类**/
+.myRecord{
+    width: 100%;
+    display: inline-block;
+    background-color: #fff;
+    .yuyue{
+        display: inline-block;
+        width: 33%;
+        height: 150rpx;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding-top: 60rpx;
+        border-right: 1rpx solid rgb(155, 153, 153);
+        border-bottom: 1rpx solid rgb(155, 153, 153);
+        navigator{
+            
+            image{
+                width: 50rpx;
+                height: 50rpx;
+            }
+            view{
+                font-size: 30rpx;
+                color: rgb(110, 108, 108);
+            }
+        } 
+    }
+
+}
+.tel{
+    width: 100%;
+    display: flex;
+    background-color: white;
+    margin-top: 15rpx;
+    padding: 50rpx 50rpx 100rpx 40rpx;
+    text-align: center;
+    justify-content: center;
+    .tel-name{
+        padding-right: 25rpx;
+        font-size: 30rpx;
+        color:  rgb(110, 108, 108);
+    }
+    .tel-tel{
+        padding-right: 20rpx;
+        font-size: 30rpx;
+        color:  rgb(110, 108, 108);
+    }
+    .tel-num{ 
+        // padding-right: 10rpx;
+        font-size: 30rpx;
+        // color:  rgb(110, 108, 108);
+    }
+}

@@ -1,0 +1,44 @@
+/* cart4.wxss */
+.order-list{
+    margin-bottom: 20rpx;
+}
+.order-list>view{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 96rpx;
+    font-size: 32rpx;
+    color: #444;
+}
+.title{
+    height: 70rpx;
+    line-height: 70rpx;
+    font-size: 32rpx;
+    color: #444;
+}
+.pay-way{
+    padding-bottom: 30rpx;
+}
+.pay-item{
+    display: flex;
+    height: 100rpx;
+    align-items: center;
+    border-bottom: 1px solid #f5f5f5;
+    font-size: 28rpx;
+    color: #444;
+}
+.pay-img{
+    width: 60rpx;
+    height: 52rpx;
+    margin: 0 20rpx;
+}
+.pay-now{
+    width: 680rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    text-align: center;
+    margin: 150rpx auto 0;
+    background-color:#f23030;
+    color: #fff;
+    border-radius: 10rpx;
+}

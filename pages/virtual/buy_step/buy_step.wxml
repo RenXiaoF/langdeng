@@ -1,0 +1,36 @@
+<form bindsubmit="submitOrder">
+    <view class="pd-bg-fff">
+        <view class="title-tips">购物信息(请仔细填写手机号，以确保电子兑换码准确发到您的手机。)</view>
+        <view class="input-wrap">
+            <view class="input-title">手机号码</view>
+            <input type="number" name="mobile" maxlength="11" placeholder="手机号码" value='{{mobile}}'/>
+        </view>
+        <view class="input-wrap">
+            <view class="input-title">买家留言</view>
+            <input type="text" name="user_note" placeholder="备注（建议填写和商家达成一致的说明）"/>
+        </view>
+        <view class="careful-wrap">
+            <view class="careful-tips">注意：虚拟服务类商品订单凭借电子兑换码验证消费</view>
+            <view class="careful-tips">说明：您本次购买的商品不需要收货地址，请正确输入接收手机号码，确保及时获得“电子兑换码”。可使用您已经绑定的手机或重新输入其它手机号码。</view>
+        </view>
+        <view class="goods-wrap">
+            <view class="goods-pic">
+                <image class="wh100" src="{{url}}/api/goods/goodsThumImages?goods_id={{goods.goods_id}}&width=200&height=200"></image>
+            </view>
+            <view class="goods-cont">
+                <view class="goods-name ellipsis-2">{{goods.goods_name}}</view>
+                <view class="goods-des">{{goods.spec_name}}</view>
+                <view class="goods-count">
+                    <view class="goods-price">￥{{goods.price}}</view>
+                    <view class="goods-num">数量： x{{goods.goods_num}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="pay-for">
+        <button class="pay-btn" form-type='submit'>提交订单</button>
+        <view class="consumer">
+            <view class="total">订单总额 : <text class="co-red">{{goods.price*goods.goods_num}}</text></view>
+        </view>
+    </view>
+</form>

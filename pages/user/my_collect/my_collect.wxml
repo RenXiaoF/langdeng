@@ -1,0 +1,21 @@
+<!-- pages/user/my_collect/my_collect.wxml -->
+<view class="container">
+    <view class="choice_list">
+        <view wx:for="{{mycollectionlist}}" wx:key="index" wx:for-item="item">
+            <navigator class="chice_item" url="/pages/goods/goodsInfos/goodsInfos?good_id={{item.goods_id}}">
+                <view class="img-wrap">
+                    <image mode="widthFix" src="{{url}}{{item.original_img}}"></image>
+                </view>
+                <view class="item-cont">
+                    <view class="title">{{item.goods_name}}</view>
+                    <view class="price" wx:if="{{item.exchange_integral>0}}">
+                        积分:{{item.exchange_integral}}
+                    </view>
+                    <view class="price" wx:if="{{item.exchange_integral<=0}}">
+                        ￥{{item.shop_price}}
+                    </view>
+                </view>
+            </navigator>
+        </view>
+    </view>
+</view>

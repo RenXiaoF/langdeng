@@ -1,0 +1,158 @@
+/* goodsList.wxss */
+
+/*搜索栏  start*/
+.search-box{
+    display: flex;
+    width: 100%;
+    height: 100rpx;
+    z-index: 10;
+    background-color: #10193a;
+}
+.search-inner{
+    align-items: center;
+    padding: 20rpx;
+    margin:0rpx 20rpx;
+    width:500rpx;
+    height: 58rpx;
+    background-color: #3c4359;
+}
+.search-cont{
+    justify-content: center;
+    height: 58rpx;
+    width:536rpx;
+    padding-left: 12rpx;
+    line-height: 58rpx;
+    font-size: 24rpx;
+    color: #666;
+}
+.search-img{
+    margin-right: 12rpx;
+    width: 45rpx;
+    height: 45rpx;
+    margin-top: -45rpx;
+    padding-left: 430rpx;
+}
+.images{
+    display: flex;
+}
+.image{
+    width: 35px;
+    height: 25px;
+    display: inline-block;
+    padding: 25rpx 10rpx;
+}
+.images-text{
+    color: white;
+    padding: 27rpx 5rpx;
+}
+/* 搜索栏 end */
+
+
+/* 内容 start */
+.container {
+    background-color: white;
+}
+.choice_list{
+    background-color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5rpx;
+    justify-content: space-between;
+}
+.choice_item{
+    width: 48%;
+    font-size: 28rpx;
+    margin-bottom: 30rpx;
+}
+.img-wrap image{
+    width: 100%;
+    height: 100%;
+}
+.item-cont{
+    border-bottom: 1px solid #666;
+    margin-bottom: 5rpx;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+
+}
+.item-cont .title{
+    padding-right: 10rpx;
+    line-height: 36rpx;
+    color: #333;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    width: 50%;
+
+}
+.price{
+    line-height: 36rpx;
+    height: 36rpx;
+}
+/* 内容 end */
+
+/* 弹框相关 */
+.filter-modal{
+    position: fixed;
+    left: 150rpx;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 20;
+    background-color: white;
+    overflow-x: hidden;
+    padding-bottom: 30rpx;
+}
+.filter-box{
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 28rpx;
+    padding: 20rpx;
+}
+.filter-name{
+    width: 100%;
+    padding: 20rpx 0;
+    word-break: keep-all;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 30rpx;
+}
+.filter-items{
+    width: 100%;
+}
+.filter-item{
+    float: left;
+    width: fit-content;
+    max-width: 500rpx;
+    word-break: keep-all;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding: 10rpx;
+    border-radius: 10rpx;
+    border: 1rpx #ddd solid;
+    margin: 0 10rpx 10rpx 0;
+    background-color: #fdfdfd;
+    color: #666;
+}
+.viewall-btn{
+    margin-top: 20rpx;
+    width: 300rpx;
+}
+/*置顶按钮*/
+.toTop{
+    position: fixed;
+    z-index: 3;
+    right: 20rpx;
+    bottom: 160rpx;
+    width: 68rpx;
+    height: 68rpx;
+    border:4px solid #10193a;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}

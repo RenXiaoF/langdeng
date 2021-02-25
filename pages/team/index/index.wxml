@@ -1,0 +1,32 @@
+<!--index.wxml-->
+<view class="menu">
+    <block wx:for="{{menu}}" wx:key="index">
+        <navigator class="menu-item" url="{{item.link}}">
+            <view class="menu-ico"><image class="wh100" src="{{item.src}}"></image></view>
+            <view class="menu-cont">{{item.cont}}</view>
+        </navigator>
+    </block>
+</view>
+<view class="team-list" wx:for="{{goodlist}}" wx:key="index">
+    <view class="team-item">
+        <navigator class="team-pic" url="/pages/team/team_info/team_info?goods_id={{item.goods_id}}&item_id={{item.item_id}}&team_id={{item.team_id}}">
+            <image class="wh100" src="{{url}}/api/goods/goodsThumImages?goods_id={{item.goods_id}}&width=400&height=400"></image>
+        </navigator>
+        <view class="team-name ellipsis-2">{{item.act_name}}</view>
+        <view class="team-des">
+            <view class="team-price">
+                <view class="team-ico">
+                    <view><image class="wh100" src="../../../images/ico-team6.png"></image></view>
+                    {{item.needer}}人团
+                </view>
+                <view class="co-red">￥{{item.team_price}}</view>
+                <view>单买￥{{item.shop_price}}</view>
+            </view>
+            <navigator url="/pages/team/team_info/team_info?goods_id={{item.goods_id}}&item_id={{item.item_id}}&team_id={{item.team_id}}">
+                <view class="go-team">去开团 ></view>
+            </navigator>
+        </view>
+    </view>
+</view>
+
+<view class="no-more">没有更多了</view>

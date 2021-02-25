@@ -1,0 +1,10 @@
+<!--pages/user/add_coinlist/add_coinlist.wxml-->
+<form bindsubmit="formSubmit">
+  <radio-group name="project_id" class="radio-group" bindchange="radioChange">
+    <label class="radio" wx:for="{{project_lists}}">
+      <radio value="{{item.id}}" checked="{{item.checked}}"/>
+      <view>{{item.name}}</view>
+    </label>
+  </radio-group>
+  <button formType="submit">下一步</button>
+</form>

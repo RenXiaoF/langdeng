@@ -1,0 +1,183 @@
+page {
+  width: 100%;
+  background-color: white;
+}
+.container {
+  background-color: white;
+}
+/* 浮动的优惠券->领券中心 */
+.levitate {
+  width: 100rpx;
+  height: 230rpx;
+  position: fixed;
+  bottom: 25rpx;
+  right: 25rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin-right: 20rpx;
+}
+.levitate .levitateview {
+  width: 100rpx;
+  height: 100rpx;
+  display: flex;
+  overflow: hidden;
+  border-radius: 5rpx;
+  justify-content: space-around;
+  align-items: center;
+}
+.levitate .levitater {
+  background: #f23030;
+}
+/* 立刻领券-top */
+.coupon-top {
+  display: inline-block;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  z-index: 10;
+  background-color: #282828;
+  color: white;
+  line-height: 100rpx;
+}
+.coupon-top image {
+  text-align: center;
+  width: 80rpx;
+  height: 80rpx;
+}
+.coupon-top .coupon-top-q {
+  display: inline-block;
+  text-align: center;
+  width: 400rpx;
+}
+.coupon-top .coupon-top-l {
+  width: 200rpx;
+  float: right;
+  border-radius: 10rpx;
+  text-align: center;
+  background-color: #00CED1;
+}
+/* 搜索栏  */
+.search-box {
+  display: flex;
+  margin-top: 8rpx;
+  margin-bottom: 8rpx;
+  width: 100%;
+  height: 88rpx;
+  z-index: 10;
+  /* background: linear-gradent(rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0)); */
+  background-color: #3c4359
+  /* 俏丹娜logo */
+  /* 搜索框 */
+  /* 私人--图标 */
+}
+.search-box .search-lift {
+  padding-top: 10rpx;
+  width: 55rpx;
+
+}
+.search-box .search-lift .search-lift-image {
+  width: 70rpx;
+  height: 80rpx;
+  margin-right: 10rpx;
+  padding-left: 10rpx;
+}
+.search-box .search-inner {
+  display: flex;
+  align-items: center;
+  left: 60rxp;
+  margin: 15rpx 10rpx;
+  width: 560rpx;
+  height: 58rpx;
+  border-radius: 8rpx;
+  background-color: #fff;
+}
+.search-box .search-inner .logo {
+  width: 48rpx;
+  height: 48rpx;
+  margin: 0 18rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.search-box .search-inner .search-img {
+  margin-right: 12rpx;
+  width: 30rpx;
+  height: 30rpx;
+  margin-top: -6rpx;
+  padding-left: 15rpx;
+}
+.search-box .search-inner .search-cont {
+  height: 58rpx;
+  width: 536rpx;
+  padding-left: 12rpx;
+  line-height: 58rpx;
+  font-size: 24rpx;
+  color: #0c0c0c;
+}
+.search-box .search-right {
+  /* justify-content: space-between;
+        align-items: center; */
+  padding-top: 20rpx;
+  padding-left: 23rpx;
+
+}
+.search-box .search-right .search-right-image {
+  width: 70rpx;
+  height: 80rpx;
+  color: black;
+}
+.search-fixed {
+  background: rgba(242, 48, 48, 0.8);
+}
+/* 轮播图 */
+swiper {
+  width: 100%;
+  height: calc(100vw * 240 / 375);
+}
+.slide-image {
+  width: 100%;
+}
+/*四个分类*/
+.four-class {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20rpx 0;
+}
+.four-class .four-class-img {
+  width: 185rpx;
+}
+/* 行  单图*/
+.one-class {
+  width: 100%;
+}
+.one-class .one-class-img {
+  width: 100%;
+}
+/* 行  双图*/
+.two-class {
+  width: 100%;
+  display: flex;
+}
+.two-class .two-class-list {
+  width: 50%;
+}
+.two-class .two-class-list .two-class-img {
+  width: 100%;
+}
+/* 返回顶部 */
+.toTop {
+  position: fixed;
+  z-index: 3;
+  right: 50rpx;
+  bottom: 200rpx;
+  width: 68rpx;
+  height: 68rpx;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: black;
+}

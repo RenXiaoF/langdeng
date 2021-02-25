@@ -1,0 +1,51 @@
+<view class="cates">
+    <!-- 搜索栏 -->
+    <view class="search-box">
+        <view class="search-inner">
+            <navigator url="/pages/goods/search/search" open-type="navigate">
+                <input class="search-cont" type="text" placeholder="请输入您所搜索的商品" />
+            </navigator>
+            <!-- <image class="search-image" src="../../../images/qdn/search.png"></image> -->
+        </view>
+    </view>
+    <view class="cates_container" wx:if="{{firstCategoris}}">
+        <!-- 一级菜单 -->
+        <scroll-view scroll-y class="left_menu">
+            <view class="menu_item {{index===currentIndex?'active':''}}" 
+            wx:for="{{firstCategoris}}" 
+            wx:key="{{index}}" 
+            wx:for-item="ffenlei" 
+            bindtap="requestCategories" 
+            data-index="{{index}}">
+                {{ffenlei}}
+            </view>
+        </scroll-view>
+        <!-- 二级菜单 -->
+        <scroll-view scroll-y class="right_content">
+            <!-- <image class='cate-img' src='{{url + ad.ad_code}}'></image> -->
+            <view class="goods_group" 
+            wx:for="{{categories}}" 
+            wx:key="{{sindex}}" 
+            wx:for-item="sfenlei">
+                <view class="goods_title" bindtap='goodsList' data-id='{{sfenlei.id}}'>
+                    {{sfenlei.mobile_name}}
+                </view>
+                <!-- 三级存在 -->
+                <view  class="goods_list" wx:if="{{sfenlei.mobile_name}}">
+                    <view class="content-itemz" wx:for="{{sfenlei.wechat_child_category}}" wx:key="{{tindex}}" wx:for-item="item">
+                        <navigator  url="/pages/goods/goodsList/goodsList?cat_id={{item.id}}">
+                            <image mode="widthFix" src="{{url}}{{item.image?item.image:'/public/upload/logo/2019/05-17/8153dc38d713d24c9187228fdb18b0b4.jpg'}}"></image>
+                            <view class="goods-name">{{item.mobile_name}}</view>
+                        </navigator>
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+</view>
+<!-- 模板 -->
+<view class="no-data" wx:if="{{!firstCategoris || firstCategoris.length == 0}}">
+    <image src="../../../images/cart-null.png" class="cart-image" />
+    <view class="no-data-title">暂无分类</view>
+    <navigator url="/pages/index/index/index" class="lookat" open-type="switchTab">去逛逛</navigator>
+</view>

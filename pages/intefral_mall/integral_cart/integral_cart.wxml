@@ -1,0 +1,75 @@
+<!-- pages/intefral_mall/integral_cart/integral_cart.wxml -->
+<view class="container" >
+    <view class="login-in">
+        <view class="store-list" wx:for="{{carts}}" wx:for-index="sidx" wx:key="{{index}}" wx:for-item="store">
+            <view class="store-mes">
+                <view class="go-store">
+                    <!-- <icon type="success" size="16" color="{{item.selected?'red':'gray'}}" data-sidx='{{sidx}}' bindtap="selectStore"/> -->
+                    <view class="store-ico">
+                        <image class="wh100" src="../../../images/carnew.png"></image>
+                    </view>
+                    <!-- <navigator class="store-name" url='/pages/store/index/index?store_id={{item.store_id}}'> -->
+                    <view class="store-name">{{store.store_name}}</view>
+                    <view class="store-name">已免运费｜优惠券</view>
+                       
+                    <!-- </navigator> -->
+                    <view class="store-arrow">
+                        <image class="wh100" src="../../../images/icon-arrowdown.png"></image>
+                    </view>
+                </view>
+            </view>
+            <view class="order-item">
+                <view class="goods-ico" bindtap="selectGoods" data-sidx="{{sidx}}" data-cidx="{{sidx}}">
+                    <icon type="{{item.selected?'success':'cancel'}}" size="16" color="{{item.selected?'red':'gray'}}" />
+                </view>
+                <navigator class="goods-img" url="/pages/goods/goodsInfo/goodsInfo?goods_id={{item.goods_id}}">
+                    <image class="wh100" src="{{url}}/api/goods/goodsThumImages?goods_id={{item.goods_id}}&width=200&height=200"></image>
+                </navigator>
+                <!-- 商品删除  数量加减 -->
+                <view class="goods-cont" wx:for="{{store.cartList}}" wx:key="index" wx:for-item="cart">
+                    <!-- 商品预览  和  删除 -->
+                    <navigator class="goods-name ellipsis-2" url="/pages/goods/goodsInfo/goodsInfo?goods_id={{item.goods_id}}">
+                        {{item.goods_name}}
+                    </navigator>
+                    <view class="goods-attribute ellipsis-2">{{cart.goods_name}}</view>
+                    <view class="goods-price co-red">{{cart.spec_key_name?cart.spec_key_name:'无'}}</view>
+                    <view >选服务</view>
+                    <view class="btn-del" bindtap="deleteItem" data-sidx="{{sidx}}" data-cidx="{{sidx}}">
+                        <image class="wh100" src="../../../images/dele.png"></image>
+                    </view>
+                    <view >积分: {{cart.exchange_integral}}</view>
+                    <!-- 商品数量   加减 -->
+                    <view class="count">
+                        <view class="sub" bindtap="subNum" data-sidx="{{sidx}}" data-cidx="{{sidx}}">
+                            -
+                        </view>
+                        <input type="number" value="{{cart.goods_num}}" data-sidx="{{sidx}}" data-cidx="{{sidx}}" bindblur="valueToNum" />
+                        <view class="add" bindtap="addNum" data-sidx="{{sidx}}" data-cidx="{{sidx}}">
+                            +
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="pay-for">
+        <label class="checkbox" bindtap="selectAll">
+            <icon class="ico-check" type="{{checkAllToggle?'success':'cancel'}}" size="20" color="{{checkAllToggle?'red':'gray'}}" />
+            全选
+        </label>
+        <!-- <button class="pay-btn" bindtap="checkout">去结算</button> -->
+        <button class="pay-btn" bindtap="gotofillorder">去结算{{total_price.num}}</button>
+        <view class="consumer">
+            <view class="total">
+                总计 :
+                <text class="co-red">{{total_price.total_fee}}</text>
+            </view>
+            <!-- <text class="tips">不包含运费</text> -->
+        </view>
+    </view>
+</view>
+<!-- <view class="no-data" wx:if="{{!storelist || storelist.length == 0}}">
+    <image src="../../../images/cart-null.png" class="cart-image" />
+    <view class="no-data-title">购物车暂无商品</view>
+    <navigator url="/pages/index/index/index" class="lookat" open-type="switchTab">去逛逛</navigator>
+</view> -->

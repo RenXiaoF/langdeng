@@ -1,0 +1,51 @@
+/* pages/intefral_mall/check_address/check_address.wxss */
+.user-mes{
+    position: relative;
+    background-color: #fff;
+    font-size: 32rpx;
+    color: #444;
+}
+.user-contact{
+    padding: 24rpx 80rpx;
+}
+.location{
+    position: relative;
+    padding:0 80rpx 24rpx;
+}
+.pos-icon{
+    position: absolute;
+    left: 30rpx;
+    top: 0;
+    width: 32rpx;
+    height: 32.5rpx;
+}
+.border-img{
+    width: 100%;
+    height: 16rpx;
+    font-size: 0;
+}
+.update-logistics{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 80rpx;
+    height: 148rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.arrow-rigth{
+    width: 32rpx;
+    height: 32rpx; 
+}
+.login-btn{
+    margin:80rpx auto 0;
+    width: 640rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+    font-size: 28rpx;
+    color: #fff;
+    background-color: red;
+    border-radius: 6rpx;
+}

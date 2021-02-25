@@ -1,0 +1,46 @@
+<!--index.wxml-->
+<view class="banner">
+    <image class="wh100" src="{{url + store.store_banner}}"></image>
+</view>
+<view class="shops-item">
+    <view class="shops-info">
+            <view class="shops-pic"><image class="wh100" src="{{url + store.store_logo}}"></image></view>
+            <view class="shops-mes">
+                <view class="shops-name">{{store.store_name}}</view>
+                <view class="shops-des">{{store.store_collect}}人关注</view>
+            </view>
+            <view class="follow-dtns" bindtap="focusStore" wx:if="{{!store.is_collect}}">关注</view>
+            <view class="follow-dtns is-focus" bindtap="focusStore" wx:else>已关注</view>
+    </view>
+    <view class="goods-num-list">
+        <navigator class="goods-num-item" url="/pages/store/goods_list/goods_list?store_id={{store.store_id}}">
+            <view class="goods-num">{{store.total_goods}}</view>
+            <view class="num-item-title">全部商品</view>
+        </navigator>
+        <navigator class="goods-num-item" url="/pages/store/goods_list/goods_list?store_id={{store.store_id}}&mode=is_new">
+            <view class="goods-num">{{store.new_goods}}</view>
+            <view class="num-item-title">新品</view>
+        </navigator>
+        <navigator class="goods-num-item" url="/pages/store/goods_list/goods_list?store_id={{store.store_id}}&mode=is_hot">
+            <view class="goods-num">{{store.hot_goods}}</view>
+            <view class="num-item-title">热销</view>
+        </navigator>
+    </view>
+</view>
+<view class="goods-list-title pd-bg-fff">热卖单品 - 精挑细选</view>
+<view class="goods-list">
+    <navigator class="goods-item" wx:for="{{store.hot_goods_list}}" url="/pages/goods/goodsInfo/goodsInfo?goods_id={{item.goods_id}}" wx:key="{{index}}" redirect>
+        <view class="goods-pic"><image class="wh100" src="{{url}}/api/goods/goodsThumImages?goods_id={{item.goods_id}}&width=400&height=400"></image></view>
+        <view class="goods-name ellipsis-2">{{item.goods_name}}</view>
+        <view class="goods-price">￥{{item.shop_price}}</view>
+    </navigator>
+</view>
+<navigator class="more-btn" url="/pages/store/goods_list/goods_list?store_id={{store.store_id}}">
+    更多 <text class="arrow-right">></text>
+</navigator>
+<view class="store-mes">
+    <view class="store-btn">
+        <navigator url="/pages/store/about/about?store_id={{store.store_id}}" redirect>关于店铺</navigator>
+    </view>
+    <view bindtap="contactService">联系客服</view>
+</view>

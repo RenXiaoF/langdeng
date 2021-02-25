@@ -1,0 +1,9 @@
+{
+    "extEnable": false,
+    "extAppid": "wx97a2b66da25e9fe8",
+    "ext": {
+        "store_name": "浪登",
+        "store_logo": "../../../images/logo.png",
+        "request_url": "http://www.ldsuit.com/index.php/customer/"
+    }
+}

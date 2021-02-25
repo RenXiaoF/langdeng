@@ -1,0 +1,92 @@
+<!-- pages/user/myorder_info/myorder_info.wxml -->
+<view class="container">
+    <!-- 加载中 -->
+    <view class="loading" wx:if="{{statac == 0 }}">
+        <text class="">加载中...</text>
+    </view>
+    <!-- 暂无资料 -->
+    <view class="loading" wx:if="{{statac == 2 }}">
+        <text class="">加载失败~~</text>
+    </view>
+    <!-- 内容1 -->
+    <view class="res-content" wx:if="{{statac == 1 }}">
+        <view class="order-num">单号：{{order_info.order_sn}}</view>
+        <view class="order-content">
+            <view>订单金额：{{order_info.total_amount}}</view>
+            <view>消费金额：{{order_info.order_amount}}</view>
+            <view>优惠金额：{{order_info.coupon_price}}</view>
+            <view>使用余额：{{order_info.user_money}}</view>
+            <view>客户姓名：{{order_info.buyer_realname}}</view>
+            <view>客户年龄：{{order_info.age}}</view>
+            <view>客户身高：{{order_info.stature}}</view>
+            <view>客户体重：{{order_info.weight}}</view>
+            <view>客户电话：{{order_info.buyer_mobile}}</view>
+            <view>交货日期：{{order_info.delivery_time}}</view>
+        </view>
+        <view class="pxd">
+            <view>消费金额：{{order_info.order_amount}}</view>
+            <view>收货信息：{{order_info.consignee}}--{{order_info.mobile}}</view>
+            <view>地址：{{order_info.address_cont}}</view>
+        </view>
+    </view>
+    <view class="ktype" wx:for="{{order_info.order_ktype}}" wx:key="index" wx:for-item="item">
+        <!-- order 类型 -->
+        <view class="name-num">
+            <view>{{item.type_name}}:</view>
+            <view>(数量:{{item.qty}}件)</view>
+        </view>
+        <!-- 量体尺寸 -->
+        <view class="nomull_font">
+            <view class="nomull-size">部位尺寸</view>
+            <view wx:for="{{item.size}}" wx:key="size" wx:for-item="sze">
+                <view>{{sze.size_name}}：</view>
+                <view>净尺寸：{{sze.only_size}}</view>
+                <view>成衣尺寸：{{sze.dress_size}}</view>
+            </view>
+        </view>
+        <!-- 衣服设计选项 -->
+        <view class="yifu" wx:if="{{item.ktype_type.length >= 1}}">
+            <view class="style">款式设计</view>
+            <view class="yifu-content" wx:for="{{item.ktype_type}}" wx:key="ktype" wx:for-item="kty">
+                <view class="yifu-name">{{kty.type_name}}：</view>
+                <!-- op_type : 0输入框，1普通选择框，2上下选择框,3左右图片选择框，4颜色选择 -->
+                <view wx:if="{{kty.op_type == 0}}">
+                    <view wx:if="{{1 > kty.ktype_list.length}}">无</view>
+                    <view wx:for="{{kty.ktype_list}}" wx:key="kyo" wx:for-item="ky_one">
+                        <view  wx:if="{{ky_one.inputcont}}">
+                            {{ky_one.name}}：{{ky_one.inputcont}}
+                        </view>
+                        <view class="yifu-cont" wx:if="{{!ky_one.inputcont}}">{{ky_one.name}}：无</view>
+                    </view>
+                </view>
+                <view wx:if="{{kty.op_type >= 1 }}">
+                    <view class="yifu-cont" wx:for="{{kty.ktype_list}}" wx:key="kyo" wx:for-item="ky_one">
+                        {{ky_one.name}}
+                    </view>
+                </view>
+            </view>
+        </view>
+        <!-- 刺绣/样式 -->
+        <view class="cixiu" wx:if="{{item.cixiu_type.length >= 1}}">
+            <view class="style">刺绣类型</view>
+            <view class="cixiu-content" wx:for="{{item.cixiu_type}}" wx:key="cixiu" wx:for-item="cxt">
+                <view class="cixiu-name">{{cxt.type_name}}：</view>
+                <!-- op_type : 0输入框，1普通选择框，2上下选择框,3左右图片选择框，4颜色选择 -->
+                <view wx:if="{{cxt.op_type == 0}}">
+                    <view wx:if="{{1 > cxt.ktype_list.length}}">无</view>
+                    <view wx:for="{{cxt.ktype_list}}" wx:key="ct" wx:for-item="ct_one">
+                        <view wx:if="{{ct_one.inputcont}}">
+                            {{ky_one.name}}：{{ky_one.inputcont}}
+                        </view>
+                        <view class="cixiu-cont" wx:if="{{!ct_one.inputcont}}">{{ct_one.name}}：无</view>
+                    </view>
+                </view>
+                <view wx:if="{{cxt.op_type >= 1 }}">
+                    <view class="cixiu-cont" wx:for="{{cxt.ktype_list}}" wx:key="ct" wx:for-item="ct_one">
+                        {{ky_one.name}}
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

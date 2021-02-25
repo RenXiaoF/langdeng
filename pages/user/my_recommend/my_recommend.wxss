@@ -1,0 +1,19 @@
+page {
+  background-color: white;
+  width: 100%;
+}
+.container {
+  width: 100;
+}
+.container .one {
+  width: 100%;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  margin-top: 25rpx;
+  font-size: 30rpx;
+  color: #757474;
+}
+.container .two {
+  width: 100%;
+}

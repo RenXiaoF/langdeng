@@ -1,0 +1,15 @@
+page {
+  background-color: white;
+  width: 100%;
+}
+.container {
+  width: 100%;
+}
+.container .button {
+  font-size: 35rpx;
+  float: right;
+  line-height: 50rpx;
+  text-align: center;
+  margin: 20rpx;
+  border-radius: 1rpx solid #444242;
+}

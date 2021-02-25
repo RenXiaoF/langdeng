@@ -1,0 +1,17 @@
+<!--recharge.wxml-->
+<form bindsubmit="submitRechange">
+    <view class="pd-bg-fff">
+        <view class="balance">
+            您的当前余额 :  <text class="co-red">{{userMoney}}</text> 元 
+        </view>
+        <view class="recharge">
+            <view class="title">充值金额 : </view>
+            <input type="digit" placeholder="0.00" name="money" auto-focus/> 
+        </view>
+        <view class="recharge recharge-way">
+            <view>充值方式 : </view>
+            <view class="pic-wrap"><image class="wh100" src="../../../images/wx-pay2.png" ></image></view>
+        </view>
+    </view>
+    <button class="recharge-btns" form-type="submit">充 值</button>
+</form>

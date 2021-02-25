@@ -1,0 +1,19 @@
+<view class="container">
+    <view class="navbar">
+        <view class="navbar-box" wx:for="{{categories}}" wx:key="{{index}}">
+            <view id="{{item.type}}" class="{{activeType == item.type ? 'navbar-item-on' : ''}}" bindtap="changeTab">
+                {{item.name}}
+            </view>
+        </view>
+    </view>
+    <view class="point-box">
+        <view class="point-item title">描述</view>
+        <view class="point-item title">积分</view>
+        <view class="point-item title">时间</view>
+    </view>
+    <view class="point-box" wx:for="{{points}}" wx:key="{{index}}">
+        <view class="point-item">{{item.desc}}</view>
+        <view class="point-item price">{{item.pay_points}}</view>
+        <view class="point-item time">{{item.changeTimeFommat}}</view>
+    </view>
+</view>

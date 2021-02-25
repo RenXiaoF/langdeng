@@ -1,0 +1,28 @@
+<view class="container">
+    <view class="type-navbar">
+        <view class="type-box" wx:for="{{categories}}"  wx:key="index">
+            <view id="{{item.id}}" class="type-navbar-item {{typeId == item.id ? 'type-item-on' : ''}}" bindtap="changeTab">
+                {{item.name}}
+            </view>
+        </view>
+    </view>
+    <view class="coupon-list">
+        <view class="coupon-box" wx:for="{{coupons}}" wx:key="index">
+            <view class="coupon-head {{typeId!=0?'head-disable':''}}" style="border-image-source:url({{resourceUrl}}/static/images/coupon_a.png)">
+                <view class="coupon-money">￥ <text class="money">{{item.money}}</text></view>
+                <view class="line">满 {{item.condition}} 元使用</view>
+                <view class="line">{{item.name}}</view>
+            </view>
+            <view class="coupon-body">
+                <view class="line">{{item.limit_store ? item.limit_store : '商城平台'}}</view>
+                <navigator class="use-btn {{typeId!=0?'btn-disable':''}}" url="{{typeId==0?'/pages/index/index/index':''}}" open-type="switchTab">{{typeId==1?'已使用':(typeId==2?'已过期':'立即使用')}}</navigator>
+            </view>
+            <view class="use-end">限{{item.deadTimeFommat}}前使用</view>
+        </view>
+    </view>
+    <view class="no-data" wx:if="{{!coupons || coupons.length == 0}}">
+        <image src="../../../images/cart-null.png" class="cart-image"/>
+        <view class="no-data-title">抱歉未查到数据！</view>
+        <navigator url="/pages/index/index/index" class="lookat" open-type="switchTab"> 去逛逛 </navigator>
+    </view>
+</view>

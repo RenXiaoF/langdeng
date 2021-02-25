@@ -1,0 +1,155 @@
+/* order_detail.wxss */
+.user-mes{
+    background-color: #fff;
+    font-size: 32rpx;
+    color: #333;
+}
+.user-contact{
+    padding: 24rpx 80rpx;
+}
+.location{
+    position: relative;
+    padding:0 80rpx 24rpx;
+}
+.pos-icon{
+    position: absolute;
+    left: 30rpx;
+    top: 0;
+    width: 32rpx;
+    height: 32.5rpx;
+}
+.border-img{
+    width: 100%;
+    height: 16rpx;
+}
+.order-meg{
+    margin-bottom: 20rpx;
+    font-size: 28rpx;
+}
+.order-state{
+    height: 100rpx;
+    line-height: 100rpx;
+    padding: 0 40rpx;
+    background-color: #fff;
+}
+.store-name{
+    float: left;
+    width: 480rpx;
+}
+.store-logo{
+    height: 30rpx;
+    width: 30rpx;
+    margin-right:10rpx;
+}
+.order-state>.state{
+    color: #f23030;
+    float: right;
+}
+.order-detail{
+    padding: 30rpx 0;
+    border-bottom: 1px solid #ddd;
+    color: #666;
+    min-height: 100rpx;
+}
+.goods-img{
+    float: left;
+    width: 100rpx;
+    height: 100rpx;
+    margin:0 30rpx; 
+}
+.order-cont{
+    float: left;
+    width: 440rpx;
+}
+.goods-name{
+    height: 60rpx;
+    line-height: 30rpx;
+    overflow: hidden;
+    margin-bottom: 16rpx;
+}
+.goods-color{
+    font-size: 24rpx;
+}
+.order-num{
+    float: right;
+    font-size: 24rpx;
+    margin-top: 10rpx;
+    margin-right: 20rpx;
+    text-align: right;
+    line-height: 42rpx;
+}
+.order-operate{
+    height: 100rpx; 
+    padding-right:20rpx;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.check-btn{
+    width: 180rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    text-align: center;
+    margin-right: 10rpx;
+    border:1px solid #eee;
+}
+.goods-btn{
+    width: 160rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    text-align: center;
+    border:1px solid #eee;
+}
+.cancel-order{
+    margin-left:20rpx;
+}
+.information{
+    padding: 0 20rpx;
+    background-color: #fff;
+    margin-bottom: 20rpx;
+}
+.information .title{
+    height: 70rpx;
+    line-height: 70rpx;
+    border-bottom: 1px solid #ddd;
+    font-size: 30rpx;
+    color: #333;
+}
+.information .item{
+    display: flex;
+    justify-content: space-between;
+    height: 60rpx;
+    line-height: 60rpx;
+    font-size: 26rpx;
+    color: #666;
+}
+.delivery-address,.leave-word{
+    width: 500rpx;
+    text-align: right;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.pay-amount{
+    color:#f23030;
+}
+.btn-wrap{
+    height: 100rpx;
+    background-color: #fff;
+    text-align: right;
+}
+.tips-btn{
+    display: inline-block;
+    width: 200rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+    text-align: center;
+    font-size: 30rpx;
+    color: #fff;
+    background-color: #f23030;
+    margin-left: 2rpx;
+}
+.red{
+    color:#f23030;
+}

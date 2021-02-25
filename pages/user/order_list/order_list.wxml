@@ -1,0 +1,204 @@
+<view class="container">
+    <!-- 分类按钮 -->
+    <!-- <view class="anniu">
+        <button class="all" bindtap="get_my_order">全部</button>
+        <button class="all" bindtap="get_my_order">待付款</button>
+        <button class="all" bindtap="get_my_order">待发货</button>
+        <button class="all" bindtap="get_my_order">待签收</button>
+        <button class="all" bindtap="get_my_order">已完成</button>
+    </view> -->
+    <!-- 标题 -->
+    <view class="type-navbar">
+        <view class="type_box" wx:for="{{categories}}" wx:key="index" wx:for-item="item">
+            <button id="{{item.id}}" bindtap="changeTab" class="type-navbar-item {{activeCategoryId == item.id ? 'type-item-on' : ''}}">
+                {{item.name}}
+            </button>
+        </view>
+    </view>
+    <view class="goods-container">
+        <!-- all -->
+        <view class="reservation-all" wx:if="{{ordersliststate == 'all'}}">
+            <!-- 加载中 -->
+            <view class="loading" wx:if="{{statac == 0 }}">
+                <text class="">加载中...</text>
+            </view>
+            <!-- 内容 -->
+            <view class="res-content" wx:if="{{statac == 1 }}">
+                <view wx:for="{{order_list}}" wx:key="index" wx:for-item="item">
+                    <view class="border">
+                        <view>定制内容：{{item.ordertype}}</view>
+                        <view>预计收货：{{item.delivery_time}}</view>
+                        <view>订单编号：{{item.order_sn}}</view>
+                        <view>定制进度：{{item.orderstate}}</view>
+                        <!-- <view class="botton">
+                        <button bindtap="" bindtap="receiving">确定收货</button>
+                    </view> -->
+                    </view>
+                </view>
+            </view>
+            <!-- 暂无资料 -->
+            <view class="loading" wx:if="{{statac == 2 }}">
+                <text class="">暂无资料</text>
+            </view>
+        </view>
+        <!-- waitpay -->
+        <view class="reservation-all" wx:if="{{ordersliststate == 'waitpay'}}">
+            <!-- 加载中 -->
+            <view class="loading" wx:if="{{statac == 0 }}">
+                <text class="">加载中...</text>
+            </view>
+            <!-- 内容 -->
+            <view class="res-content" wx:if="{{statac == 1 }}">
+                <view wx:for="{{order_list}}" wx:key="index" wx:for-item="item">
+                    <view class="border">
+                        <view>定制内容：{{item.ordertype}}</view>
+                        <view>预计收货：{{item.delivery_time}}</view>
+                        <view>订单编号：{{item.order_sn}}</view>
+                        <view>定制进度：待支付</view>
+                        <!-- <view class="botton">
+                        <button bindtap="" bindtap="receiving">待付款</button>
+                    </view> -->
+                    </view>
+                </view>
+            </view>
+            <!-- 暂无资料 -->
+            <view class="loading" wx:if="{{statac == 2 }}">
+                <text class="">暂无资料</text>
+            </view>
+        </view>
+        <!-- waitsend -->
+        <view class="reservation-all" wx:if="{{ordersliststate == 'waitsend'}}">
+            <!-- 加载中 -->
+            <view class="loading" wx:if="{{statac == 0 }}">
+                <text class="">加载中...</text>
+            </view>
+            <!-- 内容 -->
+            <view class="res-content" wx:if="{{statac == 1 }}">
+                <view wx:for="{{order_list}}" wx:key="index" wx:for-item="item">
+                    <view class="border">
+                        <view>定制内容：{{item.ordertype}}</view>
+                        <view>预计收货：{{item.delivery_time}}</view>
+                        <view>订单编号：{{item.order_sn}}</view>
+                        <view>定制进度：生产中</view>
+                        <view class="botton">
+                            <navigator url="pages/goods/goodsInfo/goodsInfo" open-type="navigate">
+                                <button bindtap="" bindtap="receiving">跳转订单info</button>
+                            </navigator>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <!-- 暂无资料 -->
+            <view class="loading" wx:if="{{statac == 2 }}">
+                <text class="">暂无资料</text>
+            </view>
+        </view>
+        <!-- waitget -->
+        <view class="reservation-all" wx:if="{{ordersliststate == 'waitget'}}">
+            <!-- 加载中 -->
+            <view class="loading" wx:if="{{statac == 0 }}">
+                <text class="">加载中...</text>
+            </view>
+            <!-- 内容 -->
+            <view class="res-content" wx:if="{{statac == 1 }}">
+                <view wx:for="{{order_list}}" wx:key="index" wx:for-item="item">
+                    <view class="border">
+                        <view>定制内容：{{item.ordertype}}</view>
+                        <view>预计收货：{{item.delivery_time}}</view>
+                        <view>订单编号：{{item.order_sn}}</view>
+                        <view>定制进度：待收货</view>
+                        <view class="botton">
+                            <navigator open-type="navigate" url="/pages/user/myorder_info/myorder_info?orderid={{item.order_id}}">
+                                <button bindtap="" bindtap="receiving">查看详情</button>
+                            </navigator>
+                        </view>
+                        <!-- <view class="botton">
+                        <button bindtap="" bindtap="receiving">确定收货</button>
+                    </view> -->
+                    </view>
+                </view>
+            </view>
+            <!-- 暂无资料 -->
+            <view class="loading" wx:if="{{statac == 2 }}">
+                <text class="">暂无资料</text>
+            </view>
+        </view>
+        <!-- done -->
+        <view class="reservation-all" wx:if="{{ordersliststate == 'done'}}">
+            <!-- 加载中 -->
+            <view class="loading" wx:if="{{statac == 0 }}">
+                <text class="">加载中...</text>
+            </view>
+            <!-- 内容 -->
+            <view class="res-content" wx:if="{{statac == 1 }}">
+                <view wx:for="{{order_list}}" wx:key="index" wx:for-item="item">
+                    <view class="border">
+                        <view>定制内容：{{item.ordertype}}</view>
+                        <view>预计收货：{{item.delivery_time}}</view>
+                        <view>订单编号：{{item.order_sn}}</view>
+                        <view>定制进度：已完成</view>
+                        <view class="botton">
+                            <button bindtap="" bindtap="receiving">跳转商品info</button>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <!-- 暂无资料 -->
+            <view class="loading" wx:if="{{statac == 2 }}">
+                <text class="">暂无资料</text>
+            </view>
+        </view>
+    </view>
+</view>
+<!-- <view class="container">
+    <view class="type-navbar">
+        <view class="type-box" wx:for="{{categories}}" wx:key="{{index}}">
+            <view id="{{item.id}}" class="type-navbar-item {{activeCategoryId == item.id ? 'type-item-on' : ''}}" bindtap="changeTab">
+                {{item.name}}
+            </view>
+        </view>
+    </view>
+    <view class="goods-container">
+        <view class="goods-box" wx:for="{{orderList}}" wx:key="{{index}}" data-id="{{item.id}}">
+            <view class="goods-title">
+                <view class="store-name">
+                    <image src="../../../images/carnew.png" class="store-logo"></image>
+                    {{item.store.store_name}}
+                </view>
+                <view class="pay-status">{{item.order_status_detail}}</view>
+            </view>
+            <view class="order-number">订单编号:{{item.order_sn}}</view>
+            <block wx:for="{{item.order_goods}}" wx:for-item="goods" wx:key="{{index}}">
+                <view class="goods-cont">
+                    <navigator class="img-box" url='/pages/user/order_detail/order_detail?order_id={{goods.order_id}}'>
+                        <image class="wh100" src="{{url}}/api/goods/goodsThumImages?goods_id={{goods.goods_id}}&width=200&height=200"></image>
+                    </navigator>
+                    <navigator class="goods-mes" url='/pages/user/order_detail/order_detail?order_id={{goods.order_id}}'>
+                        <view class="goods-name">{{goods.goods_name}}</view>
+                        <view class="goods-name">{{goods.spec_key_name}}</view>
+                        <view class="goods-price">¥ {{goods.member_goods_price}}</view>
+                        <view class="goods-num">数量 {{goods.goods_num}}</view>
+                    </navigator>
+                    <view hidden="{{!(item.order_button.return_btn==1&&goods.is_send==1)}}" class="return-btn" data-recid="{{goods.rec_id}}" bindtap="checkReturnGoodsStatus">申请售后</view>
+                </view>
+            </block>
+            <view class="goods-tips">
+                <view class="order-total">
+                    <view class="goods-total">￥{{item.goods_price}}</view>共{{item.goods_sum}}件
+                </view>
+                <view class="check-btn">
+                    <view hidden="{{!(item.order_button.pay_btn==1)}}" class="order-btn order-btn-pay" bindtap="jumpToCart4" data-idx="{{index}}">立即付款</view>
+                    <view hidden="{{!(item.order_button.cancel_btn==1&&item.pay_status==0)}}" class="order-btn" bindtap="cancelOrder" data-id='{{item.order_id}}'>取消订单</view>
+                    <view hidden="{{!(item.order_button.receive_btn==1)}}" class="order-btn" bindtap="confirmOrder" data-id='{{item.order_id}}'>确认收货</view>
+                    <navigator hidden="{{!(item.order_button.comment_btn==1)}}" class="order-btn" url="/pages/user/comment/comment?status=0" redirect>评价</navigator>
+                    <navigator hidden="{{!(item.order_button.shipping_btn==1)}}" class="order-btn" url="/pages/user/express/express?order_id={{item.order_id}}">查看物流</navigator>
+                </view>
+            </view>
+        </view>
+        <view class="no-data" wx:if="{{!orderList || orderList.length == 0}}">
+            <image src="../../../images/cart-null.png" class="cart-image"/>
+            <view class="no-data-title">抱歉未查到数据！</view>
+            <navigator url="/pages/index/index/index" class="lookat" open-type="switchTab"> 去逛逛 </navigator>
+        </view>
+    </view>
+</view> -->

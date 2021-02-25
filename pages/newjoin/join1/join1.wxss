@@ -1,0 +1,72 @@
+@import "../../../utils/template/newjoin.wxss";
+/* 区域选择弹框 */
+@import "../../../utils/regions/regions.wxss"; 
+page{
+    background-color: #F8F8F8;
+}
+.notice{
+    padding: 30rpx;
+    background-color: #F1F1F1;
+}
+.notice .content{
+    background-color: #FDFBE4;
+    color: #DF9D35;
+    font-size: 24rpx;
+    padding: 20rpx 30rpx 30rpx;
+}
+.notice .content .title{
+    font-size: 28rpx;
+}
+.item{
+    float: left;
+    padding: 0 30rpx; 
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 28rpx;
+    border-bottom: 1rpx #f5f5f5 solid;
+    line-height: 100rpx;
+    height: 100rpx;
+    position: relative;
+    background-color: white;
+}
+.item-name{
+    float: left;
+}
+.item-input{
+    float: left;
+    height: 100rpx;
+    width: 450rpx;
+    margin-left: 20rpx;
+    word-break: keep-all;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.arrow{
+    position: absolute;
+    right: 30rpx;
+    width: 32rpx;
+    height: 32rpx;
+    padding-top: 30rpx;
+}
+switch .wx-checkbox-input{
+    border-radius: 50%;
+    height: 38rpx;
+    width: 38rpx;
+}
+.next-btn{
+    float: left;
+    background-color: #EC5151;
+    color: white;
+    border-radius: 10rpx;
+    margin-top: 20rpx;
+    width: 700rpx;
+    margin: 24rpx 25rpx 0;
+    font-size: 24rpx;
+    height: 70rpx;
+    line-height: 70rpx;
+}
+.guide{
+    color: #EC5151;
+    display: inline-block;
+}

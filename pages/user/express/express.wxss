@@ -1,0 +1,53 @@
+/* express.wxss */
+.logistics-mes{
+    padding: 20rpx 30rpx;
+    background-color: #fff;
+}
+.logistics-num{
+    display: flex;
+    line-height: 48rpx;
+    font-size: 28rpx; 
+}
+.logistics-title{
+    color: #777;
+    margin-right: 20rpx;
+}
+.logistics-cont{
+    color: #444;
+}
+.apply-state{
+    margin-top: 20rpx;
+    background-color: #fff;
+    padding-left: 50rpx;
+    padding-top: 60rpx;
+}
+.state-item{
+    border-left: 1px solid #ccc;
+    padding-left: 40rpx;
+}
+.item-wrap{
+    position: relative;
+    margin-bottom:20rpx;
+    padding-bottom:20rpx;
+    border-bottom: 1px solid #eee;
+    font-size: 24rpx;
+    color: #aaa;
+    line-height: 1;
+}
+.item-wrap::before{
+    content: '';
+    position: absolute;
+    left:-61rpx;
+    top: 0;
+    width: 26rpx;
+    height: 26rpx;
+    border-radius: 50%;
+    background-color: #e23435;
+    border:4px solid #ed8182;
+}
+.state-title{
+    font-size: 28rpx;
+    font-weight: bold;
+    color: #666;
+    padding-bottom:20rpx; 
+}

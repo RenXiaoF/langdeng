@@ -1,0 +1,72 @@
+<!-- pages/intefral_mall/integral_detail/integral_detail.wxml -->
+<import src="../../../utils/wxParse/wxParse.wxml" />
+<view class="container">
+    <!-- 轮播图 -->
+    <view>
+        <swiper class="swiper_box" indicator-dots="true" vertical="" circular="ture" autoplay="true" interval="3000" duration="1000">
+            <view wx:for="{{goodsSlide}}" wx:key="index" wx:for-item="item">
+                <swiper-item>
+                    <image src="{{url}}{{item.img}}" class="slide-image" />
+                </swiper-item>
+            </view>
+        </swiper>
+    </view>
+    <!-- 详情图片 -->
+    <view class="info">
+        <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+    </view>
+    <!-- 商品名  价格 -->
+    <view class="name-price">
+        <view class="footer-text">{{goodsInfo.goods_name}}</view>
+        <view class="footer-price">积分:{{goodsInfo.exchange_integral}}</view>
+    </view>
+</view>
+<!-- 底部工具栏 -->
+<view class="join-cart">
+    <view class="shopping-cart cart-ico">
+        <navigator url="/pages/index/index/index" open-type="switchTab">
+            <image class="sc-img" src="../../../images/nav/home1.png"></image>
+            <view>首页</view>
+        </navigator>
+    </view>
+    <view class="custom-service cart-ico" bindtap="collection_this">
+        <image class="cs-img" hidden="{{data.goods.is_collect}}" src="../../../images/heart.png"></image>
+        <image class="cs-img" hidden="{{!data.goods.is_collect}}" src="../../../images/heart-h.png"></image>
+        <view>收藏</view>
+    </view>
+    <view class="buy-btn1 cart-btn cart-btn-lg" bindtap="openSpecModel">加入购物车</view>
+    <view class="buy-btn cart-btn cart-btn-lg" bindtap="gotoCart">购物车列表</view>
+</view>
+<!-- 加入购物车，弹出的页面 -->
+<view hidden="{{!openSpecModal}}">
+    <view class="cover-layer" bindtap="closeSpecModal"></view>
+    <view class="spec-model" animation="{{animationData}}">
+        <icon type="cancel" color="gray" size="22" class="modal-close" bindtap="closeSpecModal" />
+        <view class="spec-goods">
+            <!-- <image class="wh100 spec-img" src="{{url + select.spec_img}}"></image> -->
+            <image class="wh100 spec-img" src="{{url}}{{goodsInfo.original_img}}"></image>
+            <view class="spec-goods-info">
+                
+                <view class="spec-goods-price">积分：{{goodsInfo.exchange_integral}}</view>
+                <view class="spec-goods-stock">总库存{{goodsInfo.store_count}}件</view>
+                <view class="spec-goods-name">选择规格{{keycode}}</view>
+            </view>
+        </view>
+        <view class="spec-name">购买数量</view>
+        <view class="count">
+            <view class="sub" bindtap="subCartNum">-</view>
+            <input type="number" value="{{goodsInputNum}}" bindblur="inputCartNum" />
+            <view class="add" bindtap="addCartNum">+</view>
+        </view>
+    
+        <view class="spec-cart-btns">
+            <view class="spec-cart-btn spec-buy spec-cart-btn-lg "  bindtap="addCart">
+                立即兑换
+            </view>
+        </view>
+    </view>
+</view>
+<!-- 返回顶部按钮 -->
+<view class="toTop" bindtap="doScrollTop" wx:if="{{supportPageScroll}}">
+    <image class="wh100" src="../../../images/topup.png"></image>
+</view>

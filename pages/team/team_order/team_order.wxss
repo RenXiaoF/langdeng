@@ -1,0 +1,134 @@
+/* team_order.wxss */
+.type-navbar{
+    white-space: nowrap;
+    display: flex;
+    width: 100%;
+    height:80rpx;
+    background-color: #fff;
+}
+.type-box{
+    width:25%;
+    box-sizing: border-box;
+    font-size: 28rpx;
+    line-height: 76rpx;
+    padding: 0 20rpx;
+    text-align: center;
+    display: inline-block;
+    overflow: hidden;
+}
+.type-navbar-item{
+    border-bottom: 4rpx solid #fff;
+}
+.type-item-on{
+    border-bottom: 4rpx solid #e64340;
+}
+.goods-container{
+    display: flex;
+    justify-content: space-between;  
+    flex-wrap:wrap;
+    box-sizing: content-box;
+    padding: 20rpx 0;
+}
+.goods-box{
+    width: 100%;
+    background-color: #fff;
+    padding: 0 30rpx;
+    margin-bottom: 20rpx;
+    font-size: 28rpx;
+}
+.goods-title{
+    display: flex;
+    justify-content:space-between;
+    align-items:center;
+    height: 100rpx;
+}
+.store-logo{
+    height: 30rpx;
+    width: 30rpx;
+    border-radius: 25%;
+    margin-right:10rpx;
+    vertical-align:top;
+}
+.store-name{
+    color: #666;
+    font-size: 30rpx;
+}
+.order-number{
+    font-size: 24rpx;
+    color: #666;
+    margin: 30rpx 0;
+}
+.pay-status{
+    color:#f23030;
+}
+.goods-cont{
+    padding: 20rpx 0;
+    display: flex;
+    justify-content:space-between;
+    position: relative;
+}
+.img-box{
+    width: 180rpx;
+    height: 180rpx;
+}
+.goods-mes{
+    width: 490rpx;
+}
+.goods-name{
+    height: 30rpx;
+    margin-bottom: 16rpx;
+    overflow: hidden;
+    line-height: 30rpx;
+    color: #333;
+    word-break: keep-all;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.goods-price{
+    color: #f23030;
+    padding-bottom: 20rpx;
+}
+.goods-num{
+    color: #999999;
+    font-size: 26rpx;
+}
+.return-btn{
+    color: #999999;
+    position: absolute;
+    right: 0;
+    bottom: 0rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+}
+.goods-tips{
+    height: 60rpx;
+    padding: 50rpx 0;
+    display: flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.order-total{
+    display: flex;
+    justify-content:flex-start;
+    font-size: 24rpx;
+    color: #333;
+}
+.goods-total{
+    margin-right:20rpx;
+    color:#f23030;
+}
+.order-btn{
+    width: 150rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    text-align: center;
+    border:1px solid #eee;
+    margin-left: 20rpx;
+    float: right;
+    border-radius: 5rpx;
+}
+.order-btn-pay{
+    color: #fff;
+    background-color:#f23030;
+    border-color:#f23030;
+}

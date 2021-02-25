@@ -1,0 +1,58 @@
+page {
+  width: 100%;
+  background-color: white;
+}
+.container {
+  width: 100%;
+}
+.container .type-navbar {
+  white-space: nowrap;
+  display: flex;
+  width: 100%;
+  height: 80rpx;
+}
+.container .type-navbar .type_box {
+  width: 25%;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  line-height: 76rpx;
+  text-align: center;
+  display: inline-block;
+  overflow: hidden;
+}
+.container .type-navbar .type-navbar-item {
+  background-color: white;
+  color: black;
+}
+.container .type-navbar .type-item-on {
+  background-color: #10193a;
+  color: white;
+}
+/**内容*/
+.goods-container {
+  width: 97%;
+  margin: 30rpx 10rpx;
+  border: 1rpx solid black;
+  border-radius: 5%;
+}
+.goods-container .reservation-all {
+  width: 100%;
+  padding: 15rpx;
+}
+.goods-container .reservation-all .res-content {
+  width: 100%;
+  justify-content: center;
+}
+.goods-container .reservation-all .res-content view {
+  padding-bottom: 15rpx;
+  color: #7e7b7b;
+}
+.goods-container .reservation-all .res-content .botton {
+  width: 40%;
+  padding: 40rpx 100rpx 20rpx 220rpx;
+}
+.goods-container .reservation-all .res-content .botton button {
+  border-radius: 5%;
+  color: white;
+  background-color: red;
+}

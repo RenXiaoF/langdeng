@@ -1,0 +1,159 @@
+/* pages/user/signup/signup.wxss */
+page{
+    padding-top: 40%;
+    background-color: white;
+}
+
+.login-wrap{
+    padding: 30rpx;
+    background-color: #fff;
+}
+.user-login{
+    display: flex;
+    height: 80rpx;
+    line-height: 80rpx;
+    margin-bottom: 24rpx;
+    font-size: 28rpx;
+    color: #666;
+    border-bottom: 1px solid #ddd;
+}
+.user-login>input{
+    height: 80rpx;
+    line-height: 80rpx;
+    width: 540rpx;
+    padding:0 18rpx; 
+}
+.login-btn{
+    margin:80rpx auto 0;
+    width: 640rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+    font-size: 28rpx;
+    color: #fff;
+    background-color: #10193a;
+    border-radius: 6rpx;
+}
+.label-input{
+    font-size: 28rpx;
+    width: 680rpx;
+    line-height: 90rpx;
+    border: 1rpx #ddd solid;
+    border-radius: 10rpx;
+}
+.label{
+    box-sizing: border-box;
+    float: left;
+    padding: 0 25rpx;
+}
+.input{
+    box-sizing: border-box;
+    float: left;
+    height: 90rpx;
+    width: 500rpx;
+    padding-right: 5rpx;
+}
+.simple{
+    border: 0;
+    border-radius: 0;
+    border-bottom: 1rpx #ddd solid;
+}
+.submit{
+    width: 600rpx;
+    margin: 0 75rpx;
+    background-color: #10193a;
+    color: white;
+    line-height: 90rpx;
+    border-radius: 10rpx;
+}
+.verify-box{
+    font-size: 28rpx;
+    width: 680rpx;
+    line-height: 90rpx;
+}
+.verify-input{
+    box-sizing: border-box;
+    float: left;
+    height: 90rpx;
+    width: 400rpx;
+    padding-left: 20rpx;
+    border-bottom: 1rpx #ddd solid;
+}
+.verify-btn{
+    box-sizing: border-box;
+    float: right;
+    line-height: 90rpx;
+    padding: 0 10rpx;
+    background-color: #10193a;
+    color: white;
+    border-radius: 10rpx;
+}
+.btn-disable{
+    background-color: grey;
+}
+.item{
+    margin-bottom: 40rpx;
+}
+.capache-input{
+    width: 240rpx;
+}
+.capache{
+    float: right;
+    width: 260rpx;
+    height: 60rpx;
+}
+
+/* .login-wrap{
+    padding: 30rpx;
+    background-color: #fff;
+}
+.user-login{
+    display: flex;
+    height: 80rpx;
+    line-height: 80rpx;
+    margin-bottom: 24rpx;
+    font-size: 28rpx;
+    color: #666;
+    border-bottom: 1px solid #ddd;
+}
+.user-login>input{
+    height: 80rpx;
+    line-height: 80rpx;
+    width: 540rpx;
+    padding:0 18rpx; 
+}
+.login-btn{
+    margin:80rpx auto 0;
+    width: 640rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+    font-size: 28rpx;
+    color: #fff;
+    background-color: #10193a;
+    border-radius: 6rpx;
+}
+.verify-box{
+    font-size: 28rpx;
+    width: 680rpx;
+    line-height: 90rpx;
+}
+.verify-input{
+    box-sizing: border-box;
+    float: left;
+    height: 90rpx;
+    width: 400rpx;
+    padding-left: 20rpx;
+    border-bottom: 1rpx #ddd solid;
+}
+.verify-btn{
+    box-sizing: border-box;
+    float: right;
+    line-height: 90rpx;
+    padding: 0 10rpx;
+    background-color: #10193a;
+    color: white;
+    border-radius: 10rpx;
+} */
+
+

@@ -1,0 +1,14 @@
+<view class="container">
+    <view class="recharge-box">
+        <view class="recharge-item pay title">支付方式</view>
+        <view class="recharge-item time title">日期</view>
+        <view class="recharge-item price title">金额</view>
+        <view class="recharge-item status title">状态</view>
+    </view>
+    <view class="recharge-box" wx:for="{{recharges}}" wx:key="{{index}}">
+        <view class="recharge-item pay">{{item.pay_name ? item.pay_name : ''}}</view>
+        <view class="recharge-item time">{{item.cTimeFommat}}</view>
+        <view class="recharge-item price">{{item.account}}</view>
+        <view class="recharge-item status">{{item.pay_status==0?'待支付':''}}{{item.pay_status==1?'已支付':''}}{{item.pay_status==2?'支付失败':''}}</view>
+    </view>
+</view>

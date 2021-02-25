@@ -1,0 +1,15 @@
+<!--payment.wxml-->
+<view class="panel">
+    <view class="order-ico">
+        <image class="wh100" src="../../../images/sbzf.png"></image>
+    </view>
+    <view class="pay-way">
+       订单编号 : <text class="co-red">{{order.order_sn}}</text>
+    </view>
+    <view class="pay-way">
+        订单金额 : <text class="co-red">{{order.order_amount}}元</text>
+    </view>
+    <navigator class="detail-btn" bindtap='lookOrder'>查看订单</navigator>
+    <view class="tips">注意 : 商城平台以及销售商不会以订单异常、系统升级为由要
+    求您点击任何网站链接进行退款操作。</view>
+</view>

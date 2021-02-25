@@ -1,0 +1,42 @@
+/* account.wxss */
+.cover {
+    background-color: #E73741; 
+    color: white;
+    height: 540rpx;
+    text-align: center;
+    position: relative;
+}
+.detail {
+    font-size: 36rpx;
+    margin-top: 150rpx;
+    line-height: 60rpx;
+}
+.price-text {
+    font-size: 30rpx;
+}
+.operate {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.op-item {
+    width: 50%;
+    float: left;
+    padding-bottom: 25rpx;
+    font-size: 28rpx;
+}
+.list {
+    margin-top: 20rpx;
+}
+.item {
+    font-size: 32rpx;
+    background-color: white;
+    padding: 25rpx 35rpx;
+    border-bottom: 1rpx 
+}
+.arrow {
+    margin-top: 5rpx;
+    width: 25rpx;
+    height: 28rpx;
+    float: right;
+}

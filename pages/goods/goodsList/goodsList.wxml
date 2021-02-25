@@ -1,0 +1,65 @@
+<view>
+  <!-- 搜索栏 -->
+  <view class="search-box">
+    <view class="search-inner">
+        <navigator url="/pages/goods/search/search" redirect>
+             <input class="search-cont"  type="text" placeholder="请输入您所搜索的商品" />
+        </navigator>
+    </view>
+  </view>
+</view>
+
+<view class="container">
+    
+    <view class="choice_list">
+        <block wx:for="{{goods_list}}" wx:key="{{index}}">
+            <navigator class="choice_item" url="/pages/goods/goodsInfo/goodsInfo?goods_id={{item.goods_id}}">
+                <view class="img-wrap">
+                    <image mode="widthFix" src="{{url}}{{item.original_img}}"></image>
+                </view>
+                <view class="item-cont">
+                    <view class="title">{{item.goods_name}}</view>
+                    <view class="price">￥{{item.shop_price}}</view>
+                </view>
+            </navigator>
+        </block>
+    </view>
+    
+</view>
+
+<!-- 筛选弹框  -->
+<view hidden="{{!openFilterModal}}">
+    <view class="cover-layer" bindtap="closeFilterModal"></view>
+    <view class="filter-modal">
+        <icon type="cancel" color="gray" size="22" class="modal-close" bindtap="closeFilterModal"/>
+        <button class="viewall-btn" bindtap="restoreData">显示全部分类</button>
+        <view class="filter-box" wx:for="{{requestData.filter_spec}}" wx:key="{{index}}">
+            <view class="filter-name">{{item.name}}</view>
+            <view class="filter-items">
+                <view class="filter-item" wx:for="{{item.item}}" wx:key="{{index}}" data-href="{{item.href}}" bindtap="filterGoods">
+                {{item.name}}</view>
+            </view>
+        </view>
+        <view class="filter-box" wx:for="{{requestData.filter_attr}}" wx:key="{{index}}">
+            <view class="filter-name">{{item.name}}</view>
+            <view class="filter-items">
+                <view class="filter-item" wx:for="{{item.item}}" wx:key="{{index}}" data-href="{{item.href}}" bindtap="filterGoods">
+                {{item.name}}</view>
+            </view>
+        </view>
+        <view class="filter-box" wx:if="{{requestData.filter_brand.length>0}}">
+            <view class="filter-name">相关品牌</view>
+            <view class="filter-items">
+                <view class="filter-item" wx:for="{{requestData.filter_brand}}" wx:key="{{index}}" data-href="{{item.href}}" bindtap="filterGoods">
+                {{item.name}}</view>
+            </view>
+        </view>
+        <view class="filter-box" wx:if="{{requestData.filter_price.length>0}}">
+            <view class="filter-name">价格区间</view>
+            <view class="filter-items">
+                <view class="filter-item" wx:for="{{requestData.filter_price}}" wx:key="{{index}}" data-href="{{item.href}}" bindtap="filterGoods">
+                {{item.name}}</view>
+            </view>
+        </view>
+    </view>
+</view>

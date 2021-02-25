@@ -1,0 +1,120 @@
+<!-- 搜索栏 -->
+<view class="search-box {{scrollTop>10?'search-fixed':''}}">
+  <!-- logo -->
+  <view class="search-lift">
+    <navigator url="/pages/index/index/index" open-type="switchTab">
+      <!-- <image class="search-lift-image" src="../../../images/qdn/qdnlog.png"></image> -->
+    </navigator>
+  </view>
+  <!-- 搜索框 -->
+  <view class="search-inner">
+    <view class="search-img">
+      <image class="wh100" src="../../../images/search.png"></image>
+    </view>
+    <navigator url="/pages/goods/category-one/category-one" open-type="switchTab">
+      <input class="search-cont" placeholder="请输入您所搜索的商品" type="text" />
+    </navigator>
+  </view>
+  <!-- 图标-私人 -->
+  <view class="search-right">
+    <navigator url="/pages/user/relation_login/relation_login" open-type="navigate">
+      <text class="search-right-image">登录</text>
+    </navigator>
+  </view>
+</view>
+<!-- 魔法首页 -->
+<view wx:for="{{magicList}}" wx:key="id" wx:for-item="magic">
+  <!-- ============================================================================================================================== -->
+  <!-- 轮播图 -->
+  <view wx:if="{{magic.mag_type  == 33 }}">
+    <swiper class="swiper_box" indicator-dots="true" vertical="" circular="ture" autoplay="true" interval="3000" duration="1000">
+      <view wx:for="{{magic.list}}" wx:key="index" wx:for-item="item">
+        <!-- 类型====1 -->
+        <swiper-item wx:if="{{item.type == 1}}">
+          <navigator url="/pages/goods/category-one/category-one?catelist={{item.val}}" open-type="switchTab">
+            <image src="{{url}}{{item.img}}" class="slide-image" />
+          </navigator>
+        </swiper-item>
+        <!-- 类型====2 -->
+        <swiper-item wx:if="{{item.type == 2}}">
+          <navigator url="/pages/goods/goodsInfos/goodsInfos?good_id={{item.val}}" open-type="navigate">
+            <image src="{{url}}{{item.img}}" class="slide-image" />
+          </navigator>
+        </swiper-item>
+      </view>
+    </swiper>
+  </view>
+  <!-- 四个分类 -->
+  <view wx:if="{{magic.mag_type == 66 && magic.list.length == 4 }}" class="four-class">
+    <view wx:for="{{magic.list}}" wx:key="index" wx:for-item="item">
+      <!-- type====0 -->
+      <view wx:if="{{item.type == 0 }}">
+        <navigator style="flex:3;" url="{{item.val}}" open-type="navigate">
+          <image class="four-class-img" mode="widthFix" src="{{url}}{{item.img}}"></image>
+        </navigator>
+      </view>
+      <!-- type====1 -->
+      <view wx:if="{{item.type == 1 }}">
+        <view bindtap="gotoPage" data-cid="{{item.val}}">
+          <image class="four-class-img" mode="widthFix" src="{{url}}{{item.img}}"></image>
+        </view>
+      </view>
+      <!-- type====2 -->
+      <view wx:if="{{item.type == 2 }}">
+        <navigator style="flex:3;" url="/pages/goods/goodsInfos/goodsInfos?good_id={{item.val}}" open-type="navigate">
+          <image class="four-class-img" mode="widthFix" src="{{url}}{{item.img}}"></image>
+        </navigator>
+      </view>
+    </view>
+  </view>
+  <!-- 行  单图 -->
+  <view wx:if="{{magic.mag_type == 66 && magic.list.length == 1 }}" class="one-class">
+    <view wx:for="{{magic.list}}" wx:key="index" wx:for-item="item">
+      <!-- type====0 -->
+      <view wx:if="{{item.type == 0 }}">
+        <navigator style="flex:1;" url="{{item.val}}" open-type="navigate">
+          <image class="one-class-img" mode="widthFix" src="{{url}}{{item.img}}"></image>
+        </navigator>
+      </view>
+      <!-- type====1 -->
+      <view wx:if="{{item.type == 1 }}">
+        <navigator style="flex:1;" url="/pages/goods/category-one/category-one?catelist={{item.val}}" open-type="navigate">
+          <image class="one-class-img" mode="widthFix" src="{{url}}{{item.img}}"></image>
+        </navigator>
+      </view>
+      <!-- type====2 -->
+      <view wx:if="{{item.type == 2 }}">
+        <navigator style="flex:1;" url="/pages/goods/goodsInfos/goodsInfos?good_id={{item.val}}" open-type="navigate">
+          <image class="one-class-img" mode="widthFix" src="{{url}}{{item.img}}"></image>
+        </navigator>
+      </view>
+    </view>
+  </view>
+  <!-- 行  双图 -->
+  <view wx:if="{{magic.mag_type == 66 && magic.list.length == 2 }}" class="two-class">
+    <view wx:for="{{magic.list}}" wx:key="index" wx:for-item="item" class="two-class-list">
+      <!-- type====0 -->
+      <view wx:if="{{item.type == 0 }}">
+        <navigator style="flex:5;" url="{{item.val}}" open-type="navigate">
+          <image class="two-class-img" mode="widthFix" src="{{url}}{{item.img}}"></image>
+        </navigator>
+      </view>
+      <!-- type====1 -->
+      <view wx:if="{{item.type == 1 }}">
+        <navigator style="flex:5;" url="/pages/goods/category-one/category-one?catelist={{item.val}}" open-type="navigate">
+          <image class="two-class-img" mode="widthFix" src="{{url}}{{item.img}}"></image>
+        </navigator>
+      </view>
+      <!-- type====2 -->
+      <view wx:if="{{item.type == 2 }}">
+        <navigator style="flex:5;" url="/pages/goods/goodsInfos/goodsInfos?good_id={{item.val}}" open-type="navigate">
+          <image class="two-class-img" mode="widthFix" src="{{url}}{{item.img}}"></image>
+        </navigator>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 返回顶部的按钮 -->
+<view class="toTop" bindtap="doScrollTop" wx:if="{{supportPageScroll}}">
+  <image class="wh100" src="../../../images/topup.png"></image>
+</view>

@@ -1,0 +1,21 @@
+<view class="container">
+    <view class="navbar">
+        <view class="navbar-box" wx:for="{{categories}}" wx:key="{{index}}">
+            <view id="{{item.type}}" class="{{activeType == item.type ? 'navbar-item-on' : ''}}" bindtap="changeTab">
+                {{item.name}}
+            </view>
+        </view>
+    </view>
+    <view class="account-box">
+        <!-- <view class="account-item title">描述</view> -->
+        <view class="account-item title">订单号</view>
+        <view class="account-item title">时间</view>
+        <view class="account-item title">B积分增减</view>
+    </view>
+    <view class="account-box" wx:for="{{accounts}}" wx:key="{{index}}">
+        <!-- <view class="account-item">{{item.desc}}</view> -->
+        <view class="account-item">{{item.order_sn?item.order_sn:'无'}}</view>
+        <view class="account-item time">{{item.changeTimeFommat}}</view>
+        <view class="account-item price">{{item.b_coin}}</view>
+    </view>
+</view>

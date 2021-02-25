@@ -1,0 +1,89 @@
+<view class="container">
+    <view class="nav">
+        <navigator class="nav-item" bindtap="changeTab" data-href="{{requestData.orderby_default}}">综合<view class="ico-dg"><image class="wh100" src="../../../images/dg.png"></image></view></navigator>
+        <navigator class="nav-item" bindtap="changeTab" data-href='{{requestData.orderby_sales_sum}}'>销量</navigator>
+        <navigator class="nav-item" bindtap="changeTab" data-href='{{requestData.orderby_price}}'>价格<view class="ico-dir {{requestData.sort!='shop_price'?'':(requestData.sort_asc=='asc'?'ico-dir-up':'ico-dir-dn')}}"  style="background-image: url({{resourceUrl+'/static/images/sxjt.png'}});"></view></navigator>
+        <navigator class="nav-item" bindtap="changeTab" bindtap="openFilterModal">筛选<view class="ico-filter"><image class="wh100" src="../../../images/xx.png"></image></view></navigator>
+        <navigator class="nav-item nav-search" bindtap="openSearchModal"><image class="wh100 search-img" src="../../../images/search.png"></image></navigator>
+    </view>
+
+    <view class="choice_list">
+        <block wx:for="{{requestData.goods_list}}" wx:key="{{index}}">
+            <navigator class="choice_item" url="/pages/goods/goodsInfo/goodsInfo?goods_id={{item.goods_id}}">
+                <view class="img-wrap">
+                    <image mode="widthFix" src="{{url}}/api/goods/goodsThumImages?goods_id={{item.goods_id}}"></image>
+                </view>
+                <view class="item-cont">
+                    <view class="title">{{item.goods_name}}</view>
+                    <view class="price">￥{{item.shop_price}}</view>
+                    <view class="comment">评论{{item.comment_count}} 销量{{item.sales_sum}}</view>
+                </view>
+            </navigator>
+        </block>
+    </view>
+
+    <view class="no-data" wx:if="{{!requestData.goods_list || requestData.goods_list.length == 0}}">
+        <image src="../../../images/cart-null.png" class="cart-image"/>
+        <view class="no-data-title">抱歉未查到数据！</view>
+        <navigator url="/pages/index/index/index" class="lookat" open-type="switchTab"> 去逛逛 </navigator>
+    </view>
+</view>
+
+<!-- 筛选弹框  -->
+<view hidden="{{!openFilterModal}}">
+    <view class="cover-layer" bindtap="closeFilterModal"></view>
+    <view class="filter-modal">
+        <icon type="cancel" color="gray" size="22" class="modal-close" bindtap="closeFilterModal"/>
+        <button class="viewall-btn" bindtap="restoreData">显示全部分类</button>
+        <view class="filter-box" wx:for="{{requestData.filter_spec}}" wx:key="{{index}}">
+            <view class="filter-name">{{item.name}}</view>
+            <view class="filter-items">
+                <view class="filter-item" wx:for="{{item.item}}" wx:key="{{index}}" data-href="{{item.href}}" bindtap="filterGoods">
+                {{item.name}}</view>
+            </view>
+        </view>
+        <view class="filter-box" wx:for="{{requestData.filter_attr}}" wx:key="{{index}}">
+            <view class="filter-name">{{item.name}}</view>
+            <view class="filter-items">
+                <view class="filter-item" wx:for="{{item.item}}" wx:key="{{index}}" data-href="{{item.href}}" bindtap="filterGoods">
+                {{item.name}}</view>
+            </view>
+        </view>
+        <view class="filter-box" wx:if="{{requestData.filter_brand.length>0}}">
+            <view class="filter-name">相关品牌</view>
+            <view class="filter-items">
+                <view class="filter-item" wx:for="{{requestData.filter_brand}}" wx:key="{{index}}" data-href="{{item.href}}" bindtap="filterGoods">
+                {{item.name}}</view>
+            </view>
+        </view>
+        <view class="filter-box" wx:if="{{requestData.filter_price.length>0}}">
+            <view class="filter-name">价格区间</view>
+            <view class="filter-items">
+                <view class="filter-item" wx:for="{{requestData.filter_price}}" wx:key="{{index}}" data-href="{{item.href}}" bindtap="filterGoods">
+                {{item.name}}</view>
+            </view>
+        </view>
+    </view>
+</view>
+
+<!-- 搜索弹框 -->
+<view wx:if="{{openSearchModal}}">
+    <view class="search-modal">
+        <view class="search-bar">
+            <form bindsubmit="submitSearch">
+                <input class="search-input" placeholder="搜索商品" name="word" auto-focus></input>
+                <button class="search-btn" form-type="submit">
+                    <image class="wh100 search-img" src="../../../images/sea.png"></image>
+                </button>
+            </form>
+        </view>
+        <view class="search-hot">
+            <view class="hot-title">热门搜索</view>
+            <block wx:for="{{hotWords}}" wx:key="{{index}}">
+                <view class="hot-row">
+                    <view class="hot-item" wx:for="{{item}}"  wx:key="{{index}}" bindtap="searchHotWord" data-word="{{item}}">{{item}}</view>
+                </view>
+            </block>
+        </view>
+    </view>
+</view>

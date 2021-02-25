@@ -1,0 +1,37 @@
+/* withdrawals.wxss */
+.panel{
+    padding-bottom: 50rpx;
+}
+.apply-item{
+    display: flex;
+    align-items: center;
+    font-size: 28rpx;
+    height: 88rpx;
+    border-bottom: 1px solid #ddd;
+}
+.title{
+    color: #444;
+    margin-right: 20rpx;
+}
+input{
+    color: #777;
+    width: 500rpx;
+}
+.v-code-text{
+    width: 220rpx;
+}
+.v-code{
+    width: 260rpx;
+    height: 60rpx;
+}
+.apply-btn{
+    margin: 60rpx auto 0;
+    width: 580rpx;
+    height: 88rpx;
+    font-size: 28rpx;
+    line-height: 88rpx;
+    text-align: center;
+    color: #fff;
+    background-color: #e30000;
+    border-radius: 8rpx;
+}

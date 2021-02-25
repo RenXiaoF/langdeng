@@ -1,0 +1,32 @@
+<!--pages/intefral_mall/intefral_mall/intefral_mall.wxml-->
+<view>
+    <!-- 搜索栏 -->
+    <view class="search-box">
+        <view class="search-inner">
+            <navigator url="/pages/goods/search/search" redirect>
+                <input class="search-cont" type="text" placeholder="请输入您所搜索的商品" />
+            </navigator>
+        </view>
+        <view class="images">
+            <view>
+                <image class="image" src="../../../images/qdn/adjust.png"></image>
+            </view>
+            <view class="images-text">筛选</view>
+        </view>
+    </view>
+</view>
+<view class="container">
+    <view class="choice_list">
+        <block wx:for="{{goods_list}}" wx:key="{{index}}" wx:for-item="item">
+            <navigator class="choice_item" url="/pages/intefral_mall/integral_detail/integral_detail?good_id={{item.goods_id}}">
+                <view class="img-wrap">
+                    <image mode="widthFix" src="{{url}}{{item.original_img}}"></image>
+                </view>
+                <view class="item-cont">
+                    <view class="title">{{item.goods_name}}</view>
+                    <view class="price">兑换积分:{{item.exchange_integral}}</view>
+                </view>
+            </navigator>
+        </block>
+    </view>
+</view>

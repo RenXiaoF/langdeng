@@ -1,0 +1,96 @@
+page {
+  width: 100%;
+  background-color: white;
+}
+.container {
+  width: 100%;
+  background-color: white;
+  margin: 25rpx 20rpx;
+  /*内容1*/
+  /*类型*/
+  /*衣服*/
+  /* 刺绣/样式*/
+}
+.container .loading {
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  margin-top: 40rpx;
+}
+.container .res-content {
+  width: 100%;
+}
+.container .res-content .order-num {
+  margin-bottom: 25rpx;
+}
+.container .res-content .order-content {
+  width: 100%;
+  display: inline-block;
+}
+.container .res-content .order-content view {
+  width: 50%;
+  display: inline-block;
+  margin-top: 15rpx;
+}
+.container .res-content .pxd {
+  width: 100%;
+  margin: 7rpx 0rpx;
+}
+.container .res-content .pxd view {
+  margin-top: 15rpx;
+}
+.container .ktype {
+  width: 100%;
+  margin-top: 15rpx;
+}
+.container .ktype .name-num {
+  width: 100%;
+  display: inline-block;
+}
+.container .ktype .name-num view {
+  display: inline-block;
+  margin-top: 15rpx;
+}
+.container .ktype .nomull_font {
+  width: 100%;
+}
+.container .ktype .nomull_font .nomull-size {
+  margin-top: 15rpx;
+  margin-bottom: 15rpx;
+}
+.container .ktype .nomull_font view view {
+  font-size: 24rpx;
+  width: 33%;
+  display: inline-block;
+  margin-top: 15rpx;
+}
+.container .yifu {
+  width: 100%;
+}
+.container .yifu .style {
+  width: 100%;
+  margin-top: 15rpx;
+  margin-bottom: 15rpx;
+}
+.container .yifu .yifu-content {
+  width: 100%;
+  display: flex;
+}
+.container .yifu .yifu-content .yifu-name {
+  width: 30%;
+}
+.container .cixiu {
+  width: 100%;
+}
+.container .cixiu .style {
+  width: 100%;
+  margin-top: 15rpx;
+  margin-bottom: 15rpx;
+}
+.container .cixiu .cixiu-content {
+  width: 100%;
+  display: flex;
+}
+.container .cixiu .cixiu-content .cixiu-name {
+  width: 30%;
+}

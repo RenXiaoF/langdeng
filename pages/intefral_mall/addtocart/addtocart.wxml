@@ -1,0 +1,39 @@
+<!--pages/intefral_mall/addtocart/addtocart.wxml-->
+<view>
+    <view class="cover-layer" bindtap="closeSpecModal"></view>
+    <view class="spec-model" animation="{{animationData}}">
+        <icon type="cancel" color="gray" size="22" class="modal-close" bindtap="closeSpecModal"/>
+        <view class="spec-goods">
+            <!--<image class="wh100 spec-img" src="{{url + select.spec_img}}"></image>-->
+            <image class="wh100 spec-img" src="{{data.goods_spec_list.length ? url + spec_img : url + select.spec_img}}"></image>
+            <view class="spec-goods-info">
+                <view class="spec-goods-name">{{data.goods.goods_name}}</view>
+                <!--<view class="spec-goods-price">￥ {{select.price}}</view>-->
+                <!--<view class="spec-goods-stock">剩余库存：{{select.stock}}</view>-->
+                <view class="spec-goods-price">￥ {{data.goods_spec_list.length ? data.spec_goods_price[specSelect].price : select.price}}</view>
+                <view class="spec-goods-stock">剩余库存：{{data.goods_spec_list.length ? data.spec_goods_price[specSelect].store_count : select.stock}}</view>
+            </view>
+        </view>
+        <view class="spec-name">数量</view>
+        <view class="count">
+            <view class="sub" bindtap="subCartNum">-</view>
+            <input type="number" value="{{goodsInputNum}}" bindblur="inputCartNum"/>
+            <!-- <view class="add" bindtap="subCartNum" data-operation="{{1}}">+</view> -->
+            <view class="add" bindtap="addCartNum">+</view>
+        </view>
+
+        <block wx:for="{{data.goods_spec_list}}" wx:key="{{index}}" wx:for-index="listIdx">
+            <view class="spec-name">{{item.spec_name}}</view>
+            <view wx:for="{{item.spec_list}}" wx:for-item='spec' wx:key="{{index}}" wx:for-index="specIdx" class="spec-btn {{item.selectItemId==spec.item_id?'spec-btn-click':''}}" bindtap="selectSpec" data-listidx="{{listIdx}}" data-specidx="{{specIdx}}" data-itemid="{{spec.item_id}}">{{spec.item}}</view>
+        </block>
+
+        <view class="spec-cart-btns">
+        <view wx:if="{{data.goods.is_virtual > 0}}" class="spec-cart-btn spec-buy spec-cart-btn-lg {{select.stock<=0?'spec-cart-disable':''}}" data-action='buy' bindtap="addCart">立即购买</view>
+        <block wx:elif="{{data.goods.exchange_integral <= 0}}">
+            <view class="spec-cart-btn spec-add-cart {{select.stock<=0?'spec-cart-disable':''}}" data-action='add' bindtap="addCart">加入购物车</view>
+            <view class="spec-cart-btn spec-buy {{select.stock<=0?'spec-cart-disable':''}}" data-action='buy' bindtap="addCart">立即购买</view>
+        </block>
+        <view wx:else class="spec-cart-btn spec-buy spec-cart-btn-lg {{select.stock<=0?'spec-cart-disable':''}}"data-action='exchange' bindtap="addCart">立即兑换</view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,97 @@
+/* pages/goods/goodsInfos/goodsInfos.wxss */
+@import "../../../utils/wxParse/wxParse.wxss";
+/* goodsInfo.wxss */
+.container{
+    width: 100%;
+    background-color:white;
+    margin-bottom: 100rpx;
+}
+/* swiper 开始 */
+.swiper_box {
+    width: 100%;
+    height: 800rpx;
+}
+.slide-image{
+    width: 100%;
+    height: 800rpx;
+}
+/* swiper 结束 */
+/*详情图片*/
+.info{
+    margin: 60rpx 13rpx 110rpx 13rpx;
+    width: 100%;
+}
+/*商品名  价格*/
+.name-price{
+    width: 100%;
+    position: fixed;
+    left: 0;
+    bottom: 100rpx;
+    line-height: 70rpx;
+    display: flex;
+    background-color: white;
+}
+.footer-text{
+    color: rgb(124, 122, 122);
+    font-size: 25rpx;
+    width: 70%;
+}
+.footer-price{
+    margin-left: 65rpx;
+}
+.join-cart{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    width: 100%;
+    height: 100rpx;
+    background-color: #fff;
+    text-align: center;
+}
+.join-cart>view{
+    width: 25%;
+}
+.cart-ico{
+    font-size: 24rpx;
+    color: #333;
+}
+.shopping-cart{
+    position: relative;
+}
+.cs-img{
+    width: 45rpx;
+    height: 40rpx;
+    margin-top: 15rpx;
+}
+.sc-img{
+    width: 42rpx;
+    height: 40rpx;
+    margin-top: 15rpx;
+}
+
+.cart-btn{
+    font-size: 28rpx;
+    color: #fff;
+    line-height: 100rpx;
+}
+
+.buy-btn{
+    background-color: #10193a;
+}
+view.cart-btn-lg{
+    width: 50%;
+}
+.toTop{
+    position: fixed;
+    z-index: 3;
+    right: 20rpx;
+    bottom: 260rpx;
+    width: 68rpx;
+    height: 68rpx;
+    border:1px solid rgb(7, 2, 2);
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}
+

@@ -1,0 +1,43 @@
+<!--pages/user/my_account/my_account.wxml-->
+<!--account.wxml-->
+<view class="container">
+    <view style="background:url('{{resourceUrl}}/static/images/zjgl.jpg') no-repeat 0 0 #E73741;background-size:cover" class="cover">
+        <view class="detail">
+            <view class="price-text">可用A积分</view>
+            <view>{{userMoney}}</view>
+            <view class="price-text">未结算A积分</view>
+            <view>{{unuserMoney}}</view>
+        </view>
+        <view class="operate">
+            <navigator url="/pages/user/recharge/recharge?money={{userMoney}}"><view class="op-item">充值</view></navigator>
+            <navigator url="/pages/user/withdrawals/withdrawals?money={{userMoney}}"><view class="op-item">提现</view></navigator>
+        </view>
+    </view>
+    <view class="list">
+        <navigator url="/pages/user/account_list/account_list">
+            <view class="item">A积分明细
+                <image class="wh100 arrow" src="../../../images/icon-arrowdown.png"></image>
+            </view>
+        </navigator>
+        <navigator url="/pages/user/account_list/account_list?isjz=0">
+            <view class="item">未结转A积分明细
+                <image class="wh100 arrow" src="../../../images/icon-arrowdown.png"></image>
+            </view>
+        </navigator>
+        <navigator url="/pages/user/bcoin_list/bcoin_list">
+            <view class="item">B积分明细
+                <image class="wh100 arrow" src="../../../images/icon-arrowdown.png"></image>
+            </view>
+        </navigator>
+        <navigator url="/pages/user/recharge_list/recharge_list">
+            <view class="item">充值记录
+                <image class="wh100 arrow" src="../../../images/icon-arrowdown.png"></image>
+            </view>
+        </navigator>
+        <navigator url="/pages/user/withdrawals_list/withdrawals_list">
+            <view class="item">提现记录
+                <image class="wh100 arrow" src="../../../images/icon-arrowdown.png"></image>
+            </view>
+        </navigator>
+    </view>
+</view>

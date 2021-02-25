@@ -1,0 +1,36 @@
+/* relation_login.wxss */
+page{
+    padding-top: 40%;
+    background-color: white;
+}
+.login-wrap{
+    padding: 30rpx;
+    background-color: #fff;
+}
+.user-login{
+    display: flex;
+    height: 80rpx;
+    line-height: 80rpx;
+    margin-bottom: 24rpx;
+    font-size: 28rpx;
+    color: #666;
+    border-bottom: 1px solid #ddd;
+}
+.user-login>input{
+    height: 80rpx;
+    line-height: 80rpx;
+    width: 540rpx;
+    padding:0 18rpx; 
+}
+.login-btn{
+    margin:80rpx auto 0;
+    width: 640rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+    font-size: 28rpx;
+    color: #fff;
+    background-color: #10193a;
+    border-radius: 6rpx;
+}
+

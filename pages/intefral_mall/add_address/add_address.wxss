@@ -1,0 +1,121 @@
+/* pages/intefral_mall/add_address/add_address.wxss */
+page{
+    background-color: white;
+}
+.user-container{
+    padding-top: 100rpx;
+}
+.label-input{
+    font-size: 28rpx;
+    width: 680rpx;
+    margin: 0 35rpx;
+    line-height: 90rpx;
+    border: 1rpx #ddd solid;
+    border-radius: 10rpx;
+}
+.label{
+    box-sizing: border-box;
+    float: left;
+    padding: 0 25rpx;
+}
+.item-input{
+    float: left;
+    height: 100rpx;
+    width: 450rpx;
+    margin-left: 20rpx;
+    word-break: keep-all;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.arrow{
+    position: absolute;
+    right: 30rpx;
+    width: 32rpx;
+    height: 32rpx;
+    padding-top: 30rpx;
+}
+.input{
+    box-sizing: border-box;
+    float: left;
+    height: 90rpx;
+    width: 500rpx;
+    padding-right: 5rpx;
+}
+.simple{
+    border: 0;
+    border-radius: 0;
+    border-bottom: 1rpx #ddd solid;
+}
+.submit{
+    width: 600rpx;
+    margin: 30rpx 75rpx;
+    background-color:rgb(12, 9, 43);
+    color: white;
+    line-height: 90rpx;
+    border-radius: 10rpx;
+}
+.verify-box{
+    font-size: 28rpx;
+    width: 680rpx;
+    margin: 0 35rpx;
+    line-height: 90rpx;
+}
+.verify-input{
+    box-sizing: border-box;
+    float: left;
+    height: 90rpx;
+    width: 400rpx;
+    padding-left: 10rpx;
+}
+.verify-btn{
+    box-sizing: border-box;
+    float: right;
+    line-height: 90rpx;
+    padding: 0 10rpx;
+    background-color: #ec5151;
+    color: white;
+    border-radius: 10rpx;
+}
+.btn-disable{
+    background-color: grey;
+}
+.item{
+    margin-bottom: 70rpx;
+}
+.gender-box{
+    width: 50%;
+    float: left;
+    padding: 100rpx 0 200rpx 0;
+}
+.gender{
+    background-repeat: no-repeat !important;
+    background-size: 4.48rem !important;
+    width: 2.13333rem;
+    height: 2.73067rem;
+    margin: 0 auto;
+}
+.boy {
+    background-position: 0 0 !important;
+}
+.girl {
+    background-position: 0 -2.92267rem !important;
+}
+.boy-click {
+    background-position: -2.34667rem 0 !important;
+}
+.girl-click {
+    background-position: -2.368rem -2.92267rem !important;
+}
+
+
+.item-name{
+    float: left;
+}
+
+.item-switch{
+    float: right;
+}
+
+/* 区域选择弹框 */
+@import "../../../utils/regions/regions.wxss"; 
